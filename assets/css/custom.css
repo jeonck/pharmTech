@@ -1,0 +1,23 @@
+/* 표: 첫 열이 세로로 찌그러지지 않도록 최소 폭 확보 */
+.content table th,
+.content table td {
+  min-width: 5.5rem;
+  word-break: keep-all;
+}
+
+.content table th:first-child,
+.content table td:first-child {
+  white-space: nowrap;
+}
+
+/* 한글 본문 줄바꿈을 단어 단위로 */
+.content p,
+.content li {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 체크리스트 항목 간격 */
+.content ul li input[type="checkbox"] {
+  margin-right: 0.4rem;
+}

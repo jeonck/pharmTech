@@ -1,0 +1,23 @@
+---
+title: "시험 공부"
+weight: 4
+sidebar:
+  open: true
+---
+
+PTCE 2026 출제 범위의 4개 도메인을 기준으로 정리한 학습 노트입니다.
+
+{{< cards >}}
+  {{< card link="medications/" title="1. 약물 (35%)" subtitle="분류, 작용, 부작용, 보관, 상호작용" >}}
+  {{< card link="top-drugs/" title="Top 약물 정리표" subtitle="브랜드–제네릭–분류를 묶은 암기표" >}}
+  {{< card link="safety-qa/" title="2. 환자 안전·품질관리 (23.75%)" subtitle="LASA, high-alert, 오류 예방" >}}
+  {{< card link="order-entry/" title="3. 처방 입력·처리 (22.5%)" subtitle="접수부터 픽업까지, 보험 청구" >}}
+  {{< card link="federal-law/" title="4. 연방 법규 (18.75%)" subtitle="DEA, HIPAA, DSCSA, 리콜" >}}
+  {{< card link="calculations/" title="약국 계산" subtitle="비율, 농도, day supply, IV 유속" >}}
+  {{< card link="abbreviations/" title="처방 약어" subtitle="sig code 전체 정리" >}}
+  {{< card link="practice/" title="연습 문제 30선" subtitle="개념 확인용 문제와 해설" >}}
+{{< /cards >}}
+
+{{< callout type="info" >}}
+2026년 1월 개정으로 **조제(compounding)와 alligation 계산은 출제 범위에서 제외**되었고, **DSCSA·리콜 등 연방 법규 비중이 커졌습니다.** 이 노트는 개정 범위를 기준으로 작성했습니다.
+{{< /callout >}}

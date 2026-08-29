@@ -1,0 +1,15 @@
+{{- $ctx := .context -}}
+<div class="hx:py-8 hx:text-sm hx:leading-7">
+  <p class="hx:font-semibold hx:text-gray-700 hx:dark:text-gray-200">Texas PharmTech</p>
+  <p class="hx:mt-2">
+    텍사스 Pharmacy Technician 자격증 취득과 취업을 위한 한국어 학습 자료.
+    수수료·요건·출제 범위는 바뀔 수 있으니 신청 전에는
+    <a class="hx:underline" href="https://www.ptcb.org/" target="_blank" rel="noopener">PTCB</a> ·
+    <a class="hx:underline" href="https://www.pharmacy.texas.gov/" target="_blank" rel="noopener">TSBP</a>
+    공식 페이지에서 확인하세요.
+  </p>
+  <p class="hx:mt-2 hx:text-xs hx:text-gray-500 hx:dark:text-gray-400">
+    이 사이트는 공개된 정보를 정리한 학습 자료이며, 법률·의료 자문이 아닙니다.
+    {{ with $ctx.Site.Params.updated }}마지막 업데이트: {{ . }}{{ end }}
+  </p>
+</div>
