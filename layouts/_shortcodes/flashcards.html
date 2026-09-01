@@ -1,0 +1,217 @@
+{{- $cards := site.Data.flashcards -}}
+<script type="application/json" id="pt-flash-data">{{ $cards | jsonify | safeJS }}</script>
+{{- with resources.Get "js/flash.js" }}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+
+<style>
+.flc { --fl-bd:#e2e6ee; --fl-bg:#fff; --fl-mut:#6b7280; --fl-acc:#1b4fd8; --fl-ok:#0f7b4f; --fl-okbg:#e8f7f0; --fl-no:#b91c1c; --fl-nobg:#fdecec; --fl-warn:#b45309; --fl-warnbg:#fff4e5; --fl-soft:#f6f8fc; }
+:is(.dark) .flc { --fl-bd:#333940; --fl-bg:#1b1f24; --fl-mut:#9aa3af; --fl-acc:#7aa2ff; --fl-ok:#4ade80; --fl-okbg:#10291f; --fl-no:#f87171; --fl-nobg:#2c1618; --fl-warn:#f0c674; --fl-warnbg:#33270f; --fl-soft:#22272e; }
+.flc { margin-top:1rem; }
+.flc button, .flc select { font:inherit; }
+.flc button { cursor:pointer; }
+
+.fl-bar { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-bottom:.9rem; }
+.fl-chip { padding:.35rem .8rem; border:1px solid var(--fl-bd); border-radius:2rem; background:var(--fl-bg); color:inherit; font-size:.82rem; }
+.fl-chip.on { border-color:var(--fl-acc); color:var(--fl-acc); font-weight:700; background:var(--fl-soft); }
+.fl-sel { padding:.35rem .6rem; border:1px solid var(--fl-bd); border-radius:.4rem; background:var(--fl-bg); color:inherit; font-size:.82rem; }
+
+.fl-card { border:1px solid var(--fl-bd); border-radius:.7rem; background:var(--fl-bg); padding:1.6rem 1.2rem; min-height:14rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; cursor:pointer; }
+.fl-card:hover { border-color:var(--fl-acc); }
+.fl-side { font-size:.72rem; color:var(--fl-mut); letter-spacing:.04em; margin-bottom:.5rem; }
+.fl-front { font-size:1.9rem; font-weight:700; line-height:1.3; word-break:break-word; }
+.fl-front.ko { font-size:1.5rem; }
+.fl-tap { margin-top:1rem; font-size:.78rem; color:var(--fl-mut); }
+.fl-back { margin-top:1.1rem; padding-top:1.1rem; border-top:1px dashed var(--fl-bd); width:100%; }
+.fl-answer { font-size:1.55rem; font-weight:700; color:var(--fl-ok); line-height:1.35; word-break:break-word; }
+.fl-meta { margin-top:.6rem; font-size:.86rem; color:var(--fl-mut); line-height:1.6; }
+.fl-meta b { color:var(--fl-acc); }
+
+.fl-grade { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-top:.9rem; }
+.fl-g { padding:.6rem .5rem; border-radius:.45rem; border:1px solid var(--fl-bd); background:var(--fl-bg); color:inherit; font-size:.88rem; font-weight:600; }
+.fl-g small { display:block; font-weight:400; font-size:.7rem; color:var(--fl-mut); margin-top:.15rem; }
+.fl-g.no { border-color:var(--fl-no); color:var(--fl-no); }
+.fl-g.mid { border-color:var(--fl-warn); color:var(--fl-warn); }
+.fl-g.ok { border-color:var(--fl-ok); color:var(--fl-ok); }
+
+.fl-status { display:flex; justify-content:space-between; align-items:center; font-size:.78rem; color:var(--fl-mut); margin:.7rem .1rem 0; flex-wrap:wrap; gap:.5rem; }
+.fl-boxes { display:flex; gap:.25rem; align-items:flex-end; height:1.4rem; }
+.fl-boxes i { display:block; width:1.4rem; background:var(--fl-acc); border-radius:2px 2px 0 0; opacity:.25; }
+.fl-boxes i.b { opacity:1; }
+
+.fl-done { text-align:center; padding:1.4rem .8rem; }
+.fl-done h4 { margin:0 0 .4rem; font-size:1.25rem; }
+.fl-done p { margin:.2rem 0; color:var(--fl-mut); font-size:.9rem; }
+.fl-btn { margin-top:1rem; padding:.5rem 1.1rem; border-radius:.4rem; border:1px solid var(--fl-acc); background:var(--fl-acc); color:#fff; font-weight:600; font-size:.88rem; }
+.fl-btn.ghost { background:transparent; color:var(--fl-acc); }
+.fl-legend { margin-top:.8rem; font-size:.75rem; color:var(--fl-mut); line-height:1.7; }
+</style>
+
+<div class="flc" id="flc">
+  <div class="fl-bar" id="fl-bar"></div>
+  <div id="fl-main"></div>
+  <div class="fl-status" id="fl-status"></div>
+  <div class="fl-legend" id="fl-legend"></div>
+</div>
+
+<script>
+(function () {
+  var raw = document.getElementById('pt-flash-data');
+  var F = window.PTFlash;
+  if (!raw || !F) return;
+  F.init(JSON.parse(raw.textContent));
+
+  var KEY = 'pharmtech-flash-v1';
+  var bar = document.getElementById('fl-bar');
+  var main = document.getElementById('fl-main');
+  var status = document.getElementById('fl-status');
+  var legend = document.getElementById('fl-legend');
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  var st = load();
+  st.cards = st.cards || {};
+  st.dir = st.dir || 'g2b';
+  st.sec = st.sec || '전체';
+  st.limit = st.limit || 15;
+
+  var queue = [], cur = null, flipped = false, done = 0, again = 0;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function dirDef() {
+    var d = null;
+    F.dirs.forEach(function (x) { if (x.k === st.dir) d = x; });
+    return d || F.dirs[0];
+  }
+
+  function renderBar() {
+    var html = F.dirs.map(function (d) {
+      return '<button class="fl-chip' + (st.dir === d.k ? ' on' : '') + '" data-d="' + d.k + '">' + d.label + '</button>';
+    }).join('');
+    html += '<select class="fl-sel" id="fl-sec">'
+      + ['전체'].concat(F.sections()).map(function (s) {
+          return '<option' + (st.sec === s ? ' selected' : '') + '>' + esc(s) + '</option>';
+        }).join('') + '</select>';
+    html += '<select class="fl-sel" id="fl-lim">'
+      + [10, 15, 25, 40].map(function (n) {
+          return '<option value="' + n + '"' + (st.limit === n ? ' selected' : '') + '>새 카드 ' + n + '장</option>';
+        }).join('') + '</select>';
+    bar.innerHTML = html;
+    Array.prototype.forEach.call(bar.querySelectorAll('[data-d]'), function (b) {
+      b.onclick = function () { st.dir = b.dataset.d; save(st); start(); };
+    });
+    document.getElementById('fl-sec').onchange = function () { st.sec = this.value; save(st); start(); };
+    document.getElementById('fl-lim').onchange = function () { st.limit = +this.value; save(st); start(); };
+  }
+
+  function renderStatus() {
+    var s = F.stats(st.cards, st.dir, st.sec);
+    var max = Math.max(1, Math.max.apply(null, s.box.slice(1)));
+    var bars = '';
+    for (var i = 1; i <= F.maxBox; i++) {
+      var h = Math.round(s.box[i] / max * 20) + 2;
+      bars += '<i class="' + (s.box[i] ? 'b' : '') + '" style="height:' + h + 'px" title="' + i + '번 상자 ' + s.box[i] + '장"></i>';
+    }
+    status.innerHTML =
+      '<span>남은 카드 ' + queue.length + '장 · 오늘 ' + done + '장 완료</span>'
+      + '<span style="display:flex;gap:.5rem;align-items:center">'
+      + '<span>' + s.seen + ' / ' + s.total + '장 학습 · 4~5번 상자 ' + s.learned + '장</span>'
+      + '<span class="fl-boxes">' + bars + '</span></span>';
+    legend.innerHTML = '상자 1 → 오늘 다시 · 2 → 1일 뒤 · 3 → 3일 뒤 · 4 → 7일 뒤 · 5 → 21일 뒤. '
+      + '<b>알았음</b>이면 다음 상자로, <b>모름</b>이면 1번 상자로 돌아갑니다.';
+  }
+
+  function start() {
+    queue = F.session(st.cards, st.dir, st.limit, st.sec);
+    done = 0; again = 0;
+    renderBar();
+    next();
+  }
+
+  function next() {
+    if (!queue.length) return finish();
+    cur = queue.shift();
+    flipped = false;
+    draw();
+  }
+
+  function draw() {
+    var d = dirDef();
+    var frontIsKo = d.front === 'k';
+    var html = '<div class="fl-card" id="fl-card">';
+    html += '<div class="fl-side">' + esc(d.label.split(' → ')[0]) + '</div>';
+    html += '<div class="fl-front' + (frontIsKo ? ' ko' : '') + '">' + esc(cur[d.front]) + '</div>';
+    if (!flipped) {
+      html += '<div class="fl-tap">카드를 눌러 뒤집기 · Space</div>';
+    } else {
+      html += '<div class="fl-back"><div class="fl-answer">' + esc(cur[d.back]) + '</div>'
+        + '<div class="fl-meta">'
+        + (d.back !== 'k' ? '<b>' + esc(cur.k) + '</b> · ' : '')
+        + esc(cur.n) + '</div></div>';
+    }
+    html += '</div>';
+    if (flipped) {
+      html += '<div class="fl-grade">'
+        + '<button class="fl-g no" data-g="0">모름<small>1번 상자로</small></button>'
+        + '<button class="fl-g mid" data-g="1">애매<small>오늘 다시</small></button>'
+        + '<button class="fl-g ok" data-g="2">알았음<small>다음 상자로</small></button>'
+        + '</div>';
+    }
+    main.innerHTML = html;
+    document.getElementById('fl-card').onclick = function () { if (!flipped) { flipped = true; draw(); } };
+    Array.prototype.forEach.call(main.querySelectorAll('[data-g]'), function (b) {
+      b.onclick = function () { grade(b.dataset.g | 0); };
+    });
+    renderStatus();
+  }
+
+  function grade(g) {
+    F.grade(st.cards, st.dir, cur, g);
+    save(st);
+    done++;
+    if (g < 2) { queue.push(cur); again++; }   // 모름·애매는 이번 세션 안에서 다시
+    next();
+  }
+
+  function finish() {
+    var s = F.stats(st.cards, st.dir, st.sec);
+    main.innerHTML =
+      '<div class="fl-card fl-done" style="cursor:default">'
+      + '<h4>오늘 몫을 끝냈습니다</h4>'
+      + '<p>' + done + '장 확인 · 다시 본 카드 ' + again + '장</p>'
+      + '<p>' + st.sec + ' · ' + dirDef().label + '</p>'
+      + '<p style="margin-top:.6rem">' + s.seen + ' / ' + s.total + '장 학습, 4~5번 상자 ' + s.learned + '장</p>'
+      + '<div><button class="fl-btn" id="fl-more">새 카드 더 보기</button> '
+      + '<button class="fl-btn ghost" id="fl-reset">이 방향 기록 초기화</button></div>'
+      + '</div>';
+    document.getElementById('fl-more').onclick = function () {
+      st.limit = Math.min(90, st.limit + 15); save(st); start();
+    };
+    document.getElementById('fl-reset').onclick = function () {
+      if (!confirm(dirDef().label + ' 방향의 학습 기록을 지웁니다. 계속할까요?')) return;
+      Object.keys(st.cards).forEach(function (k) {
+        if (k.indexOf(st.dir + ':') === 0) delete st.cards[k];
+      });
+      save(st); start();
+    };
+    renderStatus();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!main.querySelector('.fl-card')) return;
+    if (e.key === ' ' || e.key === 'Enter') {
+      var c = document.getElementById('fl-card');
+      if (c && !flipped) { e.preventDefault(); c.click(); }
+    } else if (flipped && e.key >= '1' && e.key <= '3') {
+      var b = main.querySelector('[data-g="' + (+e.key - 1) + '"]');
+      if (b) { e.preventDefault(); b.click(); }
+    }
+  });
+
+  start();
+})();
+</script>

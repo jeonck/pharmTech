@@ -79,6 +79,10 @@
 .ptfig .f-needle2 { fill: none; stroke: var(--f-key); stroke-width: 2.6; stroke-linecap: round; }
 .ptfig .f-barrel { fill: none; stroke: var(--f-key); stroke-width: 11; stroke-linecap: round; opacity: .3; }
 .ptfig .f-deg    { fill: var(--f-key); font-size: 12.5px; font-weight: 700; }
+.ptfig .f-bag     { fill: var(--f-soft); stroke: var(--f-stroke); stroke-width: 1.2; }
+.ptfig .f-bagfill { fill: var(--f-pill); }
+.ptfig .f-bagt    { fill: var(--f-key); font-size: 17px; font-weight: 700; text-anchor: middle; }
+.ptfig .f-bagt2   { fill: var(--f-key); font-size: 12px; text-anchor: middle; }
 .ptfig .f-skin   { fill: var(--f-skin); }
 .ptfig .f-subq   { fill: var(--f-subq); }
 .ptfig .f-muscle { fill: var(--f-muscle); }

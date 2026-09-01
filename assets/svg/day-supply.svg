@@ -1,0 +1,41 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="day supply 계산 개념도">
+  <text x="20" y="30" class="f-cap">day supply = 총 조제량 ÷ 하루 사용량</text>
+  <text x="20" y="52" class="f-note">단위만 맞추면 어떤 제형이든 같은 공식입니다. 어려운 건 계산이 아니라 '하루 사용량'을 세는 일입니다.</text>
+
+  <!-- 1단계: 총량 -->
+  <rect x="16" y="76" width="240" height="130" rx="10" class="f-box"/>
+  <text x="32" y="100" class="f-tag"><tspan class="f-key">①</tspan><tspan dx="10">총 조제량으로 바꾸기</tspan></text>
+  <!-- 점안액 병 -->
+  <rect x="36" y="118" width="34" height="52" rx="6" class="f-pill"/>
+  <rect x="44" y="108" width="18" height="12" rx="3" class="f-pill"/>
+  <text x="84" y="134" class="f-lbl">점안액 10 mL</text>
+  <text x="84" y="156" class="f-lbl"><tspan class="f-mut">× 20 방울/mL</tspan></text>
+  <text x="84" y="186" class="f-sent"><tspan class="f-verb">= 200 방울</tspan></text>
+
+  <!-- 2단계: 하루 사용량 -->
+  <rect x="290" y="76" width="240" height="130" rx="10" class="f-box"/>
+  <text x="306" y="100" class="f-tag"><tspan class="f-key">②</tspan><tspan dx="10">하루 사용량 세기</tspan></text>
+  <text x="306" y="128" class="f-lbl">양안 <tspan class="f-mut">2눈</tspan><tspan dx="8">×</tspan><tspan dx="8">1방울</tspan></text>
+  <text x="306" y="152" class="f-lbl"><tspan dx="0">×</tspan><tspan dx="8">1일 4회</tspan></text>
+  <text x="306" y="186" class="f-sent"><tspan class="f-verb">= 8 방울/일</tspan></text>
+
+  <!-- 3단계: 나누기 -->
+  <rect x="564" y="76" width="240" height="130" rx="10" class="f-out"/>
+  <text x="580" y="100" class="f-tag"><tspan class="f-key">③</tspan><tspan dx="10">나누고 버림</tspan></text>
+  <text x="580" y="140" class="f-sent">200 ÷ 8</text>
+  <text x="580" y="186" class="f-sent"><tspan class="f-verb">= 25일분</tspan></text>
+
+  <path d="M262 140 H284" class="f-line"/>
+  <path d="M536 140 H558" class="f-line"/>
+  <text x="266" y="134" class="f-key" style="font-size:14px">×</text>
+
+  <!-- 제형별 요령 -->
+  <text x="20" y="244" class="f-cap">제형이 바뀌어도 ①만 달라집니다</text>
+
+  <rect x="16" y="258" width="788" height="94" rx="10" class="f-box"/>
+  <text x="34" y="284" class="f-lbl"><tspan class="f-key">점안액</tspan><tspan dx="12">mL × 20 = 총 방울</tspan><tspan dx="16" class="f-mut">양안이면 하루 사용량이 2배</tspan></text>
+  <text x="34" y="308" class="f-lbl"><tspan class="f-key">인슐린</tspan><tspan dx="12">mL × 100 = 총 units</tspan><tspan dx="16" class="f-mut">10 mL 바이알 = 1,000 units</tspan></text>
+  <text x="34" y="332" class="f-lbl"><tspan class="f-key">흡입기</tspan><tspan dx="12">제품에 적힌 총 puffs</tspan><tspan dx="16" class="f-mut">1회 2 puffs를 1일 2회면 하루 4 puffs</tspan></text>
+
+  <text x="20" y="380" class="f-note">day supply는 항상<tspan dx="6" class="f-key">버림</tspan><tspan dx="6">입니다 — 200 ÷ 12 = 16.67이면 16일분. 보험 청구에서 이 값이 틀리면 조기 재조제로 막힙니다.</tspan></text>
+</svg>

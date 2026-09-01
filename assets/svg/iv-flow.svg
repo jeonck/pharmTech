@@ -1,0 +1,42 @@
+<svg viewBox="0 0 820 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IV 유속 계산 개념도">
+  <text x="20" y="30" class="f-cap">IV 유속 — 무엇을 묻는지에 따라 공식이 갈립니다</text>
+
+  <!-- 수액백 -->
+  <path d="M56 58 h84 v96 l-42 26 l-42 -26 z" class="f-bag"/>
+  <rect x="68" y="70" width="60" height="72" rx="4" class="f-bagfill"/>
+  <text x="98" y="114" class="f-bagt">1,000</text>
+  <text x="98" y="134" class="f-bagt2">mL</text>
+  <path d="M98 180 V202" class="f-line"/>
+
+  <!-- 점적통 -->
+  <rect x="82" y="202" width="32" height="52" rx="6" class="f-box"/>
+  <circle cx="98" cy="220" r="4" class="f-pupil"/>
+  <circle cx="98" cy="236" r="3" class="f-pupil"/>
+  <path d="M98 254 V296 q0 14 14 14 h44" class="f-line"/>
+  <text x="164" y="316" class="f-tag">환자</text>
+
+  <!-- drop factor 설명 (백 아래쪽 여백) -->
+  <text x="24" y="344" class="f-tag"><tspan class="f-key">drop factor</tspan></text>
+  <text x="24" y="364" class="f-mut2">1 mL가 몇 방울로</text>
+  <text x="24" y="380" class="f-mut2">떨어지는지 — 10 · 15 · 20,</text>
+  <text x="24" y="396" class="f-mut2">소아용 세트는 60 gtt/mL</text>
+
+  <!-- 공식 -->
+  <rect x="290" y="52" width="514" height="72" rx="10" class="f-box"/>
+  <text x="308" y="78" class="f-tag"><tspan class="f-key">시간당 몇 mL?</tspan></text>
+  <text x="308" y="106" class="f-sent">mL/hr<tspan dx="10">=</tspan><tspan dx="10">총 부피(mL)</tspan><tspan dx="10">÷</tspan><tspan dx="10">시간(hr)</tspan></text>
+
+  <rect x="290" y="136" width="514" height="72" rx="10" class="f-box"/>
+  <text x="308" y="162" class="f-tag"><tspan class="f-key">분당 몇 방울?</tspan></text>
+  <text x="308" y="190" class="f-sent">gtt/min<tspan dx="10">=</tspan><tspan dx="10">(총 부피 × drop factor)</tspan><tspan dx="10">÷</tspan><tspan dx="10">시간(분)</tspan></text>
+
+  <rect x="290" y="220" width="514" height="72" rx="10" class="f-box"/>
+  <text x="308" y="246" class="f-tag"><tspan class="f-key">얼마나 걸리나?</tspan></text>
+  <text x="308" y="274" class="f-sent">시간<tspan dx="10">=</tspan><tspan dx="10">총 부피(mL)</tspan><tspan dx="10">÷</tspan><tspan dx="10">유속(mL/hr)</tspan></text>
+
+  <!-- 예제 -->
+  <rect x="290" y="304" width="514" height="98" rx="10" class="f-out"/>
+  <text x="308" y="330" class="f-lbl"><tspan class="f-key">예</tspan><tspan dx="10">1,000 mL를 8시간에, drop factor 15 gtt/mL</tspan></text>
+  <text x="308" y="360" class="f-sent"><tspan class="f-verb">125 mL/hr</tspan><tspan dx="12" class="f-mut">= 1,000 ÷ 8</tspan></text>
+  <text x="308" y="386" class="f-sent"><tspan class="f-verb">31 gtt/min</tspan><tspan dx="12" class="f-mut">= 1,000 × 15 ÷ 480분</tspan></text>
+</svg>

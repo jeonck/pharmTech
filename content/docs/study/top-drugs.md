@@ -134,6 +134,10 @@ weight: 2
 | allopurinol | Zyloprim | 통풍 예방 | 급성 발작 시 시작 아님 |
 | potassium chloride | K-Dur, Klor-Con | 전해질 | 농축 주사제는 **high-alert** |
 
+{{< callout type="info" >}}
+이 표를 카드로 만든 [**약물 플래시카드**](../flashcards/)가 있습니다. 간격 반복으로 하루 15장씩 도세요.
+{{< /callout >}}
+
 ## 암기 요령
 
 1. **하루 10개씩, 매일 어제 것부터** — 새 카드 10장 + 복습 카드가 기본 리듬

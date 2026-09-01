@@ -1,0 +1,722 @@
+[
+ {
+  "id": 1,
+  "g": "lisinopril",
+  "b": "Zestril, Prinivil",
+  "k": "ACE 억제제",
+  "n": "고혈압. 마른기침",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 2,
+  "g": "enalapril",
+  "b": "Vasotec",
+  "k": "ACE 억제제",
+  "n": "고혈압, 심부전",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 3,
+  "g": "losartan",
+  "b": "Cozaar",
+  "k": "ARB",
+  "n": "고혈압. 기침 적음",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 4,
+  "g": "valsartan",
+  "b": "Diovan",
+  "k": "ARB",
+  "n": "고혈압, 심부전",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 5,
+  "g": "metoprolol",
+  "b": "Lopressor, Toprol-XL",
+  "k": "베타 차단제",
+  "n": "고혈압, 협심증. 중단 시 감량",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 6,
+  "g": "atenolol",
+  "b": "Tenormin",
+  "k": "베타 차단제",
+  "n": "고혈압",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 7,
+  "g": "carvedilol",
+  "b": "Coreg",
+  "k": "알파/베타 차단제",
+  "n": "심부전",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 8,
+  "g": "amlodipine",
+  "b": "Norvasc",
+  "k": "CCB",
+  "n": "고혈압. 발목 부종",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 9,
+  "g": "diltiazem",
+  "b": "Cardizem",
+  "k": "CCB",
+  "n": "고혈압, 부정맥",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 10,
+  "g": "hydrochlorothiazide",
+  "b": "Microzide",
+  "k": "티아지드 이뇨제",
+  "n": "고혈압. 저칼륨혈증",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 11,
+  "g": "furosemide",
+  "b": "Lasix",
+  "k": "루프 이뇨제",
+  "n": "부종, 심부전. 칼륨 손실",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 12,
+  "g": "spironolactone",
+  "b": "Aldactone",
+  "k": "칼륨 보존 이뇨제",
+  "n": "고칼륨혈증 주의",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 13,
+  "g": "atorvastatin",
+  "b": "Lipitor",
+  "k": "스타틴",
+  "n": "고지혈증",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 14,
+  "g": "simvastatin",
+  "b": "Zocor",
+  "k": "스타틴",
+  "n": "고지혈증. 자몽주스",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 15,
+  "g": "rosuvastatin",
+  "b": "Crestor",
+  "k": "스타틴",
+  "n": "고지혈증",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 16,
+  "g": "warfarin",
+  "b": "Coumadin, Jantoven",
+  "k": "항응고제",
+  "n": "INR 모니터링. **high-alert**",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 17,
+  "g": "apixaban",
+  "b": "Eliquis",
+  "k": "DOAC",
+  "n": "심방세동. **high-alert**",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 18,
+  "g": "rivaroxaban",
+  "b": "Xarelto",
+  "k": "DOAC",
+  "n": "항응고. 식사와 함께(20 mg)",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 19,
+  "g": "clopidogrel",
+  "b": "Plavix",
+  "k": "항혈소판제",
+  "n": "스텐트 후",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 20,
+  "g": "aspirin",
+  "b": "Bayer, Ecotrin",
+  "k": "항혈소판/NSAID",
+  "n": "저용량 81 mg 심혈관 예방",
+  "sec": "심혈관계"
+ },
+ {
+  "id": 21,
+  "g": "metformin",
+  "b": "Glucophage",
+  "k": "비구아나이드",
+  "n": "2형 당뇨 1차. 조영제 전 중단",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 22,
+  "g": "glipizide",
+  "b": "Glucotrol",
+  "k": "설포닐우레아",
+  "n": "저혈당 주의",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 23,
+  "g": "glimepiride",
+  "b": "Amaryl",
+  "k": "설포닐우레아",
+  "n": "2형 당뇨",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 24,
+  "g": "sitagliptin",
+  "b": "Januvia",
+  "k": "DPP-4 억제제",
+  "n": "2형 당뇨",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 25,
+  "g": "empagliflozin",
+  "b": "Jardiance",
+  "k": "SGLT2 억제제",
+  "n": "당뇨·심부전. 요로감염",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 26,
+  "g": "semaglutide",
+  "b": "Ozempic, Wegovy",
+  "k": "GLP-1 작용제",
+  "n": "주 1회 주사. 냉장",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 27,
+  "g": "insulin glargine",
+  "b": "Lantus, Basaglar",
+  "k": "지속형 인슐린",
+  "n": "**high-alert**. 미개봉 냉장",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 28,
+  "g": "insulin lispro",
+  "b": "Humalog",
+  "k": "속효성 인슐린",
+  "n": "식사 직전. **high-alert**",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 29,
+  "g": "levothyroxine",
+  "b": "Synthroid, Levoxyl",
+  "k": "갑상선호르몬",
+  "n": "공복. 브랜드 변경 민감",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 30,
+  "g": "prednisone",
+  "b": "Deltasone",
+  "k": "코르티코스테로이드",
+  "n": "염증. 점감(taper)",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 31,
+  "g": "alendronate",
+  "b": "Fosamax",
+  "k": "비스포스포네이트",
+  "n": "골다공증. 복용 후 30분 눕지 않기",
+  "sec": "내분비·대사"
+ },
+ {
+  "id": 32,
+  "g": "amoxicillin",
+  "b": "Amoxil",
+  "k": "페니실린계",
+  "n": "광범위. 현탁액 냉장",
+  "sec": "감염"
+ },
+ {
+  "id": 33,
+  "g": "amoxicillin/clavulanate",
+  "b": "Augmentin",
+  "k": "페니실린계",
+  "n": "설사 흔함",
+  "sec": "감염"
+ },
+ {
+  "id": 34,
+  "g": "cephalexin",
+  "b": "Keflex",
+  "k": "1세대 세팔로스포린",
+  "n": "피부·요로 감염",
+  "sec": "감염"
+ },
+ {
+  "id": 35,
+  "g": "azithromycin",
+  "b": "Zithromax(Z-Pak)",
+  "k": "마크로라이드",
+  "n": "5일 요법",
+  "sec": "감염"
+ },
+ {
+  "id": 36,
+  "g": "doxycycline",
+  "b": "Vibramycin",
+  "k": "테트라사이클린",
+  "n": "광과민. 유제품 회피",
+  "sec": "감염"
+ },
+ {
+  "id": 37,
+  "g": "ciprofloxacin",
+  "b": "Cipro",
+  "k": "플루오로퀴놀론",
+  "n": "건 파열 경고",
+  "sec": "감염"
+ },
+ {
+  "id": 38,
+  "g": "levofloxacin",
+  "b": "Levaquin",
+  "k": "플루오로퀴놀론",
+  "n": "QT 연장",
+  "sec": "감염"
+ },
+ {
+  "id": 39,
+  "g": "sulfamethoxazole/trimethoprim",
+  "b": "Bactrim, Septra",
+  "k": "설파제",
+  "n": "요로감염. 설파 알레르기",
+  "sec": "감염"
+ },
+ {
+  "id": 40,
+  "g": "metronidazole",
+  "b": "Flagyl",
+  "k": "항원충/항생제",
+  "n": "**음주 금지**(디설피람 반응)",
+  "sec": "감염"
+ },
+ {
+  "id": 41,
+  "g": "nitrofurantoin",
+  "b": "Macrobid",
+  "k": "요로 항생제",
+  "n": "소변 갈색 착색",
+  "sec": "감염"
+ },
+ {
+  "id": 42,
+  "g": "fluconazole",
+  "b": "Diflucan",
+  "k": "항진균제",
+  "n": "칸디다증",
+  "sec": "감염"
+ },
+ {
+  "id": 43,
+  "g": "valacyclovir",
+  "b": "Valtrex",
+  "k": "항바이러스제",
+  "n": "헤르페스",
+  "sec": "감염"
+ },
+ {
+  "id": 44,
+  "g": "oseltamivir",
+  "b": "Tamiflu",
+  "k": "항바이러스제",
+  "n": "인플루엔자. 48시간 내 시작",
+  "sec": "감염"
+ },
+ {
+  "id": 45,
+  "g": "acetaminophen",
+  "b": "Tylenol",
+  "k": "해열진통제",
+  "n": "간독성. 복합제 중복 주의",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 46,
+  "g": "ibuprofen",
+  "b": "Motrin, Advil",
+  "k": "NSAID",
+  "n": "위장 출혈, 신기능",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 47,
+  "g": "naproxen",
+  "b": "Naprosyn, Aleve",
+  "k": "NSAID",
+  "n": "지속시간 김",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 48,
+  "g": "meloxicam",
+  "b": "Mobic",
+  "k": "NSAID",
+  "n": "1일 1회",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 49,
+  "g": "celecoxib",
+  "b": "Celebrex",
+  "k": "COX-2 억제제",
+  "n": "설파 알레르기 주의",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 50,
+  "g": "tramadol",
+  "b": "Ultram",
+  "k": "오피오이드 유사",
+  "n": "**CIV**. 발작 위험",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 51,
+  "g": "hydrocodone/APAP",
+  "b": "Norco, Vicodin",
+  "k": "오피오이드",
+  "n": "**CII**. **high-alert**",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 52,
+  "g": "oxycodone",
+  "b": "Roxicodone, OxyContin",
+  "k": "오피오이드",
+  "n": "**CII**. **high-alert**",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 53,
+  "g": "gabapentin",
+  "b": "Neurontin",
+  "k": "항경련/신경통",
+  "n": "일부 주에서 규제약물",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 54,
+  "g": "cyclobenzaprine",
+  "b": "Flexeril",
+  "k": "근이완제",
+  "n": "졸림",
+  "sec": "통증·염증"
+ },
+ {
+  "id": 55,
+  "g": "sertraline",
+  "b": "Zoloft",
+  "k": "SSRI",
+  "n": "우울·불안",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 56,
+  "g": "escitalopram",
+  "b": "Lexapro",
+  "k": "SSRI",
+  "n": "우울·불안",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 57,
+  "g": "fluoxetine",
+  "b": "Prozac",
+  "k": "SSRI",
+  "n": "반감기 김",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 58,
+  "g": "citalopram",
+  "b": "Celexa",
+  "k": "SSRI",
+  "n": "QT 연장, 용량 상한",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 59,
+  "g": "duloxetine",
+  "b": "Cymbalta",
+  "k": "SNRI",
+  "n": "우울, 신경통",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 60,
+  "g": "venlafaxine",
+  "b": "Effexor XR",
+  "k": "SNRI",
+  "n": "중단 증상 뚜렷",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 61,
+  "g": "bupropion",
+  "b": "Wellbutrin, Zyban",
+  "k": "NDRI",
+  "n": "금연 보조. 발작 위험",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 62,
+  "g": "trazodone",
+  "b": "Desyrel",
+  "k": "항우울/수면",
+  "n": "저용량 불면",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 63,
+  "g": "alprazolam",
+  "b": "Xanax",
+  "k": "벤조디아제핀",
+  "n": "**CIV**. 의존성",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 64,
+  "g": "lorazepam",
+  "b": "Ativan",
+  "k": "벤조디아제핀",
+  "n": "**CIV**",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 65,
+  "g": "clonazepam",
+  "b": "Klonopin",
+  "k": "벤조디아제핀",
+  "n": "**CIV**",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 66,
+  "g": "zolpidem",
+  "b": "Ambien",
+  "k": "진정수면제",
+  "n": "**CIV**. 몽유 행동",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 67,
+  "g": "amphetamine/dextroamphetamine",
+  "b": "Adderall",
+  "k": "자극제",
+  "n": "**CII**. ADHD",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 68,
+  "g": "methylphenidate",
+  "b": "Ritalin, Concerta",
+  "k": "자극제",
+  "n": "**CII**. ADHD",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 69,
+  "g": "lamotrigine",
+  "b": "Lamictal",
+  "k": "항경련제",
+  "n": "SJS 발진 경고, 서서히 증량",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 70,
+  "g": "levetiracetam",
+  "b": "Keppra",
+  "k": "항경련제",
+  "n": "행동 변화",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 71,
+  "g": "topiramate",
+  "b": "Topamax",
+  "k": "항경련제",
+  "n": "편두통 예방",
+  "sec": "정신·신경"
+ },
+ {
+  "id": 72,
+  "g": "albuterol",
+  "b": "ProAir, Ventolin",
+  "k": "SABA",
+  "n": "구조 흡입기. 흔들어 사용",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 73,
+  "g": "fluticasone/salmeterol",
+  "b": "Advair",
+  "k": "ICS/LABA",
+  "n": "유지 요법. 사용 후 가글",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 74,
+  "g": "budesonide/formoterol",
+  "b": "Symbicort",
+  "k": "ICS/LABA",
+  "n": "유지 요법",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 75,
+  "g": "montelukast",
+  "b": "Singulair",
+  "k": "류코트리엔 억제제",
+  "n": "신경정신 부작용 경고",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 76,
+  "g": "fluticasone nasal",
+  "b": "Flonase",
+  "k": "비강 스테로이드",
+  "n": "알레르기 비염",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 77,
+  "g": "cetirizine",
+  "b": "Zyrtec",
+  "k": "2세대 항히스타민",
+  "n": "졸림 적음",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 78,
+  "g": "loratadine",
+  "b": "Claritin",
+  "k": "2세대 항히스타민",
+  "n": "비진정",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 79,
+  "g": "diphenhydramine",
+  "b": "Benadryl",
+  "k": "1세대 항히스타민",
+  "n": "졸림. 노인 주의",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 80,
+  "g": "pseudoephedrine",
+  "b": "Sudafed",
+  "k": "충혈완화제",
+  "n": "**CMEA** 규제, 카운터 뒤 보관",
+  "sec": "호흡기·알레르기"
+ },
+ {
+  "id": 81,
+  "g": "omeprazole",
+  "b": "Prilosec",
+  "k": "PPI",
+  "n": "식전 30~60분",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 82,
+  "g": "pantoprazole",
+  "b": "Protonix",
+  "k": "PPI",
+  "n": "위산 역류",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 83,
+  "g": "famotidine",
+  "b": "Pepcid",
+  "k": "H2 차단제",
+  "n": "위산",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 84,
+  "g": "ondansetron",
+  "b": "Zofran",
+  "k": "5-HT3 길항제",
+  "n": "구역·구토. ODT 제형",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 85,
+  "g": "sumatriptan",
+  "b": "Imitrex",
+  "k": "트립탄",
+  "n": "편두통",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 86,
+  "g": "tamsulosin",
+  "b": "Flomax",
+  "k": "알파 차단제",
+  "n": "전립선비대. 기립성 저혈압",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 87,
+  "g": "sildenafil",
+  "b": "Viagra, Revatio",
+  "k": "PDE5 억제제",
+  "n": "질산염과 병용 금기",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 88,
+  "g": "finasteride",
+  "b": "Proscar, Propecia",
+  "k": "5-알파 환원효소 억제제",
+  "n": "임신부 접촉 금지",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 89,
+  "g": "allopurinol",
+  "b": "Zyloprim",
+  "k": "통풍 예방",
+  "n": "급성 발작 시 시작 아님",
+  "sec": "소화기·기타"
+ },
+ {
+  "id": 90,
+  "g": "potassium chloride",
+  "b": "K-Dur, Klor-Con",
+  "k": "전해질",
+  "n": "농축 주사제는 **high-alert**",
+  "sec": "소화기·기타"
+ }
+]

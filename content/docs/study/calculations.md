@@ -1,6 +1,6 @@
 ---
 title: "약국 계산"
-weight: 8
+weight: 9
 ---
 
 계산은 문항 수가 많지 않아도 **확실히 맞힐 수 있는 점수**입니다. 유형이 정해져 있으니 손으로 반복해서 익히세요.
@@ -61,6 +61,8 @@ weight: 8
 
 ## 4. Day Supply
 
+{{< sigfig name="day-supply" caption="총량을 같은 단위로 바꾸고, 하루 사용량으로 나눈 뒤 버림 — 제형이 바뀌어도 ①만 달라집니다" >}}
+
 ```text
 day supply = 총 조제량 ÷ 하루 사용량
 ```
@@ -86,6 +88,8 @@ day supply = 총 조제량 ÷ 하루 사용량
 4. 200 mg × (5 mL / 250 mg) = **4 mL**
 
 ## 6. IV 유속
+
+{{< sigfig name="iv-flow" caption="묻는 것이 시간당 부피인지, 분당 방울 수인지, 소요 시간인지부터 구분합니다" >}}
 
 **mL/hr → gtt/min**
 
