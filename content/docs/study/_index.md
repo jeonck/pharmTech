@@ -15,7 +15,8 @@ PTCE 2026 출제 범위의 4개 도메인을 기준으로 정리한 학습 노�
   {{< card link="federal-law/" title="4. 연방 법규 (18.75%)" subtitle="DEA, HIPAA, DSCSA, 리콜" >}}
   {{< card link="calculations/" title="약국 계산" subtitle="비율, 농도, day supply, IV 유속" >}}
   {{< card link="abbreviations/" title="처방 약어" subtitle="sig code 전체 정리" >}}
-  {{< card link="practice/" title="연습 문제 30선" subtitle="개념 확인용 문제와 해설" >}}
+  {{< card link="daily-quiz/" title="오늘의 10문제" subtitle="하루 10문제 × 15일 = 150문제. 채점·해설·오답 관리" >}}
+  {{< card link="practice/" title="연습 문제 30선" subtitle="읽으면서 확인하는 서술형 문제" >}}
 {{< /cards >}}
 
 {{< callout type="info" >}}

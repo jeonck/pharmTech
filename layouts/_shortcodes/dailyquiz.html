@@ -1,0 +1,279 @@
+{{- $quiz := site.Data.quiz -}}
+<script type="application/json" id="pt-quiz-data">{{ $quiz | jsonify | safeJS }}</script>
+
+<style>
+.ptq { --ptq-bd:#e2e6ee; --ptq-bg:#fff; --ptq-mut:#6b7280; --ptq-acc:#1b4fd8; --ptq-ok:#0f7b4f; --ptq-okbg:#e8f7f0; --ptq-no:#b91c1c; --ptq-nobg:#fdecec; --ptq-soft:#f6f8fc; }
+:is(.dark) .ptq { --ptq-bd:#333940; --ptq-bg:#1b1f24; --ptq-mut:#9aa3af; --ptq-acc:#7aa2ff; --ptq-ok:#4ade80; --ptq-okbg:#10291f; --ptq-no:#f87171; --ptq-nobg:#2c1618; --ptq-soft:#22272e; }
+.ptq { margin-top:1rem; }
+.ptq button { font:inherit; cursor:pointer; }
+
+.ptq-bar { display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; margin-bottom:1rem; }
+.ptq-day { min-width:2.4rem; padding:.3rem .5rem; border:1px solid var(--ptq-bd); border-radius:.4rem; background:var(--ptq-bg); font-size:.8rem; line-height:1.2; text-align:center; }
+.ptq-day small { display:block; font-size:.62rem; color:var(--ptq-mut); }
+.ptq-day.on { border-color:var(--ptq-acc); color:var(--ptq-acc); font-weight:700; }
+.ptq-day.done { background:var(--ptq-okbg); border-color:var(--ptq-ok); }
+.ptq-day.done small { color:var(--ptq-ok); }
+
+.ptq-card { border:1px solid var(--ptq-bd); border-radius:.6rem; background:var(--ptq-bg); padding:1.1rem 1.2rem; }
+.ptq-head { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-size:.8rem; color:var(--ptq-mut); margin-bottom:.35rem; }
+.ptq-tag { border:1px solid var(--ptq-bd); border-radius:1rem; padding:.05rem .5rem; }
+.ptq-prog { height:4px; background:var(--ptq-soft); border-radius:2px; overflow:hidden; margin-bottom:1rem; }
+.ptq-prog i { display:block; height:100%; background:var(--ptq-acc); transition:width .25s; }
+.ptq-q { font-size:1.02rem; font-weight:600; line-height:1.55; margin:.2rem 0 .9rem; word-break:keep-all; }
+.ptq-q code { font-size:.95em; }
+
+.ptq-opts { display:grid; gap:.45rem; }
+.ptq-opt { display:flex; gap:.6rem; align-items:flex-start; text-align:left; width:100%; padding:.6rem .75rem; border:1px solid var(--ptq-bd); border-radius:.45rem; background:var(--ptq-bg); color:inherit; line-height:1.5; word-break:keep-all; }
+.ptq-opt:hover:not(:disabled) { border-color:var(--ptq-acc); }
+.ptq-opt b { flex:none; width:1.25rem; height:1.25rem; border-radius:.25rem; background:var(--ptq-soft); color:var(--ptq-mut); font-size:.72rem; display:flex; align-items:center; justify-content:center; margin-top:.1rem; }
+.ptq-opt.ok { border-color:var(--ptq-ok); background:var(--ptq-okbg); }
+.ptq-opt.ok b { background:var(--ptq-ok); color:#fff; }
+.ptq-opt.no { border-color:var(--ptq-no); background:var(--ptq-nobg); }
+.ptq-opt.no b { background:var(--ptq-no); color:#fff; }
+.ptq-opt:disabled { cursor:default; opacity:1; }
+
+.ptq-exp { margin-top:.9rem; padding:.7rem .85rem; border-left:3px solid var(--ptq-acc); background:var(--ptq-soft); border-radius:0 .35rem .35rem 0; font-size:.9rem; line-height:1.6; word-break:keep-all; }
+.ptq-exp .v { font-weight:700; }
+.ptq-exp .v.ok { color:var(--ptq-ok); }
+.ptq-exp .v.no { color:var(--ptq-no); }
+
+.ptq-foot { display:flex; justify-content:space-between; align-items:center; gap:.6rem; margin-top:1rem; }
+.ptq-btn { padding:.45rem 1rem; border-radius:.4rem; border:1px solid var(--ptq-acc); background:var(--ptq-acc); color:#fff; font-weight:600; font-size:.88rem; }
+.ptq-btn.ghost { background:transparent; color:var(--ptq-acc); }
+.ptq-btn:disabled { opacity:.4; cursor:default; }
+.ptq-hint { font-size:.75rem; color:var(--ptq-mut); }
+
+.ptq-score { font-size:2.4rem; font-weight:800; line-height:1.1; }
+.ptq-score span { font-size:1rem; font-weight:500; color:var(--ptq-mut); }
+.ptq-review { margin-top:1rem; display:grid; gap:.7rem; }
+.ptq-rv { border:1px solid var(--ptq-bd); border-left:3px solid var(--ptq-no); border-radius:0 .4rem .4rem 0; padding:.65rem .8rem; font-size:.86rem; line-height:1.6; word-break:keep-all; }
+.ptq-rv .qq { font-weight:600; margin-bottom:.3rem; }
+.ptq-rv .aa { color:var(--ptq-ok); }
+.ptq-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.1rem; }
+</style>
+
+<div class="ptq" id="ptq">
+  <div class="ptq-bar" id="ptq-bar"></div>
+  <div class="ptq-card" id="ptq-card"></div>
+  <div class="ptq-actions" id="ptq-actions"></div>
+</div>
+
+<script>
+(function () {
+  var raw = document.getElementById('pt-quiz-data');
+  if (!raw) return;
+  var BANK = JSON.parse(raw.textContent);
+  var KEY = 'pharmtech-quiz-v1';
+  var DAYS = BANK.reduce(function (m, q) { return Math.max(m, q.d); }, 0);
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+  }
+  function save(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  var store = load();
+  store.days = store.days || {};   // { "3": {score:8, at:"2026-09-01"} }
+  store.wrong = store.wrong || []; // 오답 문항 id
+
+  var bar = document.getElementById('ptq-bar');
+  var card = document.getElementById('ptq-card');
+  var actions = document.getElementById('ptq-actions');
+
+  var view = null; // {mode, day, set, i, picked, correct, wrong[]}
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  // 백틱으로 감싼 부분만 <code>로 (본문은 이스케이프 후 처리)
+  function fmt(s) {
+    return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+  }
+
+  function firstUndone() {
+    for (var d = 1; d <= DAYS; d++) { if (!store.days[d]) return d; }
+    return 1;
+  }
+
+  function renderBar() {
+    var html = '';
+    for (var d = 1; d <= DAYS; d++) {
+      var rec = store.days[d];
+      var cls = 'ptq-day' + (rec ? ' done' : '') + (view && view.mode === 'day' && view.day === d ? ' on' : '');
+      html += '<button class="' + cls + '" data-day="' + d + '">' + d
+        + '<small>' + (rec ? rec.score + '/10' : '—') + '</small></button>';
+    }
+    bar.innerHTML = html;
+    Array.prototype.forEach.call(bar.querySelectorAll('[data-day]'), function (b) {
+      b.onclick = function () { start('day', +b.dataset.day); };
+    });
+  }
+
+  function renderActions() {
+    var done = Object.keys(store.days).length;
+    var html = '';
+    html += '<button class="ptq-btn ghost" id="ptq-random">랜덤 10문제</button>';
+    if (store.wrong.length) {
+      html += '<button class="ptq-btn ghost" id="ptq-wrong">오답 다시 풀기 (' + store.wrong.length + ')</button>';
+    }
+    if (done) {
+      html += '<button class="ptq-btn ghost" id="ptq-reset">진행 기록 초기화</button>';
+    }
+    actions.innerHTML = html;
+    var r = document.getElementById('ptq-random');
+    if (r) r.onclick = function () { start('random'); };
+    var w = document.getElementById('ptq-wrong');
+    if (w) w.onclick = function () { start('wrong'); };
+    var x = document.getElementById('ptq-reset');
+    if (x) x.onclick = function () {
+      if (!confirm('풀이 기록과 오답 목록을 모두 지웁니다. 계속할까요?')) return;
+      store = { days: {}, wrong: [] }; save(store);
+      start('day', 1);
+    };
+  }
+
+  function pick(n, pool) {
+    var a = pool.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a.slice(0, n);
+  }
+
+  function start(mode, day) {
+    var set;
+    if (mode === 'day') {
+      set = BANK.filter(function (q) { return q.d === day; });
+    } else if (mode === 'random') {
+      set = pick(10, BANK);
+    } else {
+      var ids = {}; store.wrong.forEach(function (id) { ids[id] = 1; });
+      set = pick(10, BANK.filter(function (q) { return ids[q.id]; }));
+    }
+    if (!set.length) return;
+    view = { mode: mode, day: day, set: set, i: 0, picked: null, correct: 0, wrong: [] };
+    renderBar(); renderActions(); renderQ();
+  }
+
+  function label(mode, day) {
+    if (mode === 'day') return 'Day ' + day;
+    if (mode === 'random') return '랜덤 10문제';
+    return '오답 다시 풀기';
+  }
+
+  function renderQ() {
+    var q = view.set[view.i];
+    var n = view.set.length;
+    var html = '';
+    html += '<div class="ptq-head"><span>' + esc(label(view.mode, view.day))
+         + ' · ' + (view.i + 1) + ' / ' + n + '</span>'
+         + '<span class="ptq-tag">' + esc(q.t) + '</span></div>';
+    html += '<div class="ptq-prog"><i style="width:' + Math.round(view.i / n * 100) + '%"></i></div>';
+    html += '<div class="ptq-q">' + fmt(q.q) + '</div>';
+    html += '<div class="ptq-opts">';
+    q.c.forEach(function (c, idx) {
+      html += '<button class="ptq-opt" data-i="' + idx + '"><b>' + (idx + 1) + '</b><span>' + fmt(c) + '</span></button>';
+    });
+    html += '</div><div id="ptq-after"></div>';
+    card.innerHTML = html;
+    Array.prototype.forEach.call(card.querySelectorAll('.ptq-opt'), function (b) {
+      b.onclick = function () { answer(+b.dataset.i); };
+    });
+    view.picked = null;
+  }
+
+  function answer(idx) {
+    if (view.picked !== null) return;
+    var q = view.set[view.i];
+    view.picked = idx;
+    var ok = idx === q.a;
+    if (ok) {
+      view.correct++;
+      store.wrong = store.wrong.filter(function (id) { return id !== q.id; });
+    } else {
+      view.wrong.push(q);
+      if (store.wrong.indexOf(q.id) === -1) store.wrong.push(q.id);
+    }
+    save(store);
+
+    var opts = card.querySelectorAll('.ptq-opt');
+    Array.prototype.forEach.call(opts, function (b, i) {
+      b.disabled = true;
+      if (i === q.a) b.classList.add('ok');
+      else if (i === idx) b.classList.add('no');
+    });
+
+    var last = view.i === view.set.length - 1;
+    document.getElementById('ptq-after').innerHTML =
+      '<div class="ptq-exp"><span class="v ' + (ok ? 'ok">정답' : 'no">오답') + '</span> — ' + fmt(q.e) + '</div>'
+      + '<div class="ptq-foot"><span class="ptq-hint">숫자 키 1~4로 선택, Enter로 다음</span>'
+      + '<button class="ptq-btn" id="ptq-next">' + (last ? '결과 보기' : '다음 문제') + '</button></div>';
+    document.getElementById('ptq-next').onclick = next;
+    document.getElementById('ptq-next').focus();
+    renderActions();
+  }
+
+  function next() {
+    if (view.i === view.set.length - 1) return finish();
+    view.i++; renderQ();
+  }
+
+  function finish() {
+    var n = view.set.length, s = view.correct;
+    if (view.mode === 'day') {
+      var prev = store.days[view.day];
+      if (!prev || prev.score < s) {
+        store.days[view.day] = { score: s, at: new Date().toISOString().slice(0, 10) };
+      }
+      save(store);
+    }
+    var pct = Math.round(s / n * 100);
+    var msg = pct >= 90 ? '충분합니다. 다음 세트로 넘어가세요.'
+            : pct >= 70 ? '나쁘지 않습니다. 틀린 것만 다시 보세요.'
+            : '해당 주제를 학습 노트에서 한 번 더 읽고 다시 푸세요.';
+
+    var html = '<div class="ptq-head"><span>' + esc(label(view.mode, view.day)) + ' 결과</span></div>';
+    html += '<div class="ptq-score">' + s + '<span> / ' + n + ' · ' + pct + '%</span></div>';
+    html += '<p style="margin:.6rem 0 0;color:var(--ptq-mut)">' + msg + '</p>';
+
+    if (view.wrong.length) {
+      html += '<div class="ptq-review">';
+      view.wrong.forEach(function (q) {
+        html += '<div class="ptq-rv"><div class="qq">' + fmt(q.q) + '</div>'
+             + '<div>정답: <span class="aa">' + fmt(q.c[q.a]) + '</span></div>'
+             + '<div style="color:var(--ptq-mut);margin-top:.25rem">' + fmt(q.e) + '</div></div>';
+      });
+      html += '</div>';
+    }
+
+    html += '<div class="ptq-foot" style="justify-content:flex-start;flex-wrap:wrap">';
+    html += '<button class="ptq-btn ghost" id="ptq-again">다시 풀기</button>';
+    if (view.mode === 'day' && view.day < DAYS) {
+      html += '<button class="ptq-btn" id="ptq-nextday">Day ' + (view.day + 1) + ' 풀기</button>';
+    }
+    html += '</div>';
+    card.innerHTML = html;
+
+    document.getElementById('ptq-again').onclick = function () { start(view.mode, view.day); };
+    var nd = document.getElementById('ptq-nextday');
+    if (nd) nd.onclick = function () { start('day', view.day + 1); };
+    renderBar(); renderActions();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!view || !card.querySelector('.ptq-opt')) return;
+    if (e.key >= '1' && e.key <= '4') {
+      var b = card.querySelector('.ptq-opt[data-i="' + (+e.key - 1) + '"]');
+      if (b && !b.disabled) { e.preventDefault(); b.click(); }
+    } else if (e.key === 'Enter' && view.picked !== null) {
+      var nx = document.getElementById('ptq-next');
+      if (nx) { e.preventDefault(); nx.click(); }
+    }
+  });
+
+  start('day', firstUndone());
+})();
+</script>
