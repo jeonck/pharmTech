@@ -1,5 +1,8 @@
 {{- $quiz := site.Data.quiz -}}
 <script type="application/json" id="pt-quiz-data">{{ $quiz | jsonify | safeJS }}</script>
+{{- with resources.Get "js/quiz-gen.js" }}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
 
 <style>
 .ptq { --ptq-bd:#e2e6ee; --ptq-bg:#fff; --ptq-mut:#6b7280; --ptq-acc:#1b4fd8; --ptq-ok:#0f7b4f; --ptq-okbg:#e8f7f0; --ptq-no:#b91c1c; --ptq-nobg:#fdecec; --ptq-soft:#f6f8fc; }
@@ -64,7 +67,11 @@
   if (!raw) return;
   var BANK = JSON.parse(raw.textContent);
   var KEY = 'pharmtech-quiz-v1';
+  var GEN = window.PTQuizGen || null;
+  var GEN_DAYS = GEN ? GEN.days : [];
   var DAYS = BANK.reduce(function (m, q) { return Math.max(m, q.d); }, 0);
+  GEN_DAYS.forEach(function (d) { if (d > DAYS) DAYS = d; });
+  function isGenDay(d) { return GEN_DAYS.indexOf(d) !== -1; }
 
   function load() {
     try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -146,12 +153,25 @@
   function start(mode, day) {
     var set;
     if (mode === 'day') {
-      set = BANK.filter(function (q) { return q.d === day; });
+      set = isGenDay(day) && GEN ? GEN.forDay(day)
+                                 : BANK.filter(function (q) { return q.d === day; });
     } else if (mode === 'random') {
-      set = pick(10, BANK);
+      set = GEN ? pick(7, BANK).concat(GEN.sample(3)) : pick(10, BANK);
+      set = pick(set.length, set);
     } else {
-      var ids = {}; store.wrong.forEach(function (id) { ids[id] = 1; });
-      set = pick(10, BANK.filter(function (q) { return ids[q.id]; }));
+      var ids = {}, gens = [];
+      store.wrong.forEach(function (id) {
+        if (typeof id === 'string' && id.indexOf('gen:') === 0) gens.push(id.slice(4));
+        else ids[id] = 1;
+      });
+      var pool = BANK.filter(function (q) { return ids[q.id]; });
+      if (GEN) {
+        gens.forEach(function (nm) {
+          var g = GEN.byName(nm);
+          if (g) pool.push(g);
+        });
+      }
+      set = pick(10, pool);
     }
     if (!set.length) return;
     view = { mode: mode, day: day, set: set, i: 0, picked: null, correct: 0, wrong: [] };
@@ -170,7 +190,7 @@
     var html = '';
     html += '<div class="ptq-head"><span>' + esc(label(view.mode, view.day))
          + ' · ' + (view.i + 1) + ' / ' + n + '</span>'
-         + '<span class="ptq-tag">' + esc(q.t) + '</span></div>';
+         + '<span class="ptq-tag">' + esc(q.t) + (q.gen ? ' · 숫자 자동 생성' : '') + '</span></div>';
     html += '<div class="ptq-prog"><i style="width:' + Math.round(view.i / n * 100) + '%"></i></div>';
     html += '<div class="ptq-q">' + fmt(q.q) + '</div>';
     html += '<div class="ptq-opts">';
@@ -250,7 +270,8 @@
     }
 
     html += '<div class="ptq-foot" style="justify-content:flex-start;flex-wrap:wrap">';
-    html += '<button class="ptq-btn ghost" id="ptq-again">다시 풀기</button>';
+    html += '<button class="ptq-btn ghost" id="ptq-again">'
+         + (view.mode === 'day' && isGenDay(view.day) ? '새 숫자로 다시 풀기' : '다시 풀기') + '</button>';
     if (view.mode === 'day' && view.day < DAYS) {
       html += '<button class="ptq-btn" id="ptq-nextday">Day ' + (view.day + 1) + ' 풀기</button>';
     }

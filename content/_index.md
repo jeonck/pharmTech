@@ -54,7 +54,7 @@ layout: hextra-home
   >}}
   {{< hextra/feature-card
     title="오늘의 10문제"
-    subtitle="하루 10문제씩 15일. 채점과 해설이 바로 나오고 오답은 따로 모아 다시 풉니다."
+    subtitle="하루 10문제씩 15일. 계산 문제는 풀 때마다 숫자가 새로 생성되고, 오답은 따로 모아 다시 풉니다."
     link="docs/study/daily-quiz/"
   >}}
   {{< hextra/feature-card
