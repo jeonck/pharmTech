@@ -10,6 +10,7 @@ PTCE 2026 출제 범위의 4개 도메인을 기준으로 정리한 학습 노�
 {{< cards >}}
   {{< card link="medications/" title="1. 약물 (35%)" subtitle="분류, 작용, 부작용, 보관, 상호작용" >}}
   {{< card link="top-drugs/" title="Top 약물 정리표" subtitle="브랜드–제네릭–분류를 묶은 암기표" >}}
+  {{< card link="reading/" title="처방 읽는 법" subtitle="약어·경로·제형·숫자·단위를 영어로 읽고 말하는 법" >}}
   {{< card link="safety-qa/" title="2. 환자 안전·품질관리 (23.75%)" subtitle="LASA, high-alert, 오류 예방" >}}
   {{< card link="order-entry/" title="3. 처방 입력·처리 (22.5%)" subtitle="접수부터 픽업까지, 보험 청구" >}}
   {{< card link="federal-law/" title="4. 연방 법규 (18.75%)" subtitle="DEA, HIPAA, DSCSA, 리콜" >}}
