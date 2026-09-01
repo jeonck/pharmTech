@@ -19,5 +19,10 @@ PTCE 2026 출제 범위의 4개 도메인을 기준으로 정리한 학습 노�
 {{< /cards >}}
 
 {{< callout type="info" >}}
+**인쇄용 암기 단권화 PDF** — 처음에 외워야 하는 것만 A4 5장으로 묶었습니다. 접어서 들고 다니며 보세요.
+[**다운로드 (PDF, 5쪽)**](/pharmtech-cheat-sheet.pdf)
+{{< /callout >}}
+
+{{< callout type="info" >}}
 2026년 1월 개정으로 **조제(compounding)와 alligation 계산은 출제 범위에서 제외**되었고, **DSCSA·리콜 등 연방 법규 비중이 커졌습니다.** 이 노트는 개정 범위를 기준으로 작성했습니다.
 {{< /callout >}}

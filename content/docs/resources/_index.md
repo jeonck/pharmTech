@@ -10,4 +10,5 @@ sidebar:
   {{< card link="checklist/" title="진행 체크리스트" subtitle="지금 어디까지 왔는지 확인" >}}
   {{< card link="glossary/" title="용어집" subtitle="영어 약국 용어 ↔ 한국어" >}}
   {{< card link="faq/" title="자주 묻는 질문" subtitle="비용, 기간, 신분, 영어" >}}
+  {{< card link="/pharmtech-cheat-sheet.pdf" title="암기 단권화 PDF ↓" subtitle="처음에 외울 것만 A4 5장으로. 인쇄용." >}}
 {{< /cards >}}

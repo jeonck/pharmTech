@@ -9,3 +9,7 @@ _vendor/
 Thumbs.db
 .idea/
 .vscode/
+
+# 인쇄물 생성용 폰트 (build.sh가 내려받음)
+printables/fonts/
+printables/.tmp/

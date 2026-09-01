@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Texas PharmTech 암기 단권화</title>
+<style>
+@font-face { font-family:'NotoKR'; src:url('fonts/noto-sans-kr-latin-400-normal.woff2') format('woff2'); font-weight:400; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215; }
+@font-face { font-family:'NotoKR'; src:url('fonts/noto-sans-kr-latin-700-normal.woff2') format('woff2'); font-weight:700; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215; }
+@font-face { font-family:'NotoKR'; src:url('fonts/noto-sans-kr-korean-400-normal.woff2') format('woff2'); font-weight:400; }
+@font-face { font-family:'NotoKR'; src:url('fonts/noto-sans-kr-korean-700-normal.woff2') format('woff2'); font-weight:700; }
+
+@page { size: A4; margin: 11mm 9mm 12mm 9mm; }
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: 'NotoKR', 'DejaVu Sans', sans-serif;
+  font-size: 8.4pt; line-height: 1.38; color: #16181d; margin: 0;
+  word-break: keep-all;
+}
+
+/* ── 표지 ── */
+.cover { text-align: left; padding-top: 6mm; page-break-after: always; }
+.cover h1 { font-size: 26pt; margin: 0 0 2mm; letter-spacing: -.5px; }
+.cover .sub { font-size: 11pt; color: #4a5160; margin-bottom: 8mm; }
+.cover .rule { height: 3px; background: #1b4fd8; width: 46mm; margin-bottom: 7mm; }
+
+.howto { border: 1px solid #c9d2e3; background: #f5f8ff; padding: 5mm 6mm; margin-bottom: 6mm; }
+.howto h2 { margin: 0 0 3mm; font-size: 12pt; color: #1b4fd8; }
+.howto ol { margin: 0; padding-left: 5mm; }
+.howto li { margin-bottom: 1.6mm; font-size: 9.4pt; }
+
+.plan { width: 100%; border-collapse: collapse; font-size: 9pt; }
+.plan th { background: #1b2434; color: #fff; padding: 2mm; text-align: left; }
+.plan td { border-bottom: 1px solid #dde2ea; padding: 2mm; vertical-align: top; }
+.plan td:first-child { white-space: nowrap; font-weight: 700; color: #1b4fd8; width: 22mm; }
+
+.covernote { margin-top: 7mm; font-size: 8.5pt; color: #6b7280; border-top: 1px solid #dde2ea; padding-top: 3mm; }
+
+/* ── 본문 2단 ── */
+.cols { column-count: 2; column-gap: 6mm; column-fill: auto; }
+section { break-inside: avoid; margin-bottom: 3.6mm; }
+h2.sec {
+  font-size: 10pt; margin: 0 0 1.6mm; padding: 1.1mm 2mm;
+  background: #1b2434; color: #fff; border-radius: 1mm;
+}
+h3.sub { font-size: 8.8pt; margin: 2mm 0 1mm; color: #1b4fd8; border-bottom: 1px solid #c9d2e3; padding-bottom: .6mm; }
+
+table.t { width: 100%; border-collapse: collapse; font-size: 7.9pt; }
+table.t th { background: #eef1f6; text-align: left; padding: .9mm 1.4mm; border-bottom: 1px solid #b9c2d2; font-weight: 700; }
+table.t td { padding: .85mm 1.4mm; border-bottom: .5px solid #e3e7ee; vertical-align: top; }
+table.t tr:nth-child(even) td { background: #fafbfd; }
+table.t td.k { white-space: nowrap; font-weight: 700; }
+table.t td.en { font-variant-numeric: tabular-nums; }
+
+.warn { background: #fff4e5; border-left: 2.5px solid #e08600; padding: 1.4mm 2mm; margin: 1.4mm 0; font-size: 7.9pt; }
+.tip  { background: #eef6ff; border-left: 2.5px solid #1b4fd8; padding: 1.4mm 2mm; margin: 1.4mm 0; font-size: 7.9pt; }
+.formula { background: #f6f7f9; border: 1px solid #dfe4ec; padding: 1.4mm 2mm; margin: 1.2mm 0; font-size: 8pt; }
+.formula b { color: #1b4fd8; }
+b.hl { color: #b91c1c; }
+.small { font-size: 7.4pt; color: #6b7280; }
+ul.tight { margin: .8mm 0; padding-left: 4mm; }
+ul.tight li { margin-bottom: .5mm; }
+.pagebreak { break-before: column; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="rule"></div>
+  <h1>암기 단권화</h1>
+  <div class="sub">텍사스 Pharmacy Technician — 처음에 외워야 하는 것만</div>
+
+  <div class="howto">
+    <h2>이 자료의 사용법</h2>
+    <ol>
+      <li>처음 2주는 이 자료 <b>밖으로 나가지 마세요.</b> 여기 있는 것이 시험과 첫 근무에서 가장 자주 쓰이는 내용입니다.</li>
+      <li><b>약어 → 계산 → 스케줄 → 약물</b> 순서로 외웁니다. 약물부터 시작하면 양에 눌려 중간에 멈춥니다.</li>
+      <li>표를 한 번에 다 보지 말고, <b>하루 한 섹션</b>씩 접어서 들고 다니며 빈 시간에 봅니다.</li>
+      <li>외운 줄은 형광펜으로 지우세요. 남은 줄만 다시 보는 것이 회독의 핵심입니다.</li>
+    </ol>
+  </div>
+
+  <table class="plan">
+    <tr><th>일차</th><th>외울 것</th><th>확인 방법</th></tr>
+    <tr><td>1일차</td><td>처방 약어 — 복용 횟수·시점, 투여 경로, 눈·귀</td><td><code>1 tab po bid x 10d</code>를 즉시 읽을 수 있는가</td></tr>
+    <tr><td>2일차</td><td>제형·수량 약어, 위험 약어(쓰면 안 되는 것)</td><td>1.0 mg이 왜 위험한지 설명할 수 있는가</td></tr>
+    <tr><td>3일차</td><td>단위 환산 + 계산 공식 6가지</td><td>day supply 문제 5개를 5분 안에</td></tr>
+    <tr><td>4일차</td><td>규제약물 스케줄 I~V, CII 규칙</td><td>CII 리필 횟수와 주문 서식을 바로 답하는가</td></tr>
+    <tr><td>5일차</td><td>어미(suffix) → 분류 규칙</td><td>모르는 약 이름의 분류를 어미로 맞히는가</td></tr>
+    <tr><td>6~12일차</td><td>Top 약물 — 하루 15개씩, 매일 어제 것부터 복습</td><td>브랜드↔제네릭 양방향</td></tr>
+    <tr><td>13일차</td><td>High-alert · LASA · 보관 조건</td><td>혼동 쌍을 구분해 설명하는가</td></tr>
+    <tr><td>14일차</td><td>NDC·DEA 검증, 보험 거절 코드, 연방 법령</td><td>DEA 번호 체크섬을 손으로 계산하는가</td></tr>
+  </table>
+
+  <div class="covernote">
+    본문의 수치·요건은 공개 자료를 정리한 참고값입니다. 신청·응시 전에는 PTCB(ptcb.org)와 텍사스 약사위원회(pharmacy.texas.gov) 공식 페이지에서 확인하세요.<br>
+    전체 가이드: <b>pharmtech.metacog.co.kr</b>
+  </div>
+</div>
+
+<div class="cols">
+
+<section>
+<h2 class="sec">1. 처방 약어 — 복용 횟수·시점</h2>
+<table class="t">
+<tr><th>약어</th><th>뜻</th><th>원어·메모</th></tr>
+<tr><td class="k">bid</td><td>1일 2회</td><td>bis in die</td></tr>
+<tr><td class="k">tid</td><td>1일 3회</td><td>ter in die</td></tr>
+<tr><td class="k">qid</td><td>1일 4회</td><td>quater in die</td></tr>
+<tr><td class="k">qh</td><td>매시간</td><td>quaque hora</td></tr>
+<tr><td class="k">q4h / q6h / q8h</td><td>4·6·8시간마다</td><td></td></tr>
+<tr><td class="k">prn</td><td>필요 시</td><td>pro re nata</td></tr>
+<tr><td class="k">stat</td><td>즉시</td><td>statim</td></tr>
+<tr><td class="k">ac</td><td>식전</td><td>ante cibum</td></tr>
+<tr><td class="k">pc</td><td>식후</td><td>post cibum</td></tr>
+<tr><td class="k">hs</td><td>취침 시</td><td>hora somni</td></tr>
+<tr><td class="k">ATC</td><td>정해진 간격으로 계속</td><td>around the clock</td></tr>
+<tr><td class="k">qd / qod</td><td>1일 1회 / 격일</td><td><b class="hl">위험 약어</b> — daily, every other day로 표기</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">2. 투여 경로</h2>
+<table class="t">
+<tr><td class="k">po</td><td>경구</td><td class="k">sl</td><td>설하</td></tr>
+<tr><td class="k">iv</td><td>정맥</td><td class="k">im</td><td>근육</td></tr>
+<tr><td class="k">sc / subq</td><td>피하</td><td class="k">pr</td><td>직장</td></tr>
+<tr><td class="k">top</td><td>피부(국소)</td><td class="k">inh</td><td>흡입</td></tr>
+<tr><td class="k">pv</td><td>질</td><td class="k">NGT</td><td>비위관</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">3. 눈 · 귀 <span class="small" style="color:#fff">가장 잘 틀리는 곳</span></h2>
+<table class="t">
+<tr><th>눈 (o = eye)</th><th></th><th>귀 (a = ear)</th><th></th></tr>
+<tr><td class="k">od</td><td>우안</td><td class="k">ad</td><td>우이</td></tr>
+<tr><td class="k">os</td><td>좌안</td><td class="k">as</td><td>좌이</td></tr>
+<tr><td class="k">ou</td><td>양안</td><td class="k">au</td><td>양이</td></tr>
+</table>
+<div class="warn"><b>o는 눈, a는 귀.</b> 안약을 귀 표기로 라벨링하는 사고는 실제로 발생합니다. 헷갈리면 처방자에게 "right eye"처럼 풀어 쓰도록 요청하는 것이 정답입니다.</div>
+</section>
+
+<section>
+<h2 class="sec">4. 제형 · 수량</h2>
+<table class="t">
+<tr><td class="k">tab / cap</td><td>정제 / 캡슐</td><td class="k">supp</td><td>좌제</td></tr>
+<tr><td class="k">susp / sol</td><td>현탁액 / 용액</td><td class="k">ung, oint</td><td>연고</td></tr>
+<tr><td class="k">cr</td><td>크림</td><td class="k">gtt</td><td>방울</td></tr>
+<tr><td class="k">tsp</td><td>5 mL</td><td class="k">tbsp</td><td>15 mL</td></tr>
+<tr><td class="k">ss</td><td>1/2</td><td class="k">qs</td><td>적당량까지</td></tr>
+<tr><td class="k">disp</td><td>조제량</td><td class="k">sig</td><td>용법 지시</td></tr>
+</table>
+<h3 class="sub">제형 수식어 — 분쇄 금지 표시</h3>
+<table class="t">
+<tr><td class="k">ER XR XL SR CR LA</td><td>서방 — <b class="hl">분쇄·분할 금지</b></td></tr>
+<tr><td class="k">DR, EC</td><td>지연방출·장용 — <b class="hl">분쇄 금지</b></td></tr>
+<tr><td class="k">ODT</td><td>구강붕해 — 물 없이</td></tr>
+<tr><td class="k">MDI / DPI</td><td>정량 흡입기 / 건조분말</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">5. 읽기 연습</h2>
+<table class="t">
+<tr><td class="k en">1 tab po bid x 10d</td><td>1정 경구 1일 2회, 10일간</td></tr>
+<tr><td class="k en">2 gtt ou qid prn</td><td>2방울 양안 1일 4회 필요 시</td></tr>
+<tr><td class="k en">10 mL po q6h prn cough</td><td>10 mL 경구 6시간마다 기침 시</td></tr>
+<tr><td class="k en">1 tab sl q5min prn CP, max 3</td><td>1정 설하 5분마다 흉통 시, 최대 3회</td></tr>
+<tr><td class="k en">1 cap po ac tid</td><td>1캡슐 경구 식전 1일 3회</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">6. 쓰면 안 되는 약어 (ISMP)</h2>
+<table class="t">
+<tr><th>위험 약어</th><th>대신</th><th>이유</th></tr>
+<tr><td class="k">U</td><td>unit</td><td>4·0으로 오독</td></tr>
+<tr><td class="k">IU</td><td>international unit</td><td>IV로 오독</td></tr>
+<tr><td class="k">QD / QOD</td><td>daily / every other day</td><td>서로 오독</td></tr>
+<tr><td class="k">MS, MSO4, MgSO4</td><td>이름 그대로</td><td>모르핀↔황산마그네슘</td></tr>
+<tr><td class="k">1.0 mg</td><td>1 mg</td><td>후행 0 → <b class="hl">10배 과량</b></td></tr>
+<tr><td class="k">.5 mg</td><td>0.5 mg</td><td>선행 0 누락 → <b class="hl">10배 과량</b></td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">7. 단위 환산</h2>
+<table class="t">
+<tr><td class="k en">1 kg</td><td>2.2 lb</td><td class="k en">1 lb</td><td>454 g</td></tr>
+<tr><td class="k en">1 oz</td><td>28.35 g</td><td class="k en">1 fl oz</td><td>29.57 mL (≈30)</td></tr>
+<tr><td class="k en">1 tsp</td><td>5 mL</td><td class="k en">1 tbsp</td><td>15 mL</td></tr>
+<tr><td class="k en">1 cup</td><td>240 mL</td><td class="k en">1 pint</td><td>473 mL</td></tr>
+<tr><td class="k en">1 quart</td><td>946 mL</td><td class="k en">1 gallon</td><td>3,785 mL</td></tr>
+<tr><td class="k en">1 g</td><td>1,000 mg</td><td class="k en">1 mg</td><td>1,000 mcg</td></tr>
+<tr><td class="k en">1 gr</td><td>65 mg</td><td class="k en">1 mL</td><td>≈20 gtt</td></tr>
+</table>
+<div class="formula">°C = (°F − 32) × 5/9 &nbsp;&nbsp;|&nbsp;&nbsp; °F = (°C × 9/5) + 32</div>
+</section>
+
+<section>
+<h2 class="sec">8. 계산 공식 6가지</h2>
+<div class="formula"><b>① 비례식</b> — 가진 용량/가진 부피 = 필요 용량/x<br>
+<span class="small">250 mg/5 mL로 400 mg → x = 400×5÷250 = <b>8 mL</b></span></div>
+<div class="formula"><b>② 백분율 농도</b> — % w/v = 100 mL 중 g 수<br>
+<span class="small">0.9% NaCl 500 mL → 0.9÷100×500 = <b>4.5 g</b></span></div>
+<div class="formula"><b>③ 비율 강도</b> — 1:1000 = 1 g/1000 mL = <b>1 mg/mL</b><br>
+<span class="small">에피네프린 1:1000 = 1 mg/mL로 통째로 기억</span></div>
+<div class="formula"><b>④ day supply</b> = 총 조제량 ÷ 하루 사용량<br>
+<span class="small">점안액 10 mL(=200 gtt), 양안 1방울씩 4회(=8 gtt/일) → <b>25일분</b></span></div>
+<div class="formula"><b>⑤ 체중 용량</b> — lb ÷ 2.2 = kg → ×mg/kg → ÷ 분할 횟수<br>
+<span class="small">44 lb, 20 mg/kg/day, 1일 2회 → 20 kg → 400 mg/일 → <b>1회 200 mg</b></span></div>
+<div class="formula"><b>⑥ IV 유속</b> — gtt/min = (총 mL × drop factor) ÷ 시간(분)<br>
+<span class="small">1,000 mL / 8시간 / 15 gtt/mL → 15,000÷480 = <b>약 31 gtt/min</b><br>
+mL/hr = 총 부피 ÷ 시간 → 1,000÷8 = <b>125 mL/hr</b></span></div>
+<div class="formula"><b>희석</b> C1V1 = C2V2 &nbsp;|&nbsp; <b>이익률</b> = 마크업 ÷ 판매가 × 100</div>
+<div class="tip"><b>2026 개정</b>: alligation(혼합 계산)과 조제(compounding)는 PTCE 출제 범위에서 제외되었습니다.</div>
+</section>
+
+<section>
+<h2 class="sec">9. 규제약물 스케줄</h2>
+<table class="t">
+<tr><th>스케줄</th><th>리필</th><th>대표 약</th></tr>
+<tr><td class="k">CI</td><td>처방 불가</td><td>heroin, LSD</td></tr>
+<tr><td class="k">CII</td><td><b class="hl">0회</b></td><td>oxycodone, hydrocodone/APAP, morphine, fentanyl, methylphenidate, amphetamine</td></tr>
+<tr><td class="k">CIII</td><td>6개월 내 5회</td><td>codeine 복합제, testosterone, ketamine, buprenorphine</td></tr>
+<tr><td class="k">CIV</td><td>6개월 내 5회</td><td>alprazolam, lorazepam, diazepam, zolpidem, tramadol</td></tr>
+<tr><td class="k">CV</td><td>주법에 따름</td><td>저용량 코데인 진해제, pregabalin</td></tr>
+</table>
+<h3 class="sub">CII 필수 암기</h3>
+<ul class="tight">
+<li>리필 불가 — 추가 조제는 <b>새 처방</b></li>
+<li>주문 <b>DEA Form 222</b>(또는 전자 CSOS)</li>
+<li>폐기 <b>Form 41</b> · 분실·도난 <b>Form 106</b></li>
+<li>재고 실사 <b>2년마다</b>, CII는 정확한 실수(exact count)</li>
+</ul>
+</section>
+
+<section>
+<h2 class="sec">10. DEA 번호 검증</h2>
+<div class="formula">형식: <b>문자 2 + 숫자 7</b> (예 AB1234563)<br>
+① 1·3·5번째 숫자 합 &nbsp; ② 2·4·6번째 합 × 2<br>
+③ ①+② 의 <b>일의 자리 = 7번째 숫자</b>여야 유효</div>
+<table class="t">
+<tr><td class="k en">AB1234563</td><td>(1+3+5)=9, (2+4+6)=12×2=24 → 33 → 끝자리 3 = 체크 3 <b>✓</b></td></tr>
+<tr><td class="k en">BQ7654321</td><td>(7+5+3)=15, (6+4+2)=12×2=24 → 39 → 9 ≠ 1 <b class="hl">✗</b></td></tr>
+</table>
+<div class="small">첫 글자: A/B/F/G = 병원·약국·의사, M = 중급 실무자 &nbsp;|&nbsp; 둘째 글자 = 처방자 성의 첫 글자</div>
+</section>
+
+<section>
+<h2 class="sec">11. NDC · 보험 청구</h2>
+<table class="t">
+<tr><th>NDC 11자리 (5-4-2)</th><th></th></tr>
+<tr><td class="k">앞 5</td><td>제조사(labeler) — 제조사 바뀌면 여기가 달라짐</td></tr>
+<tr><td class="k">가운데 4</td><td>제품(성분·규격·제형)</td></tr>
+<tr><td class="k">뒤 2</td><td>포장(용량·수량)</td></tr>
+</table>
+<h3 class="sub">청구에 필요한 카드 정보</h3>
+<div class="formula"><b>BIN · PCN · Group · Member ID</b> (+ person code)</div>
+<h3 class="sub">거절 코드 대응</h3>
+<table class="t">
+<tr><td class="k">Refill Too Soon</td><td>가능 날짜 안내, 여행이면 vacation override 요청</td></tr>
+<tr><td class="k">Prior Auth Required</td><td>처방자 사무실에 PA 요청 전달</td></tr>
+<tr><td class="k">NDC Not Covered</td><td>제네릭·처방집(formulary) 대안 확인</td></tr>
+<tr><td class="k">Quantity Limit</td><td>처방자 확인 또는 PA</td></tr>
+<tr><td class="k">Invalid Member ID</td><td>카드 재확인(보험 변경·오타)</td></tr>
+</table>
+<div class="small"><b>DAW</b> 0 대체 허용(기본) · 1 처방자가 브랜드 지정 · 2 환자가 브랜드 요구</div>
+</section>
+
+<section>
+<h2 class="sec">12. 어미(suffix) → 분류</h2>
+<table class="t">
+<tr><td class="k">-pril</td><td>ACE 억제제</td><td class="k">-sartan</td><td>ARB</td></tr>
+<tr><td class="k">-olol</td><td>베타 차단제</td><td class="k">-dipine</td><td>CCB</td></tr>
+<tr><td class="k">-statin</td><td>스타틴</td><td class="k">-prazole</td><td>PPI</td></tr>
+<tr><td class="k">-tidine</td><td>H2 차단제</td><td class="k">-cillin</td><td>페니실린</td></tr>
+<tr><td class="k">-floxacin</td><td>퀴놀론</td><td class="k">-cycline</td><td>테트라사이클린</td></tr>
+<tr><td class="k">-mycin</td><td>마크로라이드</td><td class="k">-azole</td><td>항진균</td></tr>
+<tr><td class="k">-vir</td><td>항바이러스</td><td class="k">-pam/-lam</td><td>벤조디아제핀</td></tr>
+<tr><td class="k">-setron</td><td>5-HT3 항구토</td><td class="k">-formin</td><td>비구아나이드</td></tr>
+<tr><td class="k">-gliptin</td><td>DPP-4 억제제</td><td class="k">-flozin</td><td>SGLT2 억제제</td></tr>
+</table>
+<div class="tip">모르는 약이 나와도 어미만 알면 분류를 찍을 수 있습니다. 약물 암기의 뼈대는 이 표입니다.</div>
+</section>
+
+<section>
+<h2 class="sec">13. Top 약물 ① 심혈관</h2>
+<table class="t">
+<tr><th>제네릭</th><th>브랜드</th><th>분류·메모</th></tr>
+<tr><td class="k">lisinopril</td><td>Zestril</td><td>ACE / 마른기침</td></tr>
+<tr><td class="k">losartan</td><td>Cozaar</td><td>ARB</td></tr>
+<tr><td class="k">valsartan</td><td>Diovan</td><td>ARB</td></tr>
+<tr><td class="k">metoprolol</td><td>Lopressor / Toprol-XL</td><td>베타 / tartrate=IR, succinate=ER</td></tr>
+<tr><td class="k">atenolol</td><td>Tenormin</td><td>베타</td></tr>
+<tr><td class="k">carvedilol</td><td>Coreg</td><td>알파·베타 / 심부전</td></tr>
+<tr><td class="k">amlodipine</td><td>Norvasc</td><td>CCB / 발목 부종</td></tr>
+<tr><td class="k">diltiazem</td><td>Cardizem</td><td>CCB</td></tr>
+<tr><td class="k">HCTZ</td><td>Microzide</td><td>티아지드 / 저칼륨</td></tr>
+<tr><td class="k">furosemide</td><td>Lasix</td><td>루프 / 칼륨 손실</td></tr>
+<tr><td class="k">spironolactone</td><td>Aldactone</td><td>칼륨 보존</td></tr>
+<tr><td class="k">atorvastatin</td><td>Lipitor</td><td>스타틴</td></tr>
+<tr><td class="k">simvastatin</td><td>Zocor</td><td>스타틴 / 자몽</td></tr>
+<tr><td class="k">rosuvastatin</td><td>Crestor</td><td>스타틴</td></tr>
+<tr><td class="k">warfarin</td><td>Coumadin</td><td>항응고 / INR <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">apixaban</td><td>Eliquis</td><td>DOAC <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">rivaroxaban</td><td>Xarelto</td><td>DOAC</td></tr>
+<tr><td class="k">clopidogrel</td><td>Plavix</td><td>항혈소판</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">14. Top 약물 ② 내분비</h2>
+<table class="t">
+<tr><td class="k">metformin</td><td>Glucophage</td><td>1차 / 조영제 전 중단</td></tr>
+<tr><td class="k">glipizide</td><td>Glucotrol</td><td>설포닐우레아</td></tr>
+<tr><td class="k">glimepiride</td><td>Amaryl</td><td>설포닐우레아</td></tr>
+<tr><td class="k">sitagliptin</td><td>Januvia</td><td>DPP-4</td></tr>
+<tr><td class="k">empagliflozin</td><td>Jardiance</td><td>SGLT2</td></tr>
+<tr><td class="k">semaglutide</td><td>Ozempic / Wegovy</td><td>GLP-1 / 주 1회·냉장</td></tr>
+<tr><td class="k">insulin glargine</td><td>Lantus</td><td>지속형 <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">insulin lispro</td><td>Humalog</td><td>속효성 <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">levothyroxine</td><td>Synthroid</td><td>공복 / 다른 약과 4시간</td></tr>
+<tr><td class="k">prednisone</td><td>Deltasone</td><td>스테로이드 / 점감</td></tr>
+<tr><td class="k">alendronate</td><td>Fosamax</td><td>복용 후 30분 눕지 않기</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">15. Top 약물 ③ 감염</h2>
+<table class="t">
+<tr><td class="k">amoxicillin</td><td>Amoxil</td><td>현탁액 냉장</td></tr>
+<tr><td class="k">amox/clav</td><td>Augmentin</td><td>설사 흔함</td></tr>
+<tr><td class="k">cephalexin</td><td>Keflex</td><td>1세대 세팔로</td></tr>
+<tr><td class="k">azithromycin</td><td>Zithromax</td><td>Z-Pak 5일</td></tr>
+<tr><td class="k">doxycycline</td><td>Vibramycin</td><td>광과민·유제품 회피</td></tr>
+<tr><td class="k">ciprofloxacin</td><td>Cipro</td><td>건 파열 경고</td></tr>
+<tr><td class="k">levofloxacin</td><td>Levaquin</td><td>QT 연장</td></tr>
+<tr><td class="k">SMZ/TMP</td><td>Bactrim</td><td>설파 알레르기</td></tr>
+<tr><td class="k">metronidazole</td><td>Flagyl</td><td><b class="hl">음주 금지</b></td></tr>
+<tr><td class="k">nitrofurantoin</td><td>Macrobid</td><td>소변 착색</td></tr>
+<tr><td class="k">fluconazole</td><td>Diflucan</td><td>항진균</td></tr>
+<tr><td class="k">valacyclovir</td><td>Valtrex</td><td>헤르페스</td></tr>
+<tr><td class="k">oseltamivir</td><td>Tamiflu</td><td>48시간 내 시작</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">16. Top 약물 ④ 통증 · 정신</h2>
+<table class="t">
+<tr><td class="k">acetaminophen</td><td>Tylenol</td><td>간독성·복합제 중복</td></tr>
+<tr><td class="k">ibuprofen</td><td>Motrin</td><td>NSAID</td></tr>
+<tr><td class="k">naproxen</td><td>Aleve</td><td>NSAID</td></tr>
+<tr><td class="k">meloxicam</td><td>Mobic</td><td>1일 1회</td></tr>
+<tr><td class="k">celecoxib</td><td>Celebrex</td><td>COX-2 / 설파</td></tr>
+<tr><td class="k">tramadol</td><td>Ultram</td><td><b>CIV</b> / 발작</td></tr>
+<tr><td class="k">hydrocodone/APAP</td><td>Norco</td><td><b>CII</b> <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">oxycodone</td><td>OxyContin</td><td><b>CII</b> <b class="hl">high-alert</b></td></tr>
+<tr><td class="k">gabapentin</td><td>Neurontin</td><td>신경통</td></tr>
+<tr><td class="k">cyclobenzaprine</td><td>Flexeril</td><td>근이완 / 졸림</td></tr>
+<tr><td class="k">sertraline</td><td>Zoloft</td><td>SSRI</td></tr>
+<tr><td class="k">escitalopram</td><td>Lexapro</td><td>SSRI</td></tr>
+<tr><td class="k">fluoxetine</td><td>Prozac</td><td>SSRI</td></tr>
+<tr><td class="k">duloxetine</td><td>Cymbalta</td><td>SNRI</td></tr>
+<tr><td class="k">bupropion</td><td>Wellbutrin</td><td>금연 / 발작</td></tr>
+<tr><td class="k">trazodone</td><td>Desyrel</td><td>저용량 불면</td></tr>
+<tr><td class="k">alprazolam</td><td>Xanax</td><td><b>CIV</b></td></tr>
+<tr><td class="k">lorazepam</td><td>Ativan</td><td><b>CIV</b></td></tr>
+<tr><td class="k">zolpidem</td><td>Ambien</td><td><b>CIV</b></td></tr>
+<tr><td class="k">amph/dextroamph</td><td>Adderall</td><td><b>CII</b> ADHD</td></tr>
+<tr><td class="k">methylphenidate</td><td>Ritalin / Concerta</td><td><b>CII</b> ADHD</td></tr>
+<tr><td class="k">lamotrigine</td><td>Lamictal</td><td>SJS 발진</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">17. Top 약물 ⑤ 호흡기 · 소화기</h2>
+<table class="t">
+<tr><td class="k">albuterol</td><td>ProAir / Ventolin</td><td>구조 흡입기</td></tr>
+<tr><td class="k">fluticasone/salmeterol</td><td>Advair</td><td>유지 / 사용 후 가글</td></tr>
+<tr><td class="k">budesonide/formoterol</td><td>Symbicort</td><td>유지</td></tr>
+<tr><td class="k">montelukast</td><td>Singulair</td><td>신경정신 경고</td></tr>
+<tr><td class="k">fluticasone nasal</td><td>Flonase</td><td>비강 스테로이드</td></tr>
+<tr><td class="k">cetirizine</td><td>Zyrtec</td><td>2세대 항히스타민</td></tr>
+<tr><td class="k">loratadine</td><td>Claritin</td><td>비진정</td></tr>
+<tr><td class="k">diphenhydramine</td><td>Benadryl</td><td>1세대 / 졸림</td></tr>
+<tr><td class="k">pseudoephedrine</td><td>Sudafed</td><td><b>CMEA</b> 카운터 뒤</td></tr>
+<tr><td class="k">omeprazole</td><td>Prilosec</td><td>PPI / 식전</td></tr>
+<tr><td class="k">pantoprazole</td><td>Protonix</td><td>PPI</td></tr>
+<tr><td class="k">famotidine</td><td>Pepcid</td><td>H2</td></tr>
+<tr><td class="k">ondansetron</td><td>Zofran</td><td>구토 / ODT</td></tr>
+<tr><td class="k">sumatriptan</td><td>Imitrex</td><td>편두통</td></tr>
+<tr><td class="k">tamsulosin</td><td>Flomax</td><td>전립선 / 기립성</td></tr>
+<tr><td class="k">sildenafil</td><td>Viagra</td><td>질산염 <b class="hl">병용 금기</b></td></tr>
+<tr><td class="k">finasteride</td><td>Proscar</td><td>임신부 접촉 금지</td></tr>
+<tr><td class="k">allopurinol</td><td>Zyloprim</td><td>통풍 예방</td></tr>
+<tr><td class="k">potassium chloride</td><td>Klor-Con</td><td>농축 주사 <b class="hl">high-alert</b></td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">18. High-alert 약물</h2>
+<div class="small" style="margin-bottom:1mm">오류 시 <b>환자에게 심각한 위해</b>. 독립 이중 확인 대상.</div>
+<table class="t">
+<tr><td class="k">인슐린</td><td>전 제품 — 저혈당</td></tr>
+<tr><td class="k">항응고제</td><td>warfarin, heparin, apixaban — 출혈</td></tr>
+<tr><td class="k">오피오이드</td><td>morphine, fentanyl, hydromorphone — 호흡 억제</td></tr>
+<tr><td class="k">농축 전해질</td><td>KCl 주사, 고장성 식염수 — 심정지</td></tr>
+<tr><td class="k">화학요법제</td><td>methotrexate 등</td></tr>
+<tr><td class="k">진정제</td><td>midazolam, propofol</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">19. LASA — 혼동 쌍</h2>
+<table class="t">
+<tr><td class="k">hydralazine / hydroxyzine</td><td>혈압 / 항히스타민</td></tr>
+<tr><td class="k">glipizide / glyburide</td><td>둘 다 설포닐우레아, 용량 다름</td></tr>
+<tr><td class="k">Celebrex / Celexa / Cerebyx</td><td>NSAID / SSRI / 항경련</td></tr>
+<tr><td class="k">clonidine / clonazepam</td><td>혈압 / 벤조</td></tr>
+<tr><td class="k">metoprolol tartrate / succinate</td><td>IR / ER — <b class="hl">대체 불가</b></td></tr>
+<tr><td class="k">Humalog / Humulin</td><td>속효성 / 레귤러·NPH</td></tr>
+<tr><td class="k">Zantac / Xanax</td><td>위산 / 벤조</td></tr>
+<tr><td class="k">predniSONE / predniSOLONE</td><td>Tall Man Lettering</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">20. 보관 조건</h2>
+<table class="t">
+<tr><td class="k">냉동</td><td>−25 ~ −10°C</td><td>일부 백신</td></tr>
+<tr><td class="k">냉장</td><td>2 ~ 8°C</td><td>미개봉 인슐린, 백신, 재구성 항생제</td></tr>
+<tr><td class="k">실온</td><td>20 ~ 25°C</td><td>대부분의 경구약</td></tr>
+</table>
+<ul class="tight">
+<li><b>nitroglycerin SL</b> — 원래 갈색 유리병, 뚜껑 꼭 닫기</li>
+<li><b>인슐린</b> — 미개봉 냉장, 개봉 후 제품별 실온 기간(28일 등)</li>
+<li><b>재구성 현탁액</b> — 조제 후 냉장, 보통 10~14일</li>
+<li><b>백신</b> — 콜드체인·온도 기록</li>
+</ul>
+</section>
+
+<section>
+<h2 class="sec">21. 연방 법령 — 핵심만</h2>
+<table class="t">
+<tr><td class="k">1938 FDCA</td><td>시판 전 <b>안전성</b></td></tr>
+<tr><td class="k">1951 Durham-Humphrey</td><td>처방약/일반약 구분, 구두 처방·리필</td></tr>
+<tr><td class="k">1962 Kefauver-Harris</td><td>시판 전 <b>유효성</b></td></tr>
+<tr><td class="k">1970 CSA</td><td>스케줄 I~V, DEA 신설</td></tr>
+<tr><td class="k">1970 PPPA</td><td>아동 보호 포장</td></tr>
+<tr><td class="k">1984 Hatch-Waxman</td><td>제네릭 승인(ANDA)</td></tr>
+<tr><td class="k">1990 OBRA '90</td><td><b>환자 상담 의무</b>, DUR</td></tr>
+<tr><td class="k">1996 HIPAA</td><td>PHI 보호</td></tr>
+<tr><td class="k">2003 MMA</td><td>Medicare Part D</td></tr>
+<tr><td class="k">2005 CMEA</td><td>슈도에페드린 제한</td></tr>
+<tr><td class="k">2013 DSCSA</td><td>의약품 공급망 추적</td></tr>
+</table>
+</section>
+
+<section>
+<h2 class="sec">22. DSCSA — 2026 신규 출제</h2>
+<table class="t">
+<tr><th>T3 문서</th><th>내용</th></tr>
+<tr><td class="k">TI</td><td>Transaction Information — 제품명·규격·NDC·수량·로트·거래일·당사자</td></tr>
+<tr><td class="k">TH</td><td>Transaction History — 제조사부터의 거래 이력</td></tr>
+<tr><td class="k">TS</td><td>Transaction Statement — 법 준수 진술</td></tr>
+</table>
+<ul class="tight">
+<li>포장마다 <b>고유 식별자</b>(NDC·일련번호·로트·유효기간) 2D 바코드</li>
+<li><b>인가된 거래처</b>하고만 거래</li>
+<li>의심 제품 → <b>격리 후 조사</b>, 위조 확인 시 FDA 통지</li>
+<li>거래 기록 <b>6년</b> 보관</li>
+</ul>
+<h3 class="sub">리콜 등급</h3>
+<table class="t">
+<tr><td class="k">Class I</td><td>사망·중대한 위해 가능</td></tr>
+<tr><td class="k">Class II</td><td>일시적·가역적 위해</td></tr>
+<tr><td class="k">Class III</td><td>위해 가능성 낮음</td></tr>
+</table>
+<div class="small">대응: 로트 조회 → 재고 격리 → 조제 이력 확인 → 환자 통지 → 반품·기록</div>
+</section>
+
+<section>
+<h2 class="sec">23. 시험 · 등록 요약</h2>
+<h3 class="sub">PTCE (PTCB)</h3>
+<table class="t">
+<tr><td class="k">문항·시간</td><td>90문항(채점 80) / 110분</td></tr>
+<tr><td class="k">합격</td><td>1400점 (1000~1600)</td></tr>
+<tr><td class="k">응시료</td><td>$129</td></tr>
+<tr><td class="k">응시 자격</td><td>교육 프로그램 수료 또는 실무 <b>500시간</b></td></tr>
+</table>
+<h3 class="sub">출제 비중 (2026.1.6~)</h3>
+<table class="t">
+<tr><td class="k">Medications</td><td class="en">35%</td><td class="k">Patient Safety·QA</td><td class="en">23.75%</td></tr>
+<tr><td class="k">Order Entry</td><td class="en">22.5%</td><td class="k">Federal Req.</td><td class="en">18.75% ↑</td></tr>
+</table>
+<h3 class="sub">텍사스 등록(TSBP)</h3>
+<table class="t">
+<tr><td class="k">트레이니</td><td>약 $55 / <b>2년·1회 한정·갱신 불가</b></td></tr>
+<tr><td class="k">정식 등록</td><td>약 $84 / 2년, 자격증 필수</td></tr>
+<tr><td class="k">갱신</td><td>약 $81 / <b>CE 20시간</b>(텍사스 약사법 1시간 포함)</td></tr>
+<tr><td class="k">지문</td><td>이메일의 <b>TSBP 서비스 코드</b> 링크로만 예약</td></tr>
+<tr><td class="k">소요</td><td>지문 결과 10 영업일, 발급까지 최소 3주</td></tr>
+</table>
+<div class="warn"><b>ACTIVE 상태·등록번호가 나오기 전에는 업무 시작 금지.</b> 본인과 감독 약사 모두 징계 대상이 됩니다.</div>
+</section>
+
+<section>
+<h2 class="sec">24. 면접·현장 필수 답변 3개</h2>
+<table class="t">
+<tr><td class="k">조제 오류를 발견하면?</td><td><b>즉시 약사에게 보고.</b> 혼자 고치거나 숨기지 않는다</td></tr>
+<tr><td class="k">환자가 약을 추천해 달라면?</td><td><b>약사에게 연결.</b> 테크니션은 상담·권유를 하지 않는다</td></tr>
+<tr><td class="k">처방이 불명확하면?</td><td>추측 금지. 약사를 통해 <b>처방자에게 확인</b></td></tr>
+</table>
+<div class="tip">이 세 가지는 시험·면접·실제 근무에서 모두 같은 답입니다. 여기서 흔들리면 나머지를 다 알아도 감점입니다.</div>
+</section>
+
+</div>
+</body>
+</html>

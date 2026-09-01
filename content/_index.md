@@ -53,6 +53,11 @@ layout: hextra-home
     link="docs/study/calculations/"
   >}}
   {{< hextra/feature-card
+    title="암기 단권화 PDF ↓"
+    subtitle="처음 2주에 외워야 하는 것만 A4 5장으로 묶은 인쇄용 자료. 접어서 들고 다니세요."
+    link="pharmtech-cheat-sheet.pdf"
+  >}}
+  {{< hextra/feature-card
     title="취업 준비"
     subtitle="텍사스 채용 시장, 고용주 유형별 특징, 미국식 이력서와 면접 답변 준비."
     link="docs/jobs/"
