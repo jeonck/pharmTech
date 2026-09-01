@@ -144,3 +144,5 @@ weight: 2
 2. **분류별 묶음으로** — "-pril은 전부 ACE"처럼 규칙으로 묶으면 20개가 한 덩어리가 됩니다
 3. **실물과 연결** — 근무 중이라면 그날 본 처방의 약을 그날 밤 카드로 만드세요. 기억 정착률이 다릅니다
 4. **혼동 쌍을 따로 관리** — hydralazine/hydroxyzine, glipizide/glyburide, Celebrex/Celexa 같은 [LASA 쌍](../safety-qa/)은 별도 목록으로
+
+{{< pagedone >}}

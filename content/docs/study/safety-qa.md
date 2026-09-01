@@ -85,3 +85,5 @@ weight: 10
 - **CQI(Continuous Quality Improvement)** — 오류 데이터를 모아 원인을 고침
 - **RCA(Root Cause Analysis)** — 사고 후 근본 원인 분석
 - **FMEA** — 사고 전에 실패 가능 지점을 예측
+
+{{< pagedone >}}

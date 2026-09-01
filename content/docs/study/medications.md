@@ -84,3 +84,5 @@ weight: 1
 {{< callout type="warning" >}}
 OD는 눈(right eye), AD는 귀(right ear)입니다. 눈에 넣을 약을 귀 표기로 라벨링하는 것은 실제로 자주 발생하는 오류이며 시험에도 나옵니다.
 {{< /callout >}}
+
+{{< pagedone >}}

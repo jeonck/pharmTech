@@ -264,3 +264,5 @@ o와 a 한 글자 차이로 눈과 귀가 바뀝니다. 소리로 구분하려 �
   {{< card link="../sig-play/" title="처방 조립 플레이" subtitle="여기서 배운 순서를 손에 붙이기" >}}
   {{< card link="../daily-quiz/" title="오늘의 10문제" subtitle="1·2일차가 약어 읽기입니다" >}}
 {{< /cards >}}
+
+{{< pagedone >}}

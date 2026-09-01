@@ -1,0 +1,31 @@
+{{- $p := .Page -}}
+<div class="ptdone" data-u="{{ $p.RelPermalink }}" data-t="{{ $p.Title }}">
+  <button class="ptdone-btn" type="button">이 페이지 학습 완료로 표시</button>
+  <span class="ptdone-note"></span>
+</div>
+<script>
+(function () {
+  var box = document.currentScript.previousElementSibling;
+  var KEY = 'pharmtech-progress-v1';
+  var url = box.dataset.u;
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  var btn = box.querySelector('.ptdone-btn');
+  var note = box.querySelector('.ptdone-note');
+
+  function draw() {
+    var st = load(); st.read = st.read || {};
+    var d = st.read[url];
+    box.classList.toggle('on', !!d);
+    btn.textContent = d ? '학습 완료 ✓' : '이 페이지 학습 완료로 표시';
+    note.textContent = d ? d + ' 완료 · 눌러서 해제' : '진도는 이 브라우저에만 저장됩니다';
+  }
+  btn.onclick = function () {
+    var st = load(); st.read = st.read || {};
+    if (st.read[url]) delete st.read[url];
+    else st.read[url] = new Date().toISOString().slice(0, 10);
+    save(st); draw();
+  };
+  draw();
+})();
+</script>

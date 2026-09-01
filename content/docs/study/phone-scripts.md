@@ -183,3 +183,5 @@ weight: 7
   {{< card link="../order-entry/" title="처방 입력·처리" subtitle="보험 거절 코드의 의미" >}}
   {{< card link="../reading/" title="처방 읽는 법" subtitle="숫자·철자 읽기 규칙" >}}
 {{< /cards >}}
+
+{{< pagedone >}}

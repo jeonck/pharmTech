@@ -41,3 +41,5 @@ weight: 3
   {{< card link="../medications/" title="약물 (35%)" subtitle="어미 규칙과 분류별 핵심" >}}
   {{< card link="../daily-quiz/" title="오늘의 10문제" subtitle="6~10일차가 약물입니다" >}}
 {{< /cards >}}
+
+{{< pagedone >}}

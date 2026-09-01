@@ -94,3 +94,53 @@
 .ptfig .f-pill  { fill: var(--f-pill); stroke: var(--f-key); stroke-width: 1.2; }
 .ptfig .f-warn  { fill: var(--f-warnbg); }
 .ptfig .f-warn-t{ fill: var(--f-warnfg); }
+
+/* ── 진도 관리 ─────────────────────────────────────────────── */
+.ptp, .ptdone {
+  --pp-bd:#e2e6ee; --pp-bg:#fff; --pp-mut:#6b7280; --pp-acc:#1b4fd8;
+  --pp-ok:#0f7b4f; --pp-okbg:#e8f7f0; --pp-soft:#f6f8fc;
+}
+:is(.dark) .ptp, :is(.dark) .ptdone {
+  --pp-bd:#333940; --pp-bg:#1b1f24; --pp-mut:#9aa3af; --pp-acc:#7aa2ff;
+  --pp-ok:#4ade80; --pp-okbg:#10291f; --pp-soft:#22272e;
+}
+
+.ptp { margin: 1rem 0 1.5rem; border: 1px solid var(--pp-bd); border-radius: .6rem; background: var(--pp-bg); padding: 1.1rem 1.2rem; }
+.ptp button { font: inherit; cursor: pointer; }
+
+.ptp-head { display: flex; align-items: center; gap: 1rem; }
+.ptp-pct { font-size: 2.2rem; font-weight: 800; color: var(--pp-acc); line-height: 1; }
+.ptp-sum { font-size: .95rem; }
+.ptp-sum small { display: block; color: var(--pp-mut); font-size: .78rem; margin-top: .2rem; }
+.ptp-bar { height: 8px; border-radius: 4px; background: var(--pp-soft); overflow: hidden; margin: .8rem 0 1.1rem; }
+.ptp-bar i { display: block; height: 100%; background: var(--pp-acc); transition: width .3s; }
+
+.ptp-t { font-size: .78rem; font-weight: 700; color: var(--pp-mut); letter-spacing: .03em; margin: 1rem 0 .4rem; }
+.ptp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
+.ptp-row { display: flex; align-items: center; gap: .6rem; padding: .35rem .5rem; border-radius: .35rem; flex-wrap: wrap; }
+.ptp-row:hover { background: var(--pp-soft); }
+.ptp-row.on { background: var(--pp-okbg); }
+.ptp-row a { flex: 1 1 9rem; text-decoration: none; color: inherit; font-size: .92rem; }
+.ptp-row a:hover { color: var(--pp-acc); }
+.ptp-row.on a { color: var(--pp-ok); }
+
+.ptp-box { flex: none; width: 1.3rem; height: 1.3rem; border-radius: .3rem; border: 1px solid var(--pp-bd); background: var(--pp-bg); color: var(--pp-ok); font-size: .8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; padding: 0; }
+.ptp-row.on .ptp-box { border-color: var(--pp-ok); }
+.ptp-box.auto { cursor: default; opacity: .9; }
+
+.ptp-when { font-size: .75rem; color: var(--pp-mut); font-variant-numeric: tabular-nums; }
+.ptp-mini { flex: 0 0 5rem; height: 5px; border-radius: 3px; background: var(--pp-soft); overflow: hidden; }
+.ptp-mini i { display: block; height: 100%; background: var(--pp-acc); }
+.ptp-extra { flex-basis: 100%; padding-left: 1.9rem; font-size: .72rem; color: var(--pp-mut); }
+
+.ptp-foot { display: flex; align-items: center; gap: .8rem; margin-top: 1rem; flex-wrap: wrap; }
+.ptp-btn { padding: .35rem .8rem; border-radius: .35rem; border: 1px solid var(--pp-acc); background: var(--pp-acc); color: #fff; font-size: .8rem; font-weight: 600; }
+.ptp-btn.ghost { background: transparent; color: var(--pp-acc); }
+.ptp-hint { font-size: .72rem; color: var(--pp-mut); }
+
+/* 페이지 하단 완료 버튼 */
+.ptdone { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin: 2rem 0 .5rem; padding: .8rem 1rem; border: 1px solid var(--pp-bd); border-radius: .5rem; background: var(--pp-bg); }
+.ptdone.on { border-color: var(--pp-ok); background: var(--pp-okbg); }
+.ptdone-btn { padding: .4rem .9rem; border-radius: .35rem; border: 1px solid var(--pp-acc); background: transparent; color: var(--pp-acc); font-size: .85rem; font-weight: 600; cursor: pointer; }
+.ptdone.on .ptdone-btn { border-color: var(--pp-ok); color: var(--pp-ok); }
+.ptdone-note { font-size: .75rem; color: var(--pp-mut); }

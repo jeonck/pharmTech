@@ -115,3 +115,5 @@ weight: 13
 | `1 tab sl q5min prn CP, max 3` | 1정 설하 5분마다 흉통 시, 최대 3회 |
 | `1 cap po ac tid` | 1캡슐 경구, 식전 1일 3회 |
 | `apply top bid to affected area` | 환부에 1일 2회 국소 도포 |
+
+{{< pagedone >}}

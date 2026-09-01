@@ -7,6 +7,10 @@ sidebar:
 
 PTCE 2026 출제 범위의 4개 도메인을 기준으로 정리한 학습 노트입니다.
 
+## 진도
+
+{{< progress >}}
+
 {{< cards >}}
   {{< card link="medications/" title="1. 약물 (35%)" subtitle="분류, 작용, 부작용, 보관, 상호작용" >}}
   {{< card link="top-drugs/" title="Top 약물 정리표" subtitle="브랜드–제네릭–분류를 묶은 암기표" >}}

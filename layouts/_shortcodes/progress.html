@@ -1,0 +1,129 @@
+{{- $sec := site.GetPage "/docs/study" -}}
+{{- $pages := slice -}}
+{{- range $sec.RegularPages.ByWeight -}}
+  {{- $pages = $pages | append (dict "u" .RelPermalink "t" .Title "w" .Weight) -}}
+{{- end -}}
+<script type="application/json" id="pt-progress-pages">{{ $pages | jsonify | safeJS }}</script>
+
+<div class="ptp" id="ptp"></div>
+
+<script>
+(function () {
+  var raw = document.getElementById('pt-progress-pages');
+  if (!raw) return;
+  var PAGES = JSON.parse(raw.textContent);
+  var root = document.getElementById('ptp');
+  var KEY = 'pharmtech-progress-v1';
+
+  function get(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch (e) { return {}; } }
+  function set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  /* 연습 도구들이 각자 저장해 둔 기록을 모아 온다 */
+  function practice() {
+    var q = get('pharmtech-quiz-v1');
+    var s = get('pharmtech-sig-v1');
+    var t = get('pharmtech-talk-v1');
+    var f = get('pharmtech-flash-v1');
+
+    var days = Object.keys(q.days || {}).length;
+    var dayOk = 0;
+    Object.keys(q.days || {}).forEach(function (k) { if (q.days[k].score >= 8) dayOk++; });
+
+    var slots = s.slot || {}, slotOk = 0, slotSeen = 0;
+    Object.keys(slots).forEach(function (k) {
+      slotSeen++;
+      if (slots[k].n >= 4 && slots[k].ok / slots[k].n >= 0.8) slotOk++;
+    });
+
+    var dlg = t.dlg || {}, dlgOk = 0;
+    Object.keys(dlg).forEach(function (k) { if (dlg[k].ok === dlg[k].n) dlgOk++; });
+    var line = t.line || { ok: 0, n: 0 };
+
+    var cards = f.cards || {}, mastered = 0, touched = {};
+    Object.keys(cards).forEach(function (k) {
+      touched[k.split(':')[1]] = 1;
+      if (cards[k].box >= 4) mastered++;
+    });
+
+    return [
+      { k: 'quiz', label: '오늘의 10문제', now: days, goal: 15, unit: '일차',
+        extra: dayOk + '일차 8점 이상', link: '/docs/study/daily-quiz/' },
+      { k: 'flash', label: '약물 플래시카드', now: mastered, goal: 90, unit: '장',
+        extra: Object.keys(touched).length + '종 학습 시작', link: '/docs/study/flashcards/' },
+      { k: 'sig', label: '처방 조립 플레이', now: slotOk, goal: 6, unit: '항목',
+        extra: slotSeen ? slotSeen + '개 항목 연습함' : '아직 시작 전', link: '/docs/study/sig-play/' },
+      { k: 'talk', label: '회화 문장 플레이', now: dlgOk, goal: 6, unit: '상황',
+        extra: '문장 ' + line.ok + ' / ' + line.n + ' 정답', link: '/docs/study/talk-play/' }
+    ];
+  }
+
+  function draw() {
+    var st = get(KEY); st.read = st.read || {};
+    var readCount = 0;
+    PAGES.forEach(function (p) { if (st.read[p.u]) readCount++; });
+
+    var pr = practice();
+    var prDone = pr.filter(function (x) { return x.now >= x.goal; }).length;
+    var total = PAGES.length + pr.length;
+    var done = readCount + prDone;
+    var pct = Math.round(done / total * 100);
+
+    var html = '';
+    html += '<div class="ptp-head">'
+      + '<div class="ptp-pct">' + pct + '%</div>'
+      + '<div class="ptp-sum"><b>' + done + ' / ' + total + '</b> 완료'
+      + '<small>문서 ' + readCount + '/' + PAGES.length + ' · 연습 ' + prDone + '/' + pr.length + '</small></div>'
+      + '</div>';
+    html += '<div class="ptp-bar"><i style="width:' + pct + '%"></i></div>';
+
+    html += '<div class="ptp-t">읽을 문서</div><ul class="ptp-list">';
+    PAGES.forEach(function (p) {
+      var d = st.read[p.u];
+      html += '<li class="ptp-row' + (d ? ' on' : '') + '">'
+        + '<button class="ptp-box" data-u="' + esc(p.u) + '" aria-label="완료 표시">' + (d ? '✓' : '') + '</button>'
+        + '<a href="' + esc(p.u) + '">' + esc(p.t) + '</a>'
+        + '<span class="ptp-when">' + (d || '') + '</span></li>';
+    });
+    html += '</ul>';
+
+    html += '<div class="ptp-t">연습 도구</div><ul class="ptp-list">';
+    pr.forEach(function (x) {
+      var p2 = Math.min(100, Math.round(x.now / x.goal * 100));
+      html += '<li class="ptp-row prac' + (x.now >= x.goal ? ' on' : '') + '">'
+        + '<span class="ptp-box auto">' + (x.now >= x.goal ? '✓' : '') + '</span>'
+        + '<a href="' + x.link + '">' + esc(x.label) + '</a>'
+        + '<span class="ptp-mini"><i style="width:' + p2 + '%"></i></span>'
+        + '<span class="ptp-when">' + x.now + ' / ' + x.goal + ' ' + x.unit + '</span>'
+        + '<small class="ptp-extra">' + esc(x.extra) + '</small></li>';
+    });
+    html += '</ul>';
+
+    html += '<div class="ptp-foot">'
+      + '<button class="ptp-btn ghost" id="ptp-reset">읽음 표시 전체 해제</button>'
+      + '<span class="ptp-hint">연습 도구 진행률은 각 페이지에서 자동으로 반영됩니다. 기록은 이 브라우저에만 저장됩니다.</span>'
+      + '</div>';
+
+    root.innerHTML = html;
+
+    Array.prototype.forEach.call(root.querySelectorAll('[data-u]'), function (b) {
+      b.onclick = function () {
+        var s = get(KEY); s.read = s.read || {};
+        if (s.read[b.dataset.u]) delete s.read[b.dataset.u];
+        else s.read[b.dataset.u] = new Date().toISOString().slice(0, 10);
+        set(KEY, s); draw();
+      };
+    });
+    document.getElementById('ptp-reset').onclick = function () {
+      if (!confirm('문서 읽음 표시를 모두 지웁니다. 연습 기록은 그대로 둡니다. 계속할까요?')) return;
+      var s = get(KEY); s.read = {}; set(KEY, s); draw();
+    };
+  }
+
+  draw();
+})();
+</script>

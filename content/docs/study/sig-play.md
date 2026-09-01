@@ -46,3 +46,5 @@ weight: 5
   {{< card link="../patient-phrases/" title="환자 응대 문장" subtitle="읽었으면 이제 말하기" >}}
   {{< card link="../abbreviations/" title="처방 약어 전체" subtitle="약어 목록" >}}
 {{< /cards >}}
+
+{{< pagedone >}}

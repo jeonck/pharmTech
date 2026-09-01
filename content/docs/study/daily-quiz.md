@@ -56,3 +56,5 @@ weight: 14
   {{< card link="../medications/" title="약물" >}}
   {{< card link="../federal-law/" title="연방 법규" >}}
 {{< /cards >}}
+
+{{< pagedone >}}

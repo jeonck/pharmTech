@@ -93,3 +93,5 @@ weight: 12
 - [PTCE Content Outline (Effective January 2026) — PTCB](https://ptcb.org/wp-content/uploads/2025/07/PTCE-Content-Outline.pdf)
 - [Drug Supply Chain Security Act — FDA](https://www.fda.gov/drugs/drug-supply-chain-integrity/drug-supply-chain-security-act-dscsa)
 - [Recalls, Market Withdrawals, & Safety Alerts — FDA](https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts)
+
+{{< pagedone >}}

@@ -176,3 +176,5 @@ ACE 억제제. **마른기침**이 특징적이며, 기침 때문에 losartan �
   {{< card link="../safety-qa/" title="환자 안전" >}}
   {{< card link="../calculations/" title="계산" >}}
 {{< /cards >}}
+
+{{< pagedone >}}
