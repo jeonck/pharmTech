@@ -33,7 +33,7 @@ weight: 2
 
 ## 3단계 — PTCE 준비
 
-- [ ] PTCE 출제 범위 PDF 정독 (2026 개정판)
+- [ ] [PTCE 출제 범위 PDF](https://ptcb.org/wp-content/uploads/2025/07/PTCE-Content-Outline.pdf) 정독 (2026 개정판)
 - [ ] 2026 범위를 반영한 교재·문제은행 확보
 - [ ] 8주 학습 계획 시작
 - [ ] Top 약물 암기 (하루 10개)

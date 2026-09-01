@@ -43,6 +43,70 @@ window.PTQuizGen = (function () {
 
   /* ── Day 3 : 단위 환산 · 농도 · 비례 ───────────────────────────── */
   var D3 = {
+    kg2lb: function () {
+      var kg = pick([5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80]);
+      var lb = kg * 2.2;
+      return mk('kg2lb',
+        '체중이 ' + kg + ' kg인 환자는 몇 lb인가?',
+        lb, [kg / 2.2, kg * 2, kg / 2],
+        kg + ' × 2.2 = ' + n(lb) + ' lb. kg에서 lb로 갈 때는 곱하고, 반대로는 나눕니다.', ' lb');
+    },
+    volConv: function () {
+      var ml = pick([60, 90, 120, 240, 480]);
+      var oz = ml / 30;
+      return mk('volConv',
+        n(ml, 0) + ' mL는 몇 fl oz인가? (1 fl oz ≈ 30 mL)',
+        oz, [ml / 15, ml / 5, ml * 30],
+        n(ml, 0) + ' ÷ 30 = ' + n(oz) + ' fl oz입니다. 1 pint = 480 mL, 1 quart = 960 mL로 함께 외우세요.', ' fl oz');
+    },
+    gr2mg: function () {
+      var gr = pick([1, 2, 3, 5, 10]);
+      return mk('gr2mg',
+        gr + ' grain(gr)은 몇 mg인가? (1 gr = 65 mg)',
+        gr * 65, [gr * 60, gr * 6.5, gr * 650],
+        gr + ' × 65 = ' + n(gr * 65) + ' mg. 아스피린 5 gr = 325 mg으로 연결해 외우면 편합니다.', ' mg');
+    },
+    gToMg: function () {
+      var g = pick([0.125, 0.25, 0.5, 1.5, 2, 2.5]);
+      return mk('gToMg',
+        n(g, 3) + ' g은 몇 mg인가?',
+        g * 1000, [g * 100, g * 10000, g / 1000],
+        '1 g = 1,000 mg이므로 ' + n(g, 3) + ' × 1,000 = ' + n(g * 1000) + ' mg입니다.', ' mg');
+    },
+    concToPercent: function () {
+      var mgml = pick([5, 10, 20, 25, 50, 100]);
+      return mk('concToPercent',
+        mgml + ' mg/mL 용액은 몇 %(w/v)인가?',
+        mgml / 10, [mgml * 10, mgml / 100, mgml],
+        mgml + ' mg/mL = ' + n(mgml / 10) + ' g/100 mL = ' + n(mgml / 10) + '%입니다. mg/mL를 10으로 나누면 %가 됩니다.', '%');
+    },
+    percentToMg: function () {
+      var p2 = pick([0.5, 1, 2, 4]);
+      var ml = pick([2, 5, 10, 20]);
+      var mg = p2 * 10 * ml;
+      return mk('percentToMg',
+        p2 + '% 리도카인 ' + ml + ' mL 앰플에 들어 있는 리도카인은 몇 mg인가?',
+        mg, [mg / 10, mg * 10, p2 * ml],
+        p2 + '% = ' + n(p2 * 10) + ' mg/mL이므로 ' + n(p2 * 10) + ' × ' + ml + ' = ' + n(mg) + ' mg입니다.', ' mg');
+    },
+    creamActive: function () {
+      var p2 = pick([0.5, 1, 2, 2.5, 5]);
+      var g = pick([15, 30, 45, 60, 120]);
+      var act = p2 / 100 * g;
+      return mk('creamActive',
+        p2 + '% 연고 ' + g + ' g에 들어 있는 주성분은 몇 g인가?',
+        act, [act * 10, act / 10, p2 * g],
+        p2 + ' ÷ 100 × ' + g + ' = ' + n(act) + ' g. % w/w는 100 g 중 g 수입니다.', ' g');
+    },
+    markup: function () {
+      var cost = pick([20, 25, 40, 50, 80, 100]);
+      var rate = pick([20, 25, 30, 40, 50]);
+      var sell = cost * (1 + rate / 100);
+      return mk('markup',
+        '원가 $' + cost + '인 약을 $' + n(sell, 2) + '에 판매한다. 마크업률은 몇 %인가?',
+        rate, [(sell - cost) / sell * 100, sell / cost * 100, rate * 2],
+        '마크업 = $' + n(sell - cost) + ', 마크업률 = 마크업 ÷ 원가 × 100 = ' + n(rate) + '%입니다. (이익률은 판매가로 나눕니다)', '%');
+    },
     lb2kg: function () {
       var kg = pick([10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80]);
       var lb = Math.round(kg * 2.2 * 10) / 10;
@@ -141,6 +205,80 @@ window.PTQuizGen = (function () {
 
   /* ── Day 4 : day supply · 체중 · IV ────────────────────────────── */
   var D4 = {
+    inhaler: function () {
+      var puffsTotal = pick([120, 200, 200, 60]);
+      var perUse = pick([1, 2]);
+      var freq = pick([2, 3, 4]);
+      var days = Math.floor(puffsTotal / (perUse * freq));
+      return mk('inhaler',
+        '흡입기 1개에 ' + puffsTotal + ' puffs가 들어 있다. 1회 ' + perUse + ' puff' + (perUse > 1 ? 's' : '') + '를 1일 ' + freq + '회 사용하면 day supply는?',
+        days, [Math.floor(puffsTotal / freq), Math.floor(puffsTotal / perUse), days * 2],
+        '하루 사용 = ' + perUse + ' × ' + freq + ' = ' + (perUse * freq) + ' puffs. ' + puffsTotal + ' ÷ ' + (perUse * freq) + ' = ' + days + '일분입니다.', '일');
+    },
+    insulinPen: function () {
+      var pens = pick([3, 5]);
+      var units = pick([15, 20, 25, 30, 50, 60]);
+      var total = pens * 3 * 100;
+      var days = Math.floor(total / units);
+      return mk('insulinPen',
+        '인슐린 펜 3 mL짜리 ' + pens + '개(100 units/mL)를 하루 ' + units + ' units 사용한다. day supply는?',
+        days, [Math.floor(total / (units * pens)), Math.floor(3 * 100 / units), days * 2],
+        '총 ' + n(total, 0) + ' units(3 mL × 100 × ' + pens + '개) ÷ ' + units + ' = ' + days + '일분입니다.', '일');
+    },
+    refillDay: function () {
+      var combo = pick([[30, 80], [60, 75], [90, 80], [30, 90], [60, 80], [30, 70], [60, 90], [90, 70]]);
+      var days = combo[0], pct = combo[1];
+      var d2 = days * pct / 100;
+      return mk('refillDay',
+        days + '일분으로 조제된 약을 보험이 ' + pct + '% 소진 시점부터 재조제해 준다. 조제일로부터 며칠 뒤부터 가능한가?',
+        d2, [days - d2, days * pct / 1000, d2 / 2],
+        days + ' × ' + (pct / 100).toFixed(2) + ' = ' + n(d2) + '일. 이보다 이르면 Refill Too Soon으로 거절됩니다.', '일');
+    },
+    reconstitute: function () {
+      var conc = pick([125, 200, 250, 500]);
+      var mult = pick([1, 1.5, 2, 3]);
+      var dose = conc * mult;
+      return mk('reconstitute',
+        '바이알을 재구성해 ' + conc + ' mg/mL 농도가 되었다. ' + n(dose, 0) + ' mg을 투여하려면 몇 mL를 뽑아야 하는가?',
+        dose / conc, [conc / dose, dose / conc * 10, dose / (conc * 2)],
+        n(dose, 0) + ' ÷ ' + conc + ' = ' + n(dose / conc) + ' mL입니다.', ' mL');
+    },
+    mEq: function () {
+      var per = pick([2, 4]);
+      var need = pick([10, 20, 30, 40, 60]);
+      return mk('mEq',
+        'KCl ' + per + ' mEq/mL 용액으로 ' + need + ' mEq를 준비하려면 몇 mL가 필요한가?',
+        need / per, [need * per, per / need * 100, need / (per * 2)],
+        need + ' ÷ ' + per + ' = ' + n(need / per) + ' mL. 농축 KCl은 high-alert 약물이라 이중 확인 대상입니다.', ' mL');
+    },
+    unitsVol: function () {
+      var per = pick([1000, 5000, 10000]);
+      var need = pick([0.25, 0.5, 1, 1.5, 2]).valueOf() * per;
+      return mk('unitsVol',
+        'heparin ' + n(per, 0) + ' units/mL 바이알에서 ' + n(need, 0) + ' units를 뽑으려면 몇 mL인가?',
+        need / per, [per / need, need / per * 10, need / (per * 2)],
+        n(need, 0) + ' ÷ ' + n(per, 0) + ' = ' + n(need / per) + ' mL. heparin은 high-alert 약물입니다.', ' mL');
+    },
+    totalTabs: function () {
+      var perDose = pick([1, 2]);
+      var freq = pick([1, 2, 3]);
+      var days = pick([30, 60, 90]);
+      return mk('totalTabs',
+        '1회 ' + perDose + '정씩 1일 ' + freq + '회, ' + days + '일분을 조제하려면 총 몇 정이 필요한가?',
+        perDose * freq * days, [perDose * days, freq * days, perDose * freq * days / 2],
+        '1일 ' + (perDose * freq) + '정 × ' + days + '일 = ' + n(perDose * freq * days) + '정입니다.', '정');
+    },
+    ivRemaining: function () {
+      var rate = pick([50, 75, 100, 125]);
+      var hrLeft = pick([2, 3, 4, 6]);
+      var left = rate * hrLeft;
+      var bag = pick([500, 1000]);
+      if (left >= bag) bag = 1000;
+      return mk('ivRemaining',
+        n(bag, 0) + ' mL 백을 ' + rate + ' mL/hr로 투여 중이고 현재 ' + n(left, 0) + ' mL가 남아 있다. 몇 시간 뒤에 끝나는가?',
+        hrLeft, [bag / rate, left / (rate * 2), hrLeft * 2],
+        '남은 부피 ÷ 유속 = ' + n(left, 0) + ' ÷ ' + rate + ' = ' + hrLeft + '시간입니다.', '시간');
+    },
     dsLiquid: function () {
       var each = pick([2.5, 5, 10]);
       var freq = pick([2, 3, 4]);
@@ -268,7 +406,7 @@ window.PTQuizGen = (function () {
     forDay: function (d) {
       var g = BY_DAY[d];
       if (!g) return null;
-      return shuffle(Object.keys(g)).map(function (k) { return g[k](); });
+      return shuffle(Object.keys(g)).slice(0, 10).map(function (k) { return g[k](); });
     },
     // 오답 목록의 "gen:<이름>"을 같은 유형의 새 문제로 되살린다
     byName: function (name) {

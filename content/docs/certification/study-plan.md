@@ -19,7 +19,7 @@ weight: 4
 ## 주차별 계획
 
 ### 1주차 — 지형 파악과 약물 시작
-- PTCE 출제 범위 원문 1회 정독
+- [PTCE 출제 범위 원문(PDF)](https://ptcb.org/wp-content/uploads/2025/07/PTCE-Content-Outline.pdf) 1회 정독
 - [Top 200 약물](../../study/top-drugs/) 1~40번: 브랜드–제네릭 짝 맞추기
 - 진단 모의고사 1회(공부 전 점수 기록 — 나중에 비교용)
 
@@ -70,7 +70,7 @@ weight: 4
 
 ## 무료·저비용 학습 자료
 
-- **PTCB 공식 출제 범위 PDF** — 가장 먼저 봐야 할 문서. 무료
+- **[PTCB 공식 출제 범위 PDF](https://ptcb.org/wp-content/uploads/2025/07/PTCE-Content-Outline.pdf)** — 가장 먼저 봐야 할 문서. 무료
 - **Quizlet / Anki** — Top 200 약물 덱. Anki는 간격 반복이라 장기 암기에 유리
 - **FreeCE, Power-Pak C.E.** — 무료 CE 강의. 법규 정리에 유용
 - **유튜브** — "PTCB exam review", "pharmacy calculations" 채널. 계산은 영상이 이해가 빠름
