@@ -144,3 +144,40 @@
 .ptdone-btn { padding: .4rem .9rem; border-radius: .35rem; border: 1px solid var(--pp-acc); background: transparent; color: var(--pp-acc); font-size: .85rem; font-weight: 600; cursor: pointer; }
 .ptdone.on .ptdone-btn { border-color: var(--pp-ok); color: var(--pp-ok); }
 .ptdone-note { font-size: .75rem; color: var(--pp-mut); }
+
+/* ── 체크리스트 저장 ───────────────────────────────────────── */
+.ptc {
+  --pc-bd:#e2e6ee; --pc-bg:#fff; --pc-mut:#6b7280; --pc-acc:#1b4fd8;
+  --pc-ok:#0f7b4f; --pc-soft:#f6f8fc;
+  margin: 1rem 0 1.6rem; border: 1px solid var(--pc-bd); border-radius: .6rem;
+  background: var(--pc-bg); padding: 1rem 1.2rem;
+}
+:is(.dark) .ptc {
+  --pc-bd:#333940; --pc-bg:#1b1f24; --pc-mut:#9aa3af; --pc-acc:#7aa2ff;
+  --pc-ok:#4ade80; --pc-soft:#22272e;
+}
+.ptc-head { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.ptc-pct { font-size: 2rem; font-weight: 800; color: var(--pc-acc); line-height: 1; }
+.ptc-sum { flex: 1 1 12rem; font-size: .95rem; }
+.ptc-sum small { display: block; color: var(--pc-mut); font-size: .75rem; margin-top: .2rem; }
+.ptc-btn { padding: .35rem .8rem; border-radius: .35rem; border: 1px solid var(--pc-acc); background: transparent; color: var(--pc-acc); font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+.ptc-bar { height: 8px; border-radius: 4px; background: var(--pc-soft); overflow: hidden; margin-top: .8rem; }
+.ptc-bar i { display: block; height: 100%; background: var(--pc-acc); transition: width .3s; }
+
+/* 체크 가능한 항목 */
+.content li.ptc-item { cursor: pointer; border-radius: .3rem; padding: .1rem .3rem; margin-left: -.3rem; }
+.content li.ptc-item:hover { background: var(--pc-soft, #f6f8fc); }
+.content li.ptc-item input[type="checkbox"] { cursor: pointer; }
+.content li.ptc-on { color: #6b7280; text-decoration-color: #9ca3af; }
+.content li.ptc-on > input[type="checkbox"] + * { opacity: .75; }
+:is(.dark) .content li.ptc-on { color: #7d858f; }
+
+/* 단계별 카운터 */
+.content h2 .ptc-count {
+  margin-left: .6rem; font-size: .72rem; font-weight: 600; color: #6b7280;
+  border: 1px solid #e2e6ee; border-radius: 1rem; padding: .1rem .5rem;
+  vertical-align: middle; white-space: nowrap;
+}
+:is(.dark) .content h2 .ptc-count { color: #9aa3af; border-color: #333940; }
+.content h2 .ptc-count.done { color: #0f7b4f; border-color: #0f7b4f; }
+:is(.dark) .content h2 .ptc-count.done { color: #4ade80; border-color: #4ade80; }
