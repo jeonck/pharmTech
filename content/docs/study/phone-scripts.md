@@ -178,6 +178,7 @@ weight: 6
 ## 다음
 
 {{< cards >}}
+  {{< card link="../talk-play/" title="회화 문장 플레이" subtitle="롤플레이로 통화 연습" >}}
   {{< card link="../patient-phrases/" title="환자 응대 문장" subtitle="카운터에서 쓰는 문장" >}}
   {{< card link="../order-entry/" title="처방 입력·처리" subtitle="보험 거절 코드의 의미" >}}
   {{< card link="../reading/" title="처방 읽는 법" subtitle="숫자·철자 읽기 규칙" >}}

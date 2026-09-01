@@ -132,6 +132,7 @@ weight: 5
 ## 다음
 
 {{< cards >}}
+  {{< card link="../talk-play/" title="회화 문장 플레이" subtitle="여기 문장을 직접 골라 보기" >}}
   {{< card link="../phone-scripts/" title="전화 응대 스크립트" subtitle="카운터 다음으로 어려운 곳" >}}
   {{< card link="../sig-play/" title="처방 조립 플레이" subtitle="읽기 연습" >}}
   {{< card link="../../jobs/interview/" title="면접 준비" subtitle="여기 문장이 면접 답변이 됩니다" >}}

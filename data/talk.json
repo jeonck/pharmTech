@@ -1,0 +1,1180 @@
+{
+ "lines": [
+  {
+   "id": 1,
+   "tag": "픽업",
+   "sit": "환자가 카운터에 왔을 때 첫 인사",
+   "en": "Hi, how can I help you today?",
+   "note": ""
+  },
+  {
+   "id": 2,
+   "tag": "픽업",
+   "sit": "픽업하러 온 것인지 확인",
+   "en": "Are you picking up a prescription?",
+   "note": ""
+  },
+  {
+   "id": 3,
+   "tag": "픽업",
+   "sit": "성(last name)을 묻기",
+   "en": "Can I get your last name, please?",
+   "note": ""
+  },
+  {
+   "id": 4,
+   "tag": "픽업",
+   "sit": "생년월일 확인",
+   "en": "And your date of birth?",
+   "note": "동명이인 사고를 막는 핵심 절차입니다. 'Is this John Smith?'처럼 닫힌 질문으로 묻지 않습니다."
+  },
+  {
+   "id": 5,
+   "tag": "픽업",
+   "sit": "동명이인이 있어 주소로 한 번 더 확인",
+   "en": "Can you verify your address for me?",
+   "note": ""
+  },
+  {
+   "id": 6,
+   "tag": "픽업",
+   "sit": "잠시 기다려 달라고 할 때",
+   "en": "Let me check on that for you. One moment, please.",
+   "note": ""
+  },
+  {
+   "id": 7,
+   "tag": "픽업",
+   "sit": "지금 조회해 보겠다고 말할 때",
+   "en": "I'll look that up right now.",
+   "note": ""
+  },
+  {
+   "id": 8,
+   "tag": "픽업",
+   "sit": "대신 받으러 온 사람인지 확인",
+   "en": "Are you picking up for someone else?",
+   "note": ""
+  },
+  {
+   "id": 9,
+   "tag": "준비",
+   "sit": "준비가 끝났고 금액을 안내",
+   "en": "Yes, it's ready. It'll be $12.40 today.",
+   "note": ""
+  },
+  {
+   "id": 10,
+   "tag": "준비",
+   "sit": "아직 조제 중이라 15분 걸린다고 안내",
+   "en": "It's still being filled. It'll be about fifteen minutes.",
+   "note": ""
+  },
+  {
+   "id": 11,
+   "tag": "준비",
+   "sit": "오늘 많이 밀려서 다섯 시쯤 된다고 안내",
+   "en": "We're a little backed up today — it should be ready by five.",
+   "note": ""
+  },
+  {
+   "id": 12,
+   "tag": "준비",
+   "sit": "기다릴지 나중에 올지 묻기",
+   "en": "Would you like to wait, or come back later?",
+   "note": ""
+  },
+  {
+   "id": 13,
+   "tag": "준비",
+   "sit": "준비되면 문자로 알려 준다고 안내",
+   "en": "We'll send you a text when it's ready.",
+   "note": ""
+  },
+  {
+   "id": 14,
+   "tag": "준비",
+   "sit": "세 건 중 두 건만 준비됨",
+   "en": "Two of the three are ready. The last one is still processing.",
+   "note": ""
+  },
+  {
+   "id": 15,
+   "tag": "재고",
+   "sit": "그 약이 지금 품절이라고 안내",
+   "en": "We're out of stock on that one right now.",
+   "note": ""
+  },
+  {
+   "id": 16,
+   "tag": "재고",
+   "sit": "내일 오후에 입고 예정이라고 안내",
+   "en": "We should have it tomorrow afternoon.",
+   "note": ""
+  },
+  {
+   "id": 17,
+   "tag": "재고",
+   "sit": "오늘은 일부만 주고 나머지는 나중에",
+   "en": "I can give you a partial fill today, and the rest when it comes in.",
+   "note": ""
+  },
+  {
+   "id": 18,
+   "tag": "재고",
+   "sit": "다른 지점에 재고가 있어 이관을 제안",
+   "en": "Our other location has it in stock. Would you like me to transfer it?",
+   "note": ""
+  },
+  {
+   "id": 19,
+   "tag": "재고",
+   "sit": "대체약은 약사가 의사와 통화해야 한다고 안내",
+   "en": "The pharmacist will need to call your doctor about a substitute.",
+   "note": ""
+  },
+  {
+   "id": 20,
+   "tag": "보험",
+   "sit": "보험상 재조제가 아직 이르다고 안내",
+   "en": "Your insurance says it's too soon to refill. It'll go through on the 14th.",
+   "note": ""
+  },
+  {
+   "id": 21,
+   "tag": "보험",
+   "sit": "사전 승인이 필요해 의사에게 요청을 보냈다고 안내",
+   "en": "Your insurance needs a prior authorization. We've sent the request to your doctor's office.",
+   "note": ""
+  },
+  {
+   "id": 22,
+   "tag": "보험",
+   "sit": "사전 승인에 며칠 걸린다고 안내",
+   "en": "That usually takes a few business days.",
+   "note": ""
+  },
+  {
+   "id": 23,
+   "tag": "보험",
+   "sit": "보험이 이 약을 커버하지 않는다고 안내",
+   "en": "Your plan doesn't cover this one. Without insurance it would be $85.",
+   "note": ""
+  },
+  {
+   "id": 24,
+   "tag": "보험",
+   "sit": "보험 정보가 바뀐 것 같다고 확인",
+   "en": "It looks like your insurance information has changed. Do you have a new card?",
+   "note": ""
+  },
+  {
+   "id": 25,
+   "tag": "보험",
+   "sit": "보험이 30일분까지만 커버한다고 안내",
+   "en": "Your plan only covers thirty days at a time.",
+   "note": ""
+  },
+  {
+   "id": 26,
+   "tag": "보험",
+   "sit": "기다리기 싫으면 현금가로 살 수 있다고 안내",
+   "en": "You can pay the cash price today if you don't want to wait.",
+   "note": ""
+  },
+  {
+   "id": 27,
+   "tag": "보험",
+   "sit": "여행 때문이면 override를 요청할 수 있다고 안내",
+   "en": "If you're traveling, we can ask your insurance for a vacation override.",
+   "note": ""
+  },
+  {
+   "id": 28,
+   "tag": "리필",
+   "sit": "리필이 두 번 남았다고 안내",
+   "en": "You have two refills left on that.",
+   "note": ""
+  },
+  {
+   "id": 29,
+   "tag": "리필",
+   "sit": "마지막 리필이라 의사에게 요청을 보낸다고 안내",
+   "en": "That was your last refill. We'll send a request to your doctor.",
+   "note": ""
+  },
+  {
+   "id": 30,
+   "tag": "리필",
+   "sit": "오늘 아침에 요청을 팩스로 보냈다고 안내",
+   "en": "We faxed the refill request this morning.",
+   "note": ""
+  },
+  {
+   "id": 31,
+   "tag": "리필",
+   "sit": "처방이 만료되어 새 처방이 필요하다고 안내",
+   "en": "This prescription expired. Your doctor will need to send a new one.",
+   "note": ""
+  },
+  {
+   "id": 32,
+   "tag": "리필",
+   "sit": "규제약물이라 리필 요청이 안 된다고 안내",
+   "en": "For this medication, we can't request refills — your doctor has to send a new prescription each time.",
+   "note": "CII는 리필이 불가능합니다. 이 문장은 그 규칙을 환자에게 설명하는 표현입니다."
+  },
+  {
+   "id": 33,
+   "tag": "리필",
+   "sit": "자동 리필 등록을 권유",
+   "en": "Would you like to sign up for automatic refills?",
+   "note": ""
+  },
+  {
+   "id": 34,
+   "tag": "약사연결",
+   "sit": "신규 처방이라 약사 상담이 필요하다고 안내",
+   "en": "This is a new medication for you, so the pharmacist will go over it with you.",
+   "note": "OBRA '90에 따른 상담 제공. 신규·변경 처방은 반드시 약사에게 연결합니다."
+  },
+  {
+   "id": 35,
+   "tag": "약사연결",
+   "sit": "약에 관한 질문을 받았을 때",
+   "en": "That's a good question for the pharmacist. Let me get them for you.",
+   "note": "테크니션은 임상 질문에 답하지 않습니다."
+  },
+  {
+   "id": 36,
+   "tag": "약사연결",
+   "sit": "일반약을 추천해 달라고 할 때",
+   "en": "I'm not able to recommend one, but the pharmacist can help you pick.",
+   "note": "약 추천은 업무 범위 밖입니다. 시험과 면접의 단골 함정 질문입니다."
+  },
+  {
+   "id": 37,
+   "tag": "약사연결",
+   "sit": "부작용을 호소할 때",
+   "en": "I want the pharmacist to hear that. Can you hold on one second?",
+   "note": ""
+  },
+  {
+   "id": 38,
+   "tag": "약사연결",
+   "sit": "복용법을 물을 때",
+   "en": "Let me have the pharmacist explain that so you get the right information.",
+   "note": ""
+  },
+  {
+   "id": 39,
+   "tag": "약사연결",
+   "sit": "다른 약과 같이 먹어도 되는지 물을 때",
+   "en": "The pharmacist will check that for you.",
+   "note": ""
+  },
+  {
+   "id": 40,
+   "tag": "결제",
+   "sit": "총 금액 안내",
+   "en": "Your total is $24.60.",
+   "note": ""
+  },
+  {
+   "id": 41,
+   "tag": "결제",
+   "sit": "결제 수단 확인",
+   "en": "Will that be cash or card?",
+   "note": ""
+  },
+  {
+   "id": 42,
+   "tag": "결제",
+   "sit": "픽업 확인 서명 요청",
+   "en": "Can you sign here, please? This confirms you picked it up.",
+   "note": ""
+  },
+  {
+   "id": 43,
+   "tag": "결제",
+   "sit": "상담 제공 확인 서명 안내",
+   "en": "And this one confirms you were offered counseling.",
+   "note": ""
+  },
+  {
+   "id": 44,
+   "tag": "결제",
+   "sit": "마무리 인사",
+   "en": "You're all set. Have a good day.",
+   "note": ""
+  },
+  {
+   "id": 45,
+   "tag": "결제",
+   "sit": "더 필요한 것이 있는지 확인",
+   "en": "Is there anything else I can help you with?",
+   "note": ""
+  },
+  {
+   "id": 46,
+   "tag": "난감",
+   "sit": "오래 기다린 환자에게",
+   "en": "I'm sorry about the wait. Let me see what I can do.",
+   "note": ""
+  },
+  {
+   "id": 47,
+   "tag": "난감",
+   "sit": "화가 난 환자에게",
+   "en": "I understand this is frustrating. Let me get the pharmacist so we can sort it out.",
+   "note": ""
+  },
+  {
+   "id": 48,
+   "tag": "난감",
+   "sit": "못 알아들었을 때",
+   "en": "I'm sorry, could you say that again?",
+   "note": ""
+  },
+  {
+   "id": 49,
+   "tag": "난감",
+   "sit": "이름 철자를 물을 때",
+   "en": "Could you spell that for me?",
+   "note": ""
+  },
+  {
+   "id": 50,
+   "tag": "난감",
+   "sit": "확실하지 않아 한 번 더 확인하겠다고 할 때",
+   "en": "I want to make sure I get this right — let me double-check.",
+   "note": ""
+  },
+  {
+   "id": 51,
+   "tag": "난감",
+   "sit": "타인의 처방 정보를 물을 때 거절",
+   "en": "I can't discuss someone else's prescription without their permission.",
+   "note": "HIPAA. 본인 확인 없이 정보를 주면 개인에게도 책임이 따릅니다."
+  },
+  {
+   "id": 52,
+   "tag": "난감",
+   "sit": "모를 때 — 그냥 모른다고 하지 않기",
+   "en": "I'm not sure, but let me find out for you.",
+   "note": ""
+  },
+  {
+   "id": 53,
+   "tag": "전화",
+   "sit": "전화를 받으며 약국 이름과 본인 소개",
+   "en": "Thank you for calling, this is Jane speaking. How can I help you?",
+   "note": ""
+  },
+  {
+   "id": 54,
+   "tag": "전화",
+   "sit": "잠시 대기를 요청",
+   "en": "Can you hold for just a moment, please?",
+   "note": ""
+  },
+  {
+   "id": 55,
+   "tag": "전화",
+   "sit": "대기 후 돌아왔을 때",
+   "en": "Thank you for holding.",
+   "note": ""
+  },
+  {
+   "id": 56,
+   "tag": "전화",
+   "sit": "시간이 걸려 다시 걸겠다고 할 때",
+   "en": "This is going to take a few minutes. Can I call you back?",
+   "note": ""
+  },
+  {
+   "id": 57,
+   "tag": "전화",
+   "sit": "연락받을 번호 확인",
+   "en": "What's the best number to reach you?",
+   "note": ""
+  },
+  {
+   "id": 58,
+   "tag": "전화",
+   "sit": "소리가 잘 안 들릴 때",
+   "en": "I'm having a hard time hearing you — could you speak up a little?",
+   "note": ""
+  },
+  {
+   "id": 59,
+   "tag": "전화",
+   "sit": "전화로 본인 확인 시작",
+   "en": "Before we go any further, can I get the patient's full name and date of birth?",
+   "note": ""
+  },
+  {
+   "id": 60,
+   "tag": "전화",
+   "sit": "환자 본인이 아닌 사람에게 정보 제공 거절",
+   "en": "I'm not able to share that information without the patient's permission.",
+   "note": ""
+  },
+  {
+   "id": 61,
+   "tag": "전화",
+   "sit": "정보가 기록과 맞지 않을 때",
+   "en": "That doesn't match what we have on file. Can you double-check the date of birth?",
+   "note": ""
+  },
+  {
+   "id": 62,
+   "tag": "전화",
+   "sit": "어떤 약인지 확인",
+   "en": "Which medication is it?",
+   "note": ""
+  },
+  {
+   "id": 63,
+   "tag": "전화",
+   "sit": "약 이름을 모르는 환자에게",
+   "en": "Do you know what it's for? Blood pressure, cholesterol?",
+   "note": ""
+  },
+  {
+   "id": 64,
+   "tag": "전화",
+   "sit": "전부 리필할지 확인",
+   "en": "Would you like me to refill all of them?",
+   "note": ""
+  },
+  {
+   "id": 65,
+   "tag": "전화",
+   "sit": "오늘 세 시까지 준비된다고 안내",
+   "en": "I can have it ready by three o'clock today.",
+   "note": ""
+  },
+  {
+   "id": 66,
+   "tag": "처방자",
+   "sit": "처방자 사무실에 전화해 소속과 용건을 밝힘",
+   "en": "Hi, this is Jane calling from Main Street Pharmacy about a refill request.",
+   "note": ""
+  },
+  {
+   "id": 67,
+   "tag": "처방자",
+   "sit": "담당자 연결 요청",
+   "en": "Could I speak with someone about a refill request?",
+   "note": ""
+  },
+  {
+   "id": 68,
+   "tag": "처방자",
+   "sit": "환자와 약을 특정해서 전달",
+   "en": "The patient is Maria Garcia, date of birth March 14th, 1968, and the medication is metformin 500 milligrams.",
+   "note": ""
+  },
+  {
+   "id": 69,
+   "tag": "처방자",
+   "sit": "마지막 조제일과 리필 소진을 알림",
+   "en": "Her last fill was on August 2nd and she's out of refills.",
+   "note": ""
+  },
+  {
+   "id": 70,
+   "tag": "처방자",
+   "sit": "승인을 요청하고 팩스 번호를 남김",
+   "en": "Could you have the doctor authorize a refill? Our fax number is 713-555-0198.",
+   "note": ""
+  },
+  {
+   "id": 71,
+   "tag": "처방자",
+   "sit": "월요일에 보낸 요청에 회신이 없어 재촉",
+   "en": "We sent a request on Monday and haven't heard back. The patient is out of medication.",
+   "note": ""
+  },
+  {
+   "id": 72,
+   "tag": "처방자",
+   "sit": "처방 지시 내용을 확인하려고 할 때",
+   "en": "We received a prescription and just want to verify the directions.",
+   "note": ""
+  },
+  {
+   "id": 73,
+   "tag": "보험사",
+   "sit": "보험사에 약국임을 밝히고 거절 건을 문의",
+   "en": "I'm calling from Main Street Pharmacy. I have a rejection on a claim and need some help.",
+   "note": ""
+  },
+  {
+   "id": 74,
+   "tag": "보험사",
+   "sit": "거절 사유를 물을 때",
+   "en": "Can you tell me why this claim is rejecting?",
+   "note": ""
+  },
+  {
+   "id": 75,
+   "tag": "보험사",
+   "sit": "override가 가능한지 물을 때",
+   "en": "Is there an override we can run for this?",
+   "note": ""
+  },
+  {
+   "id": 76,
+   "tag": "보험사",
+   "sit": "이 플랜에서 선호하는 대체약을 물을 때",
+   "en": "What's the preferred alternative on this plan?",
+   "note": ""
+  },
+  {
+   "id": 77,
+   "tag": "보험사",
+   "sit": "수량 제한을 물을 때",
+   "en": "What's the quantity limit for this drug?",
+   "note": ""
+  },
+  {
+   "id": 78,
+   "tag": "보험사",
+   "sit": "통화 참조 번호를 요청",
+   "en": "Can I get a reference number for this call?",
+   "note": "같은 건으로 다시 걸 때 처음부터 설명하지 않아도 됩니다."
+  },
+  {
+   "id": 79,
+   "tag": "복창",
+   "sit": "50 mg을 헷갈리지 않게 전달",
+   "en": "Fifty milligrams — that's five, zero.",
+   "note": ""
+  },
+  {
+   "id": 80,
+   "tag": "복창",
+   "sit": "15와 50을 구분해 말할 때",
+   "en": "Fifteen, one-five, not fifty.",
+   "note": ""
+  },
+  {
+   "id": 81,
+   "tag": "복창",
+   "sit": "받아 적은 내용을 복창하며 확인",
+   "en": "Let me read that back to you: metformin 500 milligrams, one tablet by mouth twice daily.",
+   "note": ""
+  },
+  {
+   "id": 82,
+   "tag": "복창",
+   "sit": "약 이름 철자를 하나씩 불러 줄 때",
+   "en": "That's L as in Lima, E, V as in Victor.",
+   "note": ""
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "newrx",
+   "title": "신규 처방 픽업",
+   "where": "카운터",
+   "intro": "처음 처방받는 약을 찾으러 온 환자입니다. 상담이 필요한 상황을 놓치지 않는 것이 핵심입니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "Hi, I'm here to pick up. Last name is Park.",
+     "ko": "픽업하러 왔어요. 성은 박입니다."
+    },
+    {
+     "who": "you",
+     "q": "첫 응대로 무엇을 하시겠습니까?",
+     "opts": [
+      {
+       "t": "Sure — can I get your first name and date of birth?",
+       "ok": true,
+       "why": "이름과 생년월일을 환자가 직접 말하게 합니다. 동명이인 사고를 막는 기본 절차입니다."
+      },
+      {
+       "t": "Is this Jenny Park?",
+       "ok": false,
+       "why": "닫힌 질문입니다. 환자가 무심코 yes라고 답해 다른 사람의 약이 나갈 수 있습니다."
+      },
+      {
+       "t": "Okay, let me grab it for you.",
+       "ok": false,
+       "why": "본인 확인 없이 약을 꺼내면 안 됩니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Jenny Park, June 2nd, 1990.",
+     "ko": "제니 박, 1990년 6월 2일이요."
+    },
+    {
+     "who": "you",
+     "q": "확인이 끝났고, 화면에 '신규 처방'으로 표시됩니다. 어떻게 안내할까요?",
+     "opts": [
+      {
+       "t": "This is a new medication for you, so the pharmacist will go over it with you.",
+       "ok": true,
+       "why": "신규 처방은 약사 상담 대상입니다. 상담 제공은 OBRA '90이 요구하는 절차입니다."
+      },
+      {
+       "t": "It's an antibiotic — take it twice a day with food.",
+       "ok": false,
+       "why": "복용법 설명은 약사의 업무입니다. 내용이 맞더라도 테크니션이 하면 안 됩니다."
+      },
+      {
+       "t": "Here you go, that'll be $15.",
+       "ok": false,
+       "why": "신규 처방을 상담 없이 그냥 내주면 절차 위반입니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Oh, do I really need to talk to them? I'm in a hurry.",
+     "ko": "꼭 상담해야 하나요? 바빠서요."
+    },
+    {
+     "who": "you",
+     "q": "환자가 상담을 부담스러워합니다.",
+     "opts": [
+      {
+       "t": "It'll just take a minute, and you can always decline — but I'd like to offer it.",
+       "ok": true,
+       "why": "상담은 '제공'이 의무이고 환자가 거절할 수 있습니다. 거절 의사는 기록으로 남깁니다."
+      },
+      {
+       "t": "No problem, I'll just skip it then.",
+       "ok": false,
+       "why": "제안 없이 건너뛰면 안 됩니다. 제공한 뒤 환자가 거절하는 것과는 다릅니다."
+      },
+      {
+       "t": "You have to. It's the law.",
+       "ok": false,
+       "why": "법이 요구하는 것은 '제공'이지 상담 강제가 아닙니다. 표현도 불필요하게 강합니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Okay, sure. I'll wait.",
+     "ko": "알겠어요, 기다릴게요."
+    },
+    {
+     "who": "you",
+     "q": "약사 상담이 끝났습니다. 마무리는?",
+     "opts": [
+      {
+       "t": "Can you sign here, please? This confirms you picked it up.",
+       "ok": true,
+       "why": "픽업 서명과 상담 확인 서명을 받고 마무리합니다."
+      },
+      {
+       "t": "Take care, and remember to finish all the pills.",
+       "ok": false,
+       "why": "복약 지도로 들리는 말은 하지 않습니다. 이미 약사가 안내했습니다."
+      },
+      {
+       "t": "That's it, you can go.",
+       "ok": false,
+       "why": "서명 절차가 남아 있습니다."
+      }
+     ]
+    }
+   ],
+   "end": "신규 처방은 ① 본인 확인 → ② 약사 상담 제공 → ③ 서명 순서입니다. 복용법 설명은 어떤 경우에도 약사 몫입니다."
+  },
+  {
+   "id": "toosoon",
+   "title": "조기 재조제 거절",
+   "where": "카운터",
+   "intro": "보험이 'refill too soon'으로 청구를 거절한 상황입니다. 환자에게 이유와 대안을 설명해야 합니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "I'm picking up my blood pressure pills. Lee, May 5th, 1975.",
+     "ko": "혈압약 찾으러 왔어요. 이, 1975년 5월 5일."
+    },
+    {
+     "who": "you",
+     "q": "청구가 'Refill Too Soon'으로 거절되었습니다.",
+     "opts": [
+      {
+       "t": "Your insurance says it's too soon to refill. It'll go through on the 14th.",
+       "ok": true,
+       "why": "거절 사유와 조제 가능 날짜를 함께 안내하는 것이 기본입니다."
+      },
+      {
+       "t": "Your insurance denied it. There's nothing we can do.",
+       "ok": false,
+       "why": "사실과 다릅니다. 날짜 안내와 override 요청이라는 대안이 있습니다."
+      },
+      {
+       "t": "You're taking it too fast. Are you doubling your doses?",
+       "ok": false,
+       "why": "복약 상태를 추궁하는 것은 테크니션의 역할이 아니고, 환자를 불쾌하게 만듭니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "But I'm leaving for Korea on Friday. I'll run out.",
+     "ko": "금요일에 한국 가는데 약이 떨어져요."
+    },
+    {
+     "who": "you",
+     "q": "여행 사유가 있습니다.",
+     "opts": [
+      {
+       "t": "If you're traveling, we can ask your insurance for a vacation override.",
+       "ok": true,
+       "why": "여행은 대표적인 override 사유입니다. 보험사에 요청할 수 있습니다."
+      },
+      {
+       "t": "You can just pay the cash price — it's $95.",
+       "ok": false,
+       "why": "먼저 override를 시도하는 것이 순서입니다. 현금가는 그다음 대안입니다."
+      },
+      {
+       "t": "I'll fill it anyway and we'll bill them later.",
+       "ok": false,
+       "why": "거절된 청구를 임의로 조제하는 것은 안 됩니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "How long does that take?",
+     "ko": "그건 얼마나 걸려요?"
+    },
+    {
+     "who": "you",
+     "q": "override 요청의 소요 시간을 묻습니다.",
+     "opts": [
+      {
+       "t": "I'll call them now — it usually takes about fifteen minutes. Can you wait?",
+       "ok": true,
+       "why": "예상 시간을 주고 선택지를 제시합니다."
+      },
+      {
+       "t": "I have no idea, it depends on them.",
+       "ok": false,
+       "why": "모른다고 끝내지 말고 확인해서 알려 주겠다고 말합니다."
+      },
+      {
+       "t": "A few business days, probably.",
+       "ok": false,
+       "why": "override는 통화로 즉시 처리되는 경우가 많습니다. 사전 승인(PA)과 혼동한 답입니다."
+      }
+     ]
+    }
+   ],
+   "end": "보험 거절은 ① 사유를 정확히 전달 → ② 가능한 대안 제시 → ③ 소요 시간 안내 순서로 풉니다."
+  },
+  {
+   "id": "phonerefill",
+   "title": "전화 리필 접수",
+   "where": "전화",
+   "intro": "환자가 리필을 요청하려고 전화했습니다. 얼굴이 보이지 않으므로 본인 확인이 더 중요합니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "(전화벨)",
+     "ko": "전화가 울립니다."
+    },
+    {
+     "who": "you",
+     "q": "전화를 받습니다.",
+     "opts": [
+      {
+       "t": "Thank you for calling, this is Jane speaking. How can I help you?",
+       "ok": true,
+       "why": "약국 이름과 본인 이름을 밝히고 용건을 묻는 것이 표준입니다."
+      },
+      {
+       "t": "Hello?",
+       "ok": false,
+       "why": "약국 전화 응대로는 부족합니다."
+      },
+      {
+       "t": "Pharmacy, hold please.",
+       "ok": false,
+       "why": "틀린 것은 아니지만, 대기를 시키기 전에 약국 이름과 본인을 밝히는 편이 낫습니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Hi, I need to refill my cholesterol medication.",
+     "ko": "콜레스테롤 약 리필하려고요."
+    },
+    {
+     "who": "you",
+     "q": "다음 절차는?",
+     "opts": [
+      {
+       "t": "Sure. Can I get the patient's full name and date of birth?",
+       "ok": true,
+       "why": "전화에서는 본인 확인이 먼저입니다. HIPAA 요건이기도 합니다."
+      },
+      {
+       "t": "Which one is it — atorvastatin?",
+       "ok": false,
+       "why": "본인 확인 전에 약 이름을 먼저 말하면 정보를 흘리는 셈이 됩니다."
+      },
+      {
+       "t": "Okay, it'll be ready in an hour.",
+       "ok": false,
+       "why": "누구의 처방인지 확인하지 않고 접수할 수 없습니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "David Cho, D-A-V-I-D, September 9th, 1959.",
+     "ko": "데이비드 조, 1959년 9월 9일."
+    },
+    {
+     "who": "you",
+     "q": "조회해 보니 리필이 남아 있지 않습니다.",
+     "opts": [
+      {
+       "t": "That one's out of refills. I'll send a request to your doctor's office today.",
+       "ok": true,
+       "why": "리필 소진 사실과 후속 조치를 함께 안내합니다."
+      },
+      {
+       "t": "You can't get it. Call your doctor.",
+       "ok": false,
+       "why": "약국이 요청을 보낼 수 있는데 환자에게 떠넘기는 답입니다."
+      },
+      {
+       "t": "I'll refill it this once for you.",
+       "ok": false,
+       "why": "리필이 없는 처방을 임의로 조제할 수 없습니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "How will I know when it's ready?",
+     "ko": "준비되면 어떻게 알죠?"
+    },
+    {
+     "who": "you",
+     "q": "마무리 안내는?",
+     "opts": [
+      {
+       "t": "Once they respond, we'll fill it and text you. What's the best number to reach you?",
+       "ok": true,
+       "why": "다음 단계와 연락 방법을 확인하고 끝냅니다."
+      },
+      {
+       "t": "Just come by tomorrow and check.",
+       "ok": false,
+       "why": "처방자 회신 여부가 불확실한데 헛걸음을 시킵니다."
+      },
+      {
+       "t": "We'll call your doctor and you can ask them.",
+       "ok": false,
+       "why": "약국이 알려 주는 것이 맞습니다."
+      }
+     ]
+    }
+   ],
+   "end": "전화 리필은 ① 소속 밝히기 → ② 본인 확인 → ③ 약 특정 → ④ 리필 여부 확인 → ⑤ 후속 조치·연락처 순서입니다."
+  },
+  {
+   "id": "thirdparty",
+   "title": "대신 받으러 온 사람",
+   "where": "카운터",
+   "intro": "환자 본인이 아닌 사람이 약을 찾으러 왔습니다. HIPAA가 걸린 상황입니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "I'm picking up for my mother, Susan Miller.",
+     "ko": "어머니 수잔 밀러 약 찾으러 왔어요."
+    },
+    {
+     "who": "you",
+     "q": "첫 응대는?",
+     "opts": [
+      {
+       "t": "Sure — can I get her date of birth and address?",
+       "ok": true,
+       "why": "대리 수령은 가능하지만 환자 정보로 신원을 확인해야 합니다."
+      },
+      {
+       "t": "I can't release someone else's prescription.",
+       "ok": false,
+       "why": "대리 수령 자체가 금지된 것은 아닙니다. 확인 절차를 거치면 됩니다."
+      },
+      {
+       "t": "Okay, here it is.",
+       "ok": false,
+       "why": "확인 없이 내주면 HIPAA 위반입니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "June 12th, 1948. She lives on Oak Street.",
+     "ko": "1948년 6월 12일, 오크 스트리트에 사세요."
+    },
+    {
+     "who": "you",
+     "q": "정보가 기록과 일치합니다. 그런데 이 처방은 신규 처방입니다.",
+     "opts": [
+      {
+       "t": "This is new for her, so I'd like the pharmacist to offer counseling — you can relay it or she can call us.",
+       "ok": true,
+       "why": "대리 수령이어도 상담 제공은 필요합니다. 약사가 방법을 정합니다."
+      },
+      {
+       "t": "It's a new one — here's how she should take it.",
+       "ok": false,
+       "why": "복약 설명은 테크니션의 업무가 아닙니다."
+      },
+      {
+       "t": "Since you're not the patient, no counseling is needed.",
+       "ok": false,
+       "why": "대리 수령이라고 상담 제공이 면제되지 않습니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "By the way, what is this medication for? Is she sick?",
+     "ko": "그런데 이 약은 뭐에 쓰는 거예요? 어머니 아프세요?"
+    },
+    {
+     "who": "you",
+     "q": "가족이 진단명을 묻습니다.",
+     "opts": [
+      {
+       "t": "I can't discuss that without her permission — the pharmacist can talk to her directly.",
+       "ok": true,
+       "why": "가족이라도 환자 동의 없이 진료 정보를 공유하지 않습니다."
+      },
+      {
+       "t": "It's for her diabetes.",
+       "ok": false,
+       "why": "명백한 HIPAA 위반입니다. 가족이라는 이유로 예외가 되지 않습니다."
+      },
+      {
+       "t": "You should ask her doctor.",
+       "ok": false,
+       "why": "틀린 말은 아니지만, 정보를 줄 수 없는 이유를 설명하지 않아 오해를 남깁니다."
+      }
+     ]
+    }
+   ],
+   "end": "대리 수령은 ① 환자 정보로 확인 → ② 상담 제공은 그대로 유지 → ③ 진료 정보는 환자 동의 없이 공유 금지입니다."
+  },
+  {
+   "id": "otcadvice",
+   "title": "일반약 추천 요청",
+   "where": "매장",
+   "intro": "환자가 감기약을 골라 달라고 합니다. 업무 범위를 지키는지 보는 상황입니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "Which cold medicine is best? There are too many.",
+     "ko": "감기약 뭐가 제일 좋아요? 너무 많아서요."
+    },
+    {
+     "who": "you",
+     "q": "어떻게 답하시겠습니까?",
+     "opts": [
+      {
+       "t": "I'm not able to recommend one, but the pharmacist can help you pick.",
+       "ok": true,
+       "why": "일반약 추천도 임상 판단입니다. 테크니션의 업무 범위가 아닙니다."
+      },
+      {
+       "t": "This one works well for most people.",
+       "ok": false,
+       "why": "추천에 해당합니다. 시험과 실무 모두에서 명백한 오답입니다."
+      },
+      {
+       "t": "What are your symptoms?",
+       "ok": false,
+       "why": "증상을 듣고 고르는 순간 상담을 시작한 것이 됩니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "It's just an over-the-counter thing though. You must know.",
+     "ko": "그냥 일반약인데요. 아시잖아요."
+    },
+    {
+     "who": "you",
+     "q": "환자가 재차 요청합니다.",
+     "opts": [
+      {
+       "t": "I know it seems simple, but the pharmacist checks it against your other medications.",
+       "ok": true,
+       "why": "거절 이유를 설명하면 환자도 납득합니다. 상호작용 확인은 실제 이유입니다."
+      },
+      {
+       "t": "Fine — most people get this one.",
+       "ok": false,
+       "why": "압박에 밀려 답하면 안 됩니다."
+      },
+      {
+       "t": "Sorry, rules are rules.",
+       "ok": false,
+       "why": "이유 없는 거절은 불필요한 마찰을 만듭니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Okay, can you get them then?",
+     "ko": "그럼 약사님 불러 주실래요?"
+    },
+    {
+     "who": "you",
+     "q": "약사에게 넘길 때 무엇을 함께 전달하면 좋을까요?",
+     "opts": [
+      {
+       "t": "Of course. I'll let them know you're looking for something for a cold.",
+       "ok": true,
+       "why": "무엇을 찾는지 전달하면 약사가 바로 이어받을 수 있습니다. 이것은 추천이 아닙니다."
+      },
+      {
+       "t": "I'll tell them you need a decongestant.",
+       "ok": false,
+       "why": "약 분류를 특정하는 순간 판단을 한 것이 됩니다."
+      },
+      {
+       "t": "Just wait here, they'll come.",
+       "ok": false,
+       "why": "틀린 것은 아니지만, 용건을 함께 전달하면 약사가 바로 이어받아 대기 시간이 줄어듭니다."
+      }
+     ]
+    }
+   ],
+   "end": "추천 요청은 ① 못 한다고 분명히 말하고 → ② 이유를 설명하고 → ③ 약사에게 용건과 함께 넘깁니다."
+  },
+  {
+   "id": "prescriber",
+   "title": "처방자 사무실 통화",
+   "where": "전화",
+   "intro": "리필 요청을 전화로 해야 합니다. 말하는 순서가 정해져 있습니다.",
+   "steps": [
+    {
+     "who": "patient",
+     "text": "Dr. Kim's office, this is Ashley.",
+     "ko": "김 박사님 병원입니다, 애슐리입니다."
+    },
+    {
+     "who": "you",
+     "q": "첫 마디는?",
+     "opts": [
+      {
+       "t": "Hi, this is Jane calling from Main Street Pharmacy about a refill request.",
+       "ok": true,
+       "why": "소속 → 용건 순서로 시작합니다. 상대가 바로 담당을 연결할 수 있습니다."
+      },
+      {
+       "t": "Hi, I need a refill for Maria Garcia.",
+       "ok": false,
+       "why": "어디서 거는지 밝히지 않아 상대가 상황을 파악하지 못합니다."
+      },
+      {
+       "t": "Is the doctor there?",
+       "ok": false,
+       "why": "용건 없이 사람부터 찾으면 통화가 길어집니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Sure, which patient?",
+     "ko": "네, 어느 환자분이죠?"
+    },
+    {
+     "who": "you",
+     "q": "환자 정보를 어떻게 전달할까요?",
+     "opts": [
+      {
+       "t": "Maria Garcia, date of birth March 14th, 1968.",
+       "ok": true,
+       "why": "이름과 생년월일을 함께 줍니다. 동명이인을 막습니다."
+      },
+      {
+       "t": "Maria Garcia.",
+       "ok": false,
+       "why": "생년월일 없이는 상대도 특정하지 못합니다."
+      },
+      {
+       "t": "The patient on metformin.",
+       "ok": false,
+       "why": "약으로 환자를 특정하는 것은 위험합니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Got it. What's the medication?",
+     "ko": "확인했어요. 약은요?"
+    },
+    {
+     "who": "you",
+     "q": "약 정보를 전달합니다.",
+     "opts": [
+      {
+       "t": "Metformin 500 milligrams, one tablet twice daily. Her last fill was August 2nd and she's out of refills.",
+       "ok": true,
+       "why": "약·규격·용법·마지막 조제일·리필 소진까지 한 번에 줍니다."
+      },
+      {
+       "t": "Metformin.",
+       "ok": false,
+       "why": "규격이 빠지면 다시 물어야 합니다. 500과 1000은 전혀 다릅니다."
+      },
+      {
+       "t": "The diabetes one, 500.",
+       "ok": false,
+       "why": "약 이름을 정확히 말해야 합니다."
+      }
+     ]
+    },
+    {
+     "who": "patient",
+     "text": "Okay, I'll pass it to the doctor.",
+     "ko": "네, 의사 선생님께 전달할게요."
+    },
+    {
+     "who": "you",
+     "q": "마무리는?",
+     "opts": [
+      {
+       "t": "Thank you — our fax number is 713-555-0198 if you need it.",
+       "ok": true,
+       "why": "회신 경로를 남기는 것이 마지막 절차입니다."
+      },
+      {
+       "t": "Okay, bye.",
+       "ok": false,
+       "why": "회신 방법을 남기지 않으면 요청이 떠돌게 됩니다."
+      },
+      {
+       "t": "Can you make sure she does it today?",
+       "ok": false,
+       "why": "재촉은 상황에 따라 필요하지만, 첫 요청부터 압박할 일은 아닙니다."
+      }
+     ]
+    }
+   ],
+   "end": "처방자 통화 순서: 소속 → 용건 → 환자(이름·생년월일) → 약(이름·규격·용법) → 마지막 조제일 → 요청 → 연락처."
+  }
+ ]
+}

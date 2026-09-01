@@ -1,0 +1,311 @@
+{{- $talk := site.Data.talk -}}
+<script type="application/json" id="pt-talk-data">{{ $talk | jsonify | safeJS }}</script>
+{{- with resources.Get "js/talk-play.js" }}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+
+<style>
+.tkp { --tk-bd:#e2e6ee; --tk-bg:#fff; --tk-mut:#6b7280; --tk-acc:#1b4fd8; --tk-ok:#0f7b4f; --tk-okbg:#e8f7f0; --tk-no:#b91c1c; --tk-nobg:#fdecec; --tk-soft:#f6f8fc; --tk-pt:#f0f2f6; }
+:is(.dark) .tkp { --tk-bd:#333940; --tk-bg:#1b1f24; --tk-mut:#9aa3af; --tk-acc:#7aa2ff; --tk-ok:#4ade80; --tk-okbg:#10291f; --tk-no:#f87171; --tk-nobg:#2c1618; --tk-soft:#22272e; --tk-pt:#2a3038; }
+.tkp { margin-top:1rem; }
+.tkp button { font:inherit; cursor:pointer; }
+
+.tkp-modes { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.9rem; }
+.tkp-mode { padding:.4rem .9rem; border:1px solid var(--tk-bd); border-radius:2rem; background:var(--tk-bg); color:inherit; font-size:.85rem; }
+.tkp-mode.on { border-color:var(--tk-acc); color:var(--tk-acc); font-weight:700; background:var(--tk-soft); }
+
+.tkp-card { border:1px solid var(--tk-bd); border-radius:.6rem; background:var(--tk-bg); padding:1.1rem 1.2rem; }
+.tkp-top { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-size:.78rem; color:var(--tk-mut); margin-bottom:.7rem; }
+.tkp-tag { border:1px solid var(--tk-bd); border-radius:1rem; padding:.05rem .55rem; }
+
+.tkp-ask { font-size:1.05rem; font-weight:600; line-height:1.6; margin:.2rem 0 .9rem; word-break:keep-all; }
+.tkp-ask.en { font-weight:600; }
+.tkp-sub { font-size:.8rem; color:var(--tk-mut); margin:-.6rem 0 .9rem; }
+
+.tkp-opts { display:grid; gap:.45rem; }
+.tkp-opt { text-align:left; padding:.6rem .8rem; border:1px solid var(--tk-bd); border-radius:.45rem; background:var(--tk-bg); color:inherit; line-height:1.55; display:flex; gap:.6rem; align-items:flex-start; word-break:keep-all; }
+.tkp-opt b { flex:none; width:1.25rem; height:1.25rem; border-radius:.25rem; background:var(--tk-soft); color:var(--tk-mut); font-size:.72rem; display:flex; align-items:center; justify-content:center; margin-top:.15rem; }
+.tkp-opt:hover:not(:disabled) { border-color:var(--tk-acc); }
+.tkp-opt.ok { border-color:var(--tk-ok); background:var(--tk-okbg); }
+.tkp-opt.ok b { background:var(--tk-ok); color:#fff; }
+.tkp-opt.no { border-color:var(--tk-no); background:var(--tk-nobg); }
+.tkp-opt.no b { background:var(--tk-no); color:#fff; }
+.tkp-opt:disabled { cursor:default; }
+
+.tkp-why { margin-top:.85rem; padding:.7rem .85rem; border-left:3px solid var(--tk-acc); background:var(--tk-soft); border-radius:0 .35rem .35rem 0; font-size:.88rem; line-height:1.65; word-break:keep-all; }
+.tkp-why .v { font-weight:700; }
+.tkp-why .v.ok { color:var(--tk-ok); }
+.tkp-why .v.no { color:var(--tk-no); }
+.tkp-why .pair { display:block; margin-top:.4rem; color:var(--tk-mut); }
+
+.tkp-foot { display:flex; justify-content:space-between; align-items:center; gap:.6rem; margin-top:1rem; flex-wrap:wrap; }
+.tkp-btn { padding:.45rem 1rem; border-radius:.4rem; border:1px solid var(--tk-acc); background:var(--tk-acc); color:#fff; font-weight:600; font-size:.88rem; }
+.tkp-btn.ghost { background:transparent; color:var(--tk-acc); }
+.tkp-hint { font-size:.75rem; color:var(--tk-mut); }
+
+/* 롤플레이 */
+.tkp-scene { font-size:.82rem; color:var(--tk-mut); margin-bottom:.8rem; line-height:1.6; }
+.tkp-log { display:grid; gap:.5rem; margin-bottom:1rem; }
+.tkp-bub { max-width:88%; padding:.55rem .8rem; border-radius:.8rem; font-size:.92rem; line-height:1.55; }
+.tkp-bub small { display:block; font-size:.75rem; opacity:.75; margin-top:.15rem; }
+.tkp-bub.p { background:var(--tk-pt); border-bottom-left-radius:.2rem; }
+.tkp-bub.me { background:var(--tk-okbg); color:var(--tk-ok); margin-left:auto; border-bottom-right-radius:.2rem; font-weight:600; }
+.tkp-bub.bad { background:var(--tk-nobg); color:var(--tk-no); margin-left:auto; border-bottom-right-radius:.2rem; }
+.tkp-who { font-size:.7rem; color:var(--tk-mut); margin-bottom:.1rem; }
+
+.tkp-score { font-size:2.2rem; font-weight:800; line-height:1.15; }
+.tkp-score span { font-size:1rem; font-weight:500; color:var(--tk-mut); }
+.tkp-rv { border:1px solid var(--tk-bd); border-left:3px solid var(--tk-no); border-radius:0 .4rem .4rem 0; padding:.6rem .8rem; font-size:.86rem; line-height:1.6; }
+.tkp-review { display:grid; gap:.6rem; margin-top:1rem; }
+
+.tkp-list { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.9rem; }
+.tkp-d { padding:.35rem .7rem; border:1px solid var(--tk-bd); border-radius:.4rem; background:var(--tk-bg); color:inherit; font-size:.8rem; }
+.tkp-d.on { border-color:var(--tk-acc); color:var(--tk-acc); font-weight:700; }
+.tkp-d.done::after { content:" ✓"; color:var(--tk-ok); }
+</style>
+
+<div class="tkp" id="tkp">
+  <div class="tkp-modes" id="tkp-modes"></div>
+  <div class="tkp-card" id="tkp-card"></div>
+  <div class="tkp-list" id="tkp-list"></div>
+</div>
+
+<script>
+(function () {
+  var raw = document.getElementById('pt-talk-data');
+  var T = window.PTTalkPlay;
+  if (!raw || !T) return;
+  T.init(JSON.parse(raw.textContent));
+
+  var KEY = 'pharmtech-talk-v1';
+  var card = document.getElementById('tkp-card');
+  var modes = document.getElementById('tkp-modes');
+  var list = document.getElementById('tkp-list');
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  var store = load();
+  store.dlg = store.dlg || {};    // { newrx: {ok:3, n:4} }
+  store.line = store.line || { ok: 0, n: 0 };
+
+  var mode = 'sit2en';
+  var S = null;      // 문장 세트 상태
+  var Dg = null;     // 롤플레이 상태
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function renderModes() {
+    var m = [['sit2en', '상황 → 문장'], ['en2sit', '문장 → 뜻'], ['mixed', '섞어서'], ['dialog', '롤플레이 대화']];
+    modes.innerHTML = m.map(function (x) {
+      return '<button class="tkp-mode' + (mode === x[0] ? ' on' : '') + '" data-m="' + x[0] + '">' + x[1] + '</button>';
+    }).join('');
+    Array.prototype.forEach.call(modes.querySelectorAll('[data-m]'), function (b) {
+      b.onclick = function () { mode = b.dataset.m; start(); };
+    });
+  }
+
+  function renderList() {
+    if (mode !== 'dialog') {
+      var r = store.line;
+      list.innerHTML = '<span class="tkp-hint">문장 누적 정답 ' + r.ok + ' / ' + r.n + '</span>';
+      return;
+    }
+    list.innerHTML = T.dialogs().map(function (d, i) {
+      var rec = store.dlg[d.id];
+      var on = Dg && Dg.d.id === d.id;
+      return '<button class="tkp-d' + (on ? ' on' : '') + (rec ? ' done' : '') + '" data-i="' + i + '">'
+        + esc(d.title) + (rec ? ' <span style="opacity:.7">' + rec.ok + '/' + rec.n + '</span>' : '') + '</button>';
+    }).join('');
+    Array.prototype.forEach.call(list.querySelectorAll('[data-i]'), function (b) {
+      b.onclick = function () { startDialog(b.dataset.i | 0); };
+    });
+  }
+
+  function start() {
+    if (mode === 'dialog') { Dg = null; startDialog(0); return; }
+    S = { set: mode === 'mixed' ? T.mixedSet(10) : T.set(mode, 10), i: 0, ok: 0, wrong: [], picked: null };
+    renderModes(); drawLine();
+  }
+
+  /* ── 문장 모드 ─────────────────────────────────────────── */
+  function drawLine() {
+    var q = S.set[S.i], n = S.set.length;
+    var isSit = q.mode === 'sit2en';
+    var html = '';
+    html += '<div class="tkp-top"><span>' + (isSit ? '상황 → 문장' : '문장 → 뜻') + ' · ' + (S.i + 1) + ' / ' + n + '</span>'
+         + '<span class="tkp-tag">' + esc(q.tag) + '</span></div>';
+    html += '<div class="tkp-ask' + (isSit ? '' : ' en') + '">' + esc(q.prompt) + '</div>';
+    html += '<div class="tkp-sub">' + (isSit ? '이 상황에서 할 말은?' : '이 문장을 쓰는 상황은?') + '</div>';
+    html += '<div class="tkp-opts">' + q.opts.map(function (o, i) {
+      return '<button class="tkp-opt" data-i="' + i + '"><b>' + (i + 1) + '</b><span>' + esc(o) + '</span></button>';
+    }).join('') + '</div><div id="tkp-after"></div>';
+    card.innerHTML = html;
+    Array.prototype.forEach.call(card.querySelectorAll('.tkp-opt'), function (b) {
+      b.onclick = function () { answerLine(b.dataset.i | 0); };
+    });
+    S.picked = null;
+    renderList();
+  }
+
+  function answerLine(i) {
+    if (S.picked !== null) return;
+    var q = S.set[S.i];
+    S.picked = i;
+    var ok = i === q.ans;
+    if (ok) S.ok++; else S.wrong.push(q);
+    store.line.n++; if (ok) store.line.ok++;
+    save(store);
+
+    Array.prototype.forEach.call(card.querySelectorAll('.tkp-opt'), function (b, idx) {
+      b.disabled = true;
+      if (idx === q.ans) b.classList.add('ok');
+      else if (idx === i) b.classList.add('no');
+    });
+
+    var last = S.i === S.set.length - 1;
+    document.getElementById('tkp-after').innerHTML =
+      '<div class="tkp-why"><span class="v ' + (ok ? 'ok">정답' : 'no">오답') + '</span>'
+      + (q.note ? ' — ' + esc(q.note) : '')
+      + '<span class="pair">' + esc(q.pair) + '  ↔  ' + esc(q.other) + '</span></div>'
+      + '<div class="tkp-foot"><span class="tkp-hint">숫자 키로 선택, Enter로 다음</span>'
+      + '<button class="tkp-btn" id="tkp-next">' + (last ? '결과 보기' : '다음 문장') + '</button></div>';
+    document.getElementById('tkp-next').onclick = nextLine;
+    document.getElementById('tkp-next').focus();
+    renderList();
+  }
+
+  function nextLine() {
+    if (S.i === S.set.length - 1) return finishLine();
+    S.i++; drawLine();
+  }
+
+  function finishLine() {
+    var n = S.set.length, s = S.ok, pct = Math.round(s / n * 100);
+    var html = '<div class="tkp-top"><span>결과</span></div>';
+    html += '<div class="tkp-score">' + s + '<span> / ' + n + ' · ' + pct + '%</span></div>';
+    if (S.wrong.length) {
+      html += '<div class="tkp-review">' + S.wrong.map(function (q) {
+        return '<div class="tkp-rv"><div>' + esc(q.pair) + '</div><div style="color:var(--tk-ok);margin-top:.2rem">'
+          + esc(q.other) + '</div>' + (q.note ? '<div style="color:var(--tk-mut);margin-top:.25rem">' + esc(q.note) + '</div>' : '') + '</div>';
+      }).join('') + '</div>';
+    }
+    html += '<div class="tkp-foot" style="justify-content:flex-start">'
+      + '<button class="tkp-btn" id="tkp-again">새 문장 10개</button>'
+      + '<button class="tkp-btn ghost" id="tkp-dlg">롤플레이로 가기</button></div>';
+    card.innerHTML = html;
+    document.getElementById('tkp-again').onclick = start;
+    document.getElementById('tkp-dlg').onclick = function () { mode = 'dialog'; start(); };
+    renderList();
+  }
+
+  /* ── 롤플레이 ──────────────────────────────────────────── */
+  function startDialog(i) {
+    var d = T.dialog(i);
+    Dg = { d: d, i: 0, ok: 0, n: 0, log: [], picked: null };
+    renderModes(); stepDialog();
+  }
+
+  function logHtml() {
+    return Dg.log.map(function (l) {
+      if (l.who === 'p') {
+        return '<div><div class="tkp-who">환자 · 상대</div><div class="tkp-bub p">' + esc(l.t)
+          + (l.ko ? '<small>' + esc(l.ko) + '</small>' : '') + '</div></div>';
+      }
+      return '<div><div class="tkp-who" style="text-align:right">' + (l.ok ? '나' : '내가 고른 답') + '</div>'
+        + '<div class="tkp-bub ' + (l.ok ? 'me' : 'bad') + '">' + esc(l.t)
+        + (l.ok ? '' : '<small>이 자리에서는 곤란한 응대입니다</small>') + '</div></div>';
+    }).join('');
+  }
+
+  function stepDialog() {
+    // 상대 대사는 자동으로 흘려보내고, 내 차례에서 멈춘다
+    while (Dg.i < Dg.d.steps.length && Dg.d.steps[Dg.i].who === 'patient') {
+      var s = Dg.d.steps[Dg.i];
+      Dg.log.push({ who: 'p', t: s.text, ko: s.ko });
+      Dg.i++;
+    }
+    if (Dg.i >= Dg.d.steps.length) return finishDialog();
+
+    var q = Dg.d.steps[Dg.i];
+    var html = '';
+    html += '<div class="tkp-top"><span>' + esc(Dg.d.title) + '</span><span class="tkp-tag">' + esc(Dg.d.where) + '</span></div>';
+    html += '<div class="tkp-scene">' + esc(Dg.d.intro) + '</div>';
+    html += '<div class="tkp-log">' + logHtml() + '</div>';
+    html += '<div class="tkp-ask">' + esc(q.q) + '</div>';
+    html += '<div class="tkp-opts">' + q.opts.map(function (o, i) {
+      return '<button class="tkp-opt" data-i="' + i + '"><b>' + (i + 1) + '</b><span>' + esc(o.t) + '</span></button>';
+    }).join('') + '</div><div id="tkp-after"></div>';
+    card.innerHTML = html;
+    Array.prototype.forEach.call(card.querySelectorAll('.tkp-opt'), function (b) {
+      b.onclick = function () { answerDialog(b.dataset.i | 0); };
+    });
+    Dg.picked = null;
+    renderList();
+  }
+
+  function answerDialog(i) {
+    if (Dg.picked !== null) return;
+    var q = Dg.d.steps[Dg.i];
+    var chosen = q.opts[i];
+    Dg.picked = i;
+    Dg.n++; if (chosen.ok) Dg.ok++;
+
+    Array.prototype.forEach.call(card.querySelectorAll('.tkp-opt'), function (b, idx) {
+      b.disabled = true;
+      if (q.opts[idx].ok) b.classList.add('ok');
+      else if (idx === i) b.classList.add('no');
+    });
+
+    document.getElementById('tkp-after').innerHTML =
+      '<div class="tkp-why"><span class="v ' + (chosen.ok ? 'ok">좋은 응대' : 'no">이 답은 곤란합니다') + '</span> — ' + esc(chosen.why) + '</div>'
+      + '<div class="tkp-foot"><span class="tkp-hint">숫자 키로 선택, Enter로 다음</span>'
+      + '<button class="tkp-btn" id="tkp-next">대화 계속</button></div>';
+    document.getElementById('tkp-next').onclick = function () {
+      // 틀렸으면 내가 고른 말과 올바른 말을 함께 남겨 비교되게 한다
+      var best = null;
+      q.opts.forEach(function (o) { if (o.ok) best = o; });
+      if (!chosen.ok) Dg.log.push({ who: 'me', t: chosen.t, ok: false });
+      Dg.log.push({ who: 'me', t: best.t, ok: true });
+      Dg.i++; stepDialog();
+    };
+    document.getElementById('tkp-next').focus();
+  }
+
+  function finishDialog() {
+    var rec = store.dlg[Dg.d.id];
+    if (!rec || rec.ok < Dg.ok) store.dlg[Dg.d.id] = { ok: Dg.ok, n: Dg.n };
+    save(store);
+
+    var html = '<div class="tkp-top"><span>' + esc(Dg.d.title) + ' 완료</span></div>';
+    html += '<div class="tkp-score">' + Dg.ok + '<span> / ' + Dg.n + '</span></div>';
+    html += '<div class="tkp-log" style="margin-top:1rem">' + logHtml() + '</div>';
+    html += '<div class="tkp-why">' + esc(Dg.d.end) + '</div>';
+    var idx = T.dialogs().indexOf(Dg.d);
+    html += '<div class="tkp-foot" style="justify-content:flex-start">'
+      + '<button class="tkp-btn" id="tkp-nextd">다음 상황</button>'
+      + '<button class="tkp-btn ghost" id="tkp-redo">이 상황 다시</button></div>';
+    card.innerHTML = html;
+    document.getElementById('tkp-nextd').onclick = function () { startDialog(idx + 1); };
+    document.getElementById('tkp-redo').onclick = function () { startDialog(idx); };
+    renderList();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!card.querySelector('.tkp-opt')) return;
+    var n = +e.key;
+    if (n >= 1 && n <= 9) {
+      var b = card.querySelector('.tkp-opt[data-i="' + (n - 1) + '"]');
+      if (b && !b.disabled) { e.preventDefault(); b.click(); }
+    } else if (e.key === 'Enter') {
+      var nx = document.getElementById('tkp-next');
+      if (nx) { e.preventDefault(); nx.click(); }
+    }
+  });
+
+  start();
+})();
+</script>
