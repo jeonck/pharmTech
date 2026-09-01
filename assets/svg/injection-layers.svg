@@ -1,0 +1,50 @@
+<svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="주사 경로별 피부 층과 주사 각도">
+  <text x="20" y="30" class="f-cap">주사 경로는 바늘이 어느 층에서 멈추는가로 갈립니다</text>
+
+  <!-- 설명 라벨 (층 위쪽 여백) -->
+  <text x="40" y="66" class="f-tag"><tspan class="f-key">ID</tspan><tspan dx="12">피내</tspan><tspan dx="10">10~15°</tspan></text>
+  <text x="40" y="86" class="f-mut2">결핵 반응 검사 등</text>
+
+  <text x="290" y="66" class="f-tag"><tspan class="f-key">SubQ</tspan><tspan dx="12">피하</tspan><tspan dx="10">45~90°</tspan></text>
+  <text x="290" y="86" class="f-mut2">인슐린 · 헤파린 · GLP-1</text>
+
+  <text x="540" y="66" class="f-tag"><tspan class="f-key">IM</tspan><tspan dx="12">근육</tspan><tspan dx="10">90°</tspan></text>
+  <text x="540" y="86" class="f-mut2">백신 · 항생제 주사</text>
+
+  <!-- 피부 층 -->
+  <rect x="16" y="180" width="600" height="36" class="f-skin"/>
+  <rect x="16" y="216" width="600" height="64" class="f-subq"/>
+  <rect x="16" y="280" width="600" height="70" class="f-muscle"/>
+
+  <text x="632" y="203" class="f-tag">표피 · 진피<tspan dx="10" class="f-mut">skin</tspan></text>
+  <text x="632" y="253" class="f-tag">피하 조직<tspan dx="10" class="f-mut">subcutaneous</tspan></text>
+  <text x="632" y="320" class="f-tag">근육<tspan dx="10" class="f-mut">muscle</tspan></text>
+
+  <g class="f-fat">
+    <circle cx="70" cy="236" r="7"/><circle cx="120" cy="256" r="6"/><circle cx="170" cy="234" r="7"/>
+    <circle cx="222" cy="258" r="6"/><circle cx="274" cy="236" r="7"/><circle cx="330" cy="256" r="6"/>
+    <circle cx="384" cy="234" r="7"/><circle cx="438" cy="256" r="6"/><circle cx="492" cy="236" r="7"/>
+    <circle cx="548" cy="254" r="6"/><circle cx="590" cy="234" r="6"/>
+  </g>
+
+  <!-- ID : 얕게 눕혀 진피 안에서 멈춘다 -->
+  <path d="M40 138 H180" class="f-guide"/>
+  <path d="M56 148 L118 178" class="f-barrel"/>
+  <path d="M56 148 L168 202" class="f-needle"/>
+  <text x="150" y="168" class="f-deg">10~15°</text>
+
+  <!-- SubQ : 45도로 피하까지 -->
+  <path d="M246 138 H360" class="f-guide"/>
+  <path d="M262 152 L308 205" class="f-barrel"/>
+  <path d="M262 152 L346 248" class="f-needle"/>
+  <text x="330" y="176" class="f-deg">45°</text>
+
+  <!-- IM : 수직으로 근육까지 -->
+  <path d="M460 138 H580" class="f-guide"/>
+  <path d="M520 148 L520 240" class="f-barrel"/>
+  <path d="M520 148 L520 316" class="f-needle"/>
+  <path d="M520 200 H544 V180" class="f-arc"/>
+  <text x="552" y="196" class="f-deg">90°</text>
+
+  <text x="20" y="374" class="f-note">라벨 표현: SubQ → “Inject … under the skin” · IM → “Inject … into the muscle” · 인슐린 단위는 units로 적고 U로 줄이지 않습니다.</text>
+</svg>

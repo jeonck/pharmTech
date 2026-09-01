@@ -1,0 +1,71 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="제형에 따른 라벨 동사">
+  <text x="20" y="30" class="f-cap">제형이 동사를 결정합니다 — 여기서 틀리면 라벨 전체가 어색해집니다</text>
+
+  <g transform="translate(16,52)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <ellipse cx="40" cy="46" rx="19" ry="12" class="f-pill"/>
+    <path d="M21 46 H59" class="f-line"/>
+    <text x="72" y="34" class="f-tag">정제 · 캡슐 · 액상</text>
+    <text x="72" y="60" class="f-verb2">Take</text>
+    <text x="72" y="84" class="f-mut2">by mouth</text>
+  </g>
+
+  <g transform="translate(216,52)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <path d="M22 54 h32 l14 -13 h6 v32 h-6 l-14 -13 h-32 z" class="f-pill"/>
+    <text x="86" y="34" class="f-tag">연고 · 크림</text>
+    <text x="86" y="60" class="f-verb2">Apply</text>
+    <text x="86" y="84" class="f-mut2">affected area</text>
+  </g>
+
+  <g transform="translate(416,52)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <path d="M40 24 v22 c0 9 -11 15 -11 24 a11 11 0 0 0 22 0 c0 -9 -11 -15 -11 -24 z" class="f-pill"/>
+    <text x="72" y="34" class="f-tag">점안 · 점이 · 비강</text>
+    <text x="72" y="60" class="f-verb2">Instill</text>
+    <text x="72" y="84" class="f-mut2">in both eyes</text>
+  </g>
+
+  <g transform="translate(616,52)">
+    <rect width="188" height="112" rx="10" class="f-box"/>
+    <rect x="26" y="26" width="24" height="34" rx="5" class="f-pill"/>
+    <rect x="30" y="60" width="16" height="14" rx="3" class="f-pill"/>
+    <text x="70" y="34" class="f-tag">흡입기</text>
+    <text x="70" y="60" class="f-verb2">Inhale</text>
+    <text x="70" y="84" class="f-mut2">two puffs</text>
+  </g>
+
+  <g transform="translate(16,180)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <path d="M40 26 c12 0 18 12 18 24 s-6 24 -18 24 s-18 -12 -18 -24 s6 -24 18 -24 z" class="f-pill"/>
+    <text x="72" y="42" class="f-tag">좌제</text>
+    <text x="72" y="68" class="f-verb2">Insert</text>
+    <text x="72" y="92" class="f-mut2">rectally</text>
+  </g>
+
+  <g transform="translate(216,180)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <path d="M22 62 L58 26 M32 48 l14 14 M44 36 l14 14" class="f-needle2"/>
+    <text x="80" y="42" class="f-tag">주사제</text>
+    <text x="80" y="68" class="f-verb2">Inject</text>
+    <text x="80" y="92" class="f-mut2">under the skin</text>
+  </g>
+
+  <g transform="translate(416,180)">
+    <rect width="192" height="112" rx="10" class="f-box"/>
+    <ellipse cx="40" cy="44" rx="19" ry="12" class="f-pill"/>
+    <path d="M20 62 q20 13 40 0" class="f-line"/>
+    <text x="72" y="42" class="f-tag">설하정</text>
+    <text x="72" y="68" class="f-verb2">Place</text>
+    <text x="72" y="92" class="f-mut2">under the tongue</text>
+  </g>
+
+  <g transform="translate(616,180)">
+    <rect width="188" height="112" rx="10" class="f-box"/>
+    <ellipse cx="40" cy="44" rx="19" ry="12" class="f-pill"/>
+    <path d="M28 36 l11 8 l-9 10" class="f-line"/>
+    <text x="70" y="42" class="f-tag">저작정</text>
+    <text x="70" y="68" class="f-verb2">Chew</text>
+    <text x="70" y="92" class="f-mut2">삼키지 않기</text>
+  </g>
+</svg>

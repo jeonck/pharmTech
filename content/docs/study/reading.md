@@ -25,12 +25,16 @@ weight: 3
 
 **읽는 순서: 동사 → 수량 → 제형 → 경로 → 빈도 → 기간 → 조건**
 
+{{< sigfig name="sig-anatomy" caption="처방전의 약어 뭉치가 라벨 문장의 어느 자리로 가는지 — 이 구조만 잡으면 어떤 처방도 읽힙니다" >}}
+
 > "Take **one tablet** by mouth **twice daily** for **ten days** as needed for pain."
 > 원 태블릿 바이 마우스 트와이스 데일리 포 텐 데이즈 애즈 니디드 포 페인
 
 한국어로는 "1정을 경구로 1일 2회, 10일간, 통증 시" — 순서가 같습니다. 이 틀만 잡으면 어떤 처방도 읽힙니다.
 
 ### 동사 고르기
+
+{{< sigfig name="form-verb" caption="제형별 라벨 동사 — 점안액에 Take를 쓰면 라벨 전체가 어색해집니다" >}}
 
 | 제형 | 영어 동사 |
 |---|---|
@@ -68,6 +72,8 @@ weight: 3
 
 ## 3. 투여 경로 말하기
 
+{{< sigfig name="injection-layers" caption="주사 경로는 바늘이 어느 층에서 멈추는가로 갈립니다 — 각도와 대표 약물" >}}
+
 라벨에서는 라틴어 약어 대신 **환자가 알아듣는 말**로 씁니다.
 
 | 약어 | 라벨 표현 | 발음 | 한국어 |
@@ -83,6 +89,8 @@ weight: 3
 | iv | intravenously | 인트라비너슬리 | 정맥 |
 
 ### 눈·귀는 풀어서 말합니다
+
+{{< sigfig name="eyes-ears" caption="환자를 마주 보면 환자의 오른쪽(OD·AD)이 내 왼쪽입니다" >}}
 
 | 약어 | 절대 이렇게 읽지 말 것 | 이렇게 말합니다 |
 |---|---|---|
@@ -253,5 +261,6 @@ o와 a 한 글자 차이로 눈과 귀가 바뀝니다. 소리로 구분하려 �
 {{< cards >}}
   {{< card link="../abbreviations/" title="처방 약어 전체" subtitle="여기 나온 약어의 전체 목록" >}}
   {{< card link="../calculations/" title="약국 계산" subtitle="읽었으면 이제 계산" >}}
+  {{< card link="../sig-play/" title="처방 조립 플레이" subtitle="여기서 배운 순서를 손에 붙이기" >}}
   {{< card link="../daily-quiz/" title="오늘의 10문제" subtitle="1·2일차가 약어 읽기입니다" >}}
 {{< /cards >}}

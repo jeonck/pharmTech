@@ -21,3 +21,72 @@
 .content ul li input[type="checkbox"] {
   margin-right: 0.4rem;
 }
+
+/* ── 학습용 도식(SVG) ─────────────────────────────────────────── */
+.ptfig {
+  margin: 1.6rem 0;
+  border: 1px solid var(--ptfig-bd, #e2e6ee);
+  border-radius: .6rem;
+  padding: .9rem 1rem .6rem;
+  background: var(--ptfig-bg, #fff);
+  overflow-x: auto;
+}
+.ptfig svg { width: 100%; height: auto; min-width: 30rem; display: block; }
+.ptfig figcaption {
+  margin-top: .6rem;
+  font-size: .8rem;
+  color: var(--ptfig-mut, #6b7280);
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.ptfig {
+  --ptfig-bd:#e2e6ee; --ptfig-bg:#fff; --ptfig-mut:#6b7280;
+  --f-fg:#16181d; --f-key:#1b4fd8; --f-soft:#eef1f6; --f-stroke:#9aa3af;
+  --f-ok:#0f7b4f; --f-okbg:#e8f7f0; --f-warnbg:#fff4e5; --f-warnfg:#8a5300;
+  --f-skin:#fbe3d8; --f-subq:#fdf0c8; --f-muscle:#e8b4b4; --f-fat:#e8c96a;
+  --f-face:#f7ede4; --f-eye:#ffffff; --f-pill:#cfe0ff;
+}
+:is(.dark) .ptfig {
+  --ptfig-bd:#333940; --ptfig-bg:#1b1f24; --ptfig-mut:#9aa3af;
+  --f-fg:#e6e9ee; --f-key:#7aa2ff; --f-soft:#262c33; --f-stroke:#6b7280;
+  --f-ok:#4ade80; --f-okbg:#10291f; --f-warnbg:#33270f; --f-warnfg:#f0c674;
+  --f-skin:#5a4038; --f-subq:#5c5228; --f-muscle:#6d3a3a; --f-fat:#a08a3c;
+  --f-face:#3b332c; --f-eye:#dfe4ea; --f-pill:#2f4470;
+}
+
+.ptfig .f-cap   { fill: var(--f-fg); font-size: 15px; font-weight: 700; }
+.ptfig .f-note  { fill: var(--ptfig-mut); font-size: 12.5px; }
+.ptfig .f-mut,
+.ptfig .f-mut2  { fill: var(--ptfig-mut); font-size: 12px; }
+.ptfig .f-tag   { fill: var(--f-fg); font-size: 13.5px; }
+.ptfig .f-lbl   { fill: var(--f-fg); font-size: 13px; }
+.ptfig .f-key   { fill: var(--f-key); font-weight: 700; }
+.ptfig .f-mono  { fill: var(--f-fg); font-size: 17px; font-weight: 700;
+                  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.ptfig .f-sent  { fill: var(--f-fg); font-size: 15px; }
+.ptfig .f-verb  { fill: var(--f-ok); font-weight: 700; }
+.ptfig .f-verb2 { fill: var(--f-key); font-size: 15px; font-weight: 700; }
+.ptfig .f-code  { fill: var(--f-soft); }
+.ptfig .f-out   { fill: var(--f-okbg); stroke: var(--f-ok); stroke-width: 1; }
+.ptfig .f-box   { fill: none; stroke: var(--ptfig-bd); stroke-width: 1; }
+.ptfig .f-line  { fill: none; stroke: var(--f-stroke); stroke-width: 1.4; }
+.ptfig .f-arc   { fill: none; stroke: var(--f-key); stroke-width: 1.6; stroke-dasharray: 3 3; }
+.ptfig .f-guide { fill: none; stroke: var(--f-stroke); stroke-width: 1; stroke-dasharray: 4 4; opacity: .7; }
+.ptfig .f-badge circle { fill: var(--f-key); }
+.ptfig .f-badge-t text  { fill: #fff; font-size: 12px; font-weight: 700; text-anchor: middle; }
+.ptfig .f-needle,
+.ptfig .f-needle2 { fill: none; stroke: var(--f-key); stroke-width: 2.6; stroke-linecap: round; }
+.ptfig .f-barrel { fill: none; stroke: var(--f-key); stroke-width: 11; stroke-linecap: round; opacity: .3; }
+.ptfig .f-deg    { fill: var(--f-key); font-size: 12.5px; font-weight: 700; }
+.ptfig .f-skin   { fill: var(--f-skin); }
+.ptfig .f-subq   { fill: var(--f-subq); }
+.ptfig .f-muscle { fill: var(--f-muscle); }
+.ptfig .f-fat circle { fill: none; stroke: var(--f-fat); stroke-width: 2; }
+.ptfig .f-face  { fill: var(--f-face); stroke: var(--f-stroke); stroke-width: 1.2; }
+.ptfig .f-ear   { fill: var(--f-face); stroke: var(--f-stroke); stroke-width: 1.2; }
+.ptfig .f-eye   { fill: var(--f-eye); stroke: var(--f-stroke); stroke-width: 1.2; }
+.ptfig .f-pupil { fill: var(--f-key); }
+.ptfig .f-pill  { fill: var(--f-pill); stroke: var(--f-key); stroke-width: 1.2; }
+.ptfig .f-warn  { fill: var(--f-warnbg); }
+.ptfig .f-warn-t{ fill: var(--f-warnfg); }

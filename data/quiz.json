@@ -10,7 +10,7 @@
    "격일 1회"
   ],
   "a": 2,
-  "e": "ter in die = 1일 3회. bid(2회), qid(4회)와 함께 묶어서 외웁니다.",
+  "e": "ter in die = 1일 3회. bid(2회), qid(4회)와 함께 묶어서 외웁니다. 라벨에는 **three times daily**(쓰리 타임즈 데일리)로 풀어 씁니다. 약어를 글자대로 '티아이디'라고 읽지 않습니다.",
   "id": 1
  },
  {
@@ -24,7 +24,7 @@
    "취침 시"
   ],
   "a": 0,
-  "e": "pro re nata = 필요 시. 즉시는 stat, 취침 시는 hs, 식전은 ac입니다.",
+  "e": "pro re nata = 필요 시. 즉시는 stat, 취침 시는 hs, 식전은 ac입니다. 라벨 표현은 **as needed**(애즈 니디드). 뒤에 이유를 붙여 as needed for pain처럼 씁니다.",
   "id": 2
  },
  {
@@ -38,7 +38,7 @@
    "식후 / 식전"
   ],
   "a": 0,
-  "e": "ante cibum(식전) / post cibum(식후). c가 cibum(음식)이라고 기억하면 헷갈리지 않습니다.",
+  "e": "ante cibum(식전) / post cibum(식후). c가 cibum(음식)이라고 기억하면 헷갈리지 않습니다. 라벨에는 **before meals / after meals**(비포 밀즈 / 애프터 밀즈)로 씁니다.",
   "id": 3
  },
  {
@@ -52,7 +52,7 @@
    "6일간"
   ],
   "a": 2,
-  "e": "quaque 6 hora = 6시간마다. 하루 4회와 비슷해 보이지만 정확히 6시간 간격이라는 점이 다릅니다.",
+  "e": "quaque 6 hora = 6시간마다. 하루 4회와 비슷해 보이지만 정확히 6시간 간격이라는 점이 다릅니다. 라벨 표현은 **every six hours**(에브리 씩스 아워즈). q4h는 every four hours입니다.",
   "id": 4
  },
  {
@@ -66,7 +66,7 @@
    "식사 중"
   ],
   "a": 0,
-  "e": "hora somni = 취침 시. trazodone, zolpidem 같은 수면 관련 약에서 자주 봅니다.",
+  "e": "hora somni = 취침 시. trazodone, zolpidem 같은 수면 관련 약에서 자주 봅니다. 라벨에는 **at bedtime**(앳 베드타임)으로 씁니다.",
   "id": 5
  },
  {
@@ -80,7 +80,7 @@
    "필요 시"
   ],
   "a": 1,
-  "e": "statim = 즉시. 병원 처방에서 응급 투여를 지시할 때 씁니다.",
+  "e": "statim = 즉시. 병원 처방에서 응급 투여를 지시할 때 씁니다. 라벨·구두 모두 **immediately**(이미디어틀리) 또는 right away로 말합니다.",
   "id": 6
  },
  {
@@ -94,7 +94,7 @@
    "경구"
   ],
   "a": 3,
-  "e": "per os = 경구. iv(정맥), sc/subq(피하), pr(직장)와 구분합니다.",
+  "e": "per os = 경구. iv(정맥), sc/subq(피하), pr(직장)와 구분합니다. 라벨 표현은 **by mouth**(바이 마우스). orally보다 by mouth가 일반적입니다.",
   "id": 7
  },
  {
@@ -108,7 +108,7 @@
    "설하(혀 밑)"
   ],
   "a": 3,
-  "e": "sublingual = 설하. nitroglycerin SL이 대표적입니다.",
+  "e": "sublingual = 설하. nitroglycerin SL이 대표적입니다. 라벨에는 **under the tongue**(언더 더 텅). 동사도 Take가 아니라 **Place**를 씁니다.",
   "id": 8
  },
  {
@@ -122,7 +122,7 @@
    "척수강 내"
   ],
   "a": 1,
-  "e": "subcutaneous = 피하. 인슐린이 대표적인 피하 주사 약물입니다.",
+  "e": "subcutaneous = 피하. 인슐린이 대표적인 피하 주사 약물입니다. 라벨 표현은 **under the skin**(언더 더 스킨). 근육 주사는 into the muscle입니다.",
   "id": 9
  },
  {
@@ -136,7 +136,7 @@
    "1정을 경구로 1일 2회, 10일간"
   ],
   "a": 3,
-  "e": "tab=정제, po=경구, bid=1일 2회, x 10d=10일간. 이 조합이 가장 흔한 형태입니다.",
+  "e": "tab=정제, po=경구, bid=1일 2회, x 10d=10일간. 이 조합이 가장 흔한 형태입니다. 라벨 문장으로는 **Take one tablet by mouth twice daily for ten days.** 동사 → 수량 → 경로 → 빈도 → 기간 순서입니다.",
   "id": 10
  },
  {
@@ -150,7 +150,7 @@
    "오른쪽 눈"
   ],
   "a": 3,
-  "e": "od = right eye. o로 시작하면 눈(oculus), a로 시작하면 귀(auris)입니다.",
+  "e": "od = right eye. o로 시작하면 눈(oculus), a로 시작하면 귀(auris)입니다. 라벨에는 **in the right eye**(인 더 라이트 아이)로 풀어 씁니다. od라고 쓰지 않습니다.",
   "id": 11
  },
  {
@@ -164,7 +164,7 @@
    "왼쪽 눈"
   ],
   "a": 0,
-  "e": "auris uterque = 양쪽 귀. 양쪽 눈은 ou입니다.",
+  "e": "auris uterque = 양쪽 귀. 양쪽 눈은 ou입니다. 라벨 표현은 **in both ears**(인 보스 이어즈). 양안은 in both eyes입니다.",
   "id": 12
  },
  {
@@ -178,7 +178,7 @@
    "오른쪽 눈 / 오른쪽 귀"
   ],
   "a": 0,
-  "e": "os = left eye, as = left ear. 안약을 귀 표기로 라벨링하는 오류는 실제로 발생하는 사고입니다.",
+  "e": "os = left eye, as = left ear. 안약을 귀 표기로 라벨링하는 오류는 실제로 발생하는 사고입니다. 라벨에는 각각 **in the left eye / in the left ear**로 씁니다. 눈과 귀를 절대 약어로 남기지 않습니다.",
   "id": 13
  },
  {
@@ -192,7 +192,7 @@
    "정제"
   ],
   "a": 1,
-  "e": "gutta = 방울. 1 mL는 약 20방울로 계산합니다.",
+  "e": "gutta = 방울. 1 mL는 약 20방울로 계산합니다. 라벨에는 **drop(s)**(드롭). 2방울이면 two drops로 복수형입니다.",
   "id": 14
  },
  {
@@ -206,7 +206,7 @@
    "냉장 보관"
   ],
   "a": 2,
-  "e": "모두 서방형(extended/sustained release)입니다. 쪼개거나 갈면 약물이 한꺼번에 방출되어 과량 투여가 됩니다.",
+  "e": "모두 서방형(extended/sustained release)입니다. 쪼개거나 갈면 약물이 한꺼번에 방출되어 과량 투여가 됩니다. 라벨에는 보조 문구로 **Do not crush or chew.**(두 낫 크러시 오어 츄)를 붙입니다.",
   "id": 15
  },
  {
@@ -220,7 +220,7 @@
    "주사용 분말"
   ],
   "a": 1,
-  "e": "Orally Disintegrating Tablet. ondansetron ODT가 대표적입니다.",
+  "e": "Orally Disintegrating Tablet. ondansetron ODT가 대표적입니다. 라벨에는 **Allow tablet to dissolve on the tongue.**(얼라우 태블릿 투 디졸브)로 안내합니다.",
   "id": 16
  },
  {
@@ -234,7 +234,7 @@
    "후행 0 때문에 10 mg으로 오독될 수 있다"
   ],
   "a": 3,
-  "e": "trailing zero. 소수점이 흐려지면 10배 과량이 됩니다. `1 mg`으로 표기해야 합니다.",
+  "e": "trailing zero. 소수점이 흐려지면 10배 과량이 됩니다. `1 mg`으로 표기해야 합니다. 구두로는 **one milligram, one — not ten**처럼 확인합니다. 숫자는 한 자리씩 부른 뒤 전체를 말합니다.",
   "id": 17
  },
  {
@@ -248,7 +248,7 @@
    "라틴어가 아니어서"
   ],
   "a": 0,
-  "e": "손글씨 U는 4 또는 0으로 읽히기 쉽습니다. 인슐린 용량에서 특히 치명적입니다.",
+  "e": "손글씨 U는 4 또는 0으로 읽히기 쉽습니다. 인슐린 용량에서 특히 치명적입니다. 구두로는 반드시 **units**(유니츠)라고 끝까지 말합니다. ten units, one-zero units.",
   "id": 18
  },
  {
@@ -262,7 +262,7 @@
    "MSO4"
   ],
   "a": 0,
-  "e": "bid는 정상 약어입니다. QD/QOD, IU, MS·MSO4·MgSO4는 위험 약어 목록에 있습니다.",
+  "e": "bid는 정상 약어입니다. QD/QOD, IU, MS·MSO4·MgSO4는 위험 약어 목록에 있습니다. 라벨에서는 모두 풀어 씁니다 — daily, every other day, unit, morphine sulfate.",
   "id": 19
  },
  {
@@ -276,7 +276,7 @@
    "단위가 없어서"
   ],
   "a": 1,
-  "e": "leading zero 누락. `0.5 mg`으로 써야 10배 과량 투여를 막습니다.",
+  "e": "leading zero 누락. `0.5 mg`으로 써야 10배 과량 투여를 막습니다. 구두로는 **zero point five milligrams**(제로 포인트 파이브)처럼 선행 0을 반드시 말합니다.",
   "id": 20
  },
  {

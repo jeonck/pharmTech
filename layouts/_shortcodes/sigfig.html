@@ -1,0 +1,11 @@
+{{- $name := .Get "name" -}}
+{{- $caption := .Get "caption" -}}
+{{- $res := resources.Get (printf "svg/%s.svg" $name) -}}
+{{- if $res -}}
+<figure class="ptfig">
+  {{ $res.Content | safeHTML }}
+  {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>
+{{- else -}}
+{{- errorf "sigfig: assets/svg/%s.svg 를 찾을 수 없습니다" $name -}}
+{{- end -}}

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="처방 한 줄의 구조 분해">
+  <text x="20" y="30" class="f-cap">처방전에 적힌 그대로</text>
+
+  <rect x="16" y="44" width="500" height="48" rx="8" class="f-code"/>
+  <text x="36" y="75" class="f-mono">1 tab</text>
+  <text x="126" y="75" class="f-mono">po</text>
+  <text x="182" y="75" class="f-mono">bid</text>
+  <text x="248" y="75" class="f-mono">x 10d</text>
+  <text x="356" y="75" class="f-mono">prn pain</text>
+
+  <!-- 토큰 아래 번호 배지 -->
+  <g class="f-badge">
+    <circle cx="62" cy="108" r="11"/><circle cx="138" cy="108" r="11"/><circle cx="198" cy="108" r="11"/>
+    <circle cx="282" cy="108" r="11"/><circle cx="396" cy="108" r="11"/>
+  </g>
+  <g class="f-badge-t">
+    <text x="62" y="113">1</text><text x="138" y="113">2</text><text x="198" y="113">3</text>
+    <text x="282" y="113">4</text><text x="396" y="113">5</text>
+  </g>
+
+  <!-- 항목 목록 -->
+  <g class="f-badge">
+    <circle cx="34" cy="152" r="11"/><circle cx="34" cy="182" r="11"/><circle cx="34" cy="212" r="11"/>
+    <circle cx="34" cy="242" r="11"/><circle cx="34" cy="272" r="11"/>
+  </g>
+  <g class="f-badge-t">
+    <text x="34" y="157">1</text><text x="34" y="187">2</text><text x="34" y="217">3</text>
+    <text x="34" y="247">4</text><text x="34" y="277">5</text>
+  </g>
+
+  <text x="56" y="157" class="f-lbl"><tspan class="f-key">수량</tspan><tspan dx="16">1 tab</tspan><tspan dx="12">→</tspan><tspan dx="12">one tablet</tspan></text>
+  <text x="56" y="187" class="f-lbl"><tspan class="f-key">경로</tspan><tspan dx="16">po</tspan><tspan dx="12">→</tspan><tspan dx="12">by mouth</tspan></text>
+  <text x="56" y="217" class="f-lbl"><tspan class="f-key">빈도</tspan><tspan dx="16">bid</tspan><tspan dx="12">→</tspan><tspan dx="12">twice daily</tspan></text>
+  <text x="56" y="247" class="f-lbl"><tspan class="f-key">기간</tspan><tspan dx="16">x 10d</tspan><tspan dx="12">→</tspan><tspan dx="12">for ten days</tspan></text>
+  <text x="56" y="277" class="f-lbl"><tspan class="f-key">조건</tspan><tspan dx="16">prn pain</tspan><tspan dx="12">→</tspan><tspan dx="12">as needed for pain</tspan></text>
+
+  <text x="440" y="157" class="f-cap">동사를 앞에 세우고</text>
+  <text x="440" y="181" class="f-cap">1 → 5 순서로 이어 붙이면</text>
+  <text x="440" y="205" class="f-cap">그대로 라벨 문장이 됩니다</text>
+  <text x="440" y="243" class="f-note">동사는 제형이 결정합니다.</text>
+  <text x="440" y="263" class="f-note">정제·캡슐·액상 Take · 연고 Apply</text>
+  <text x="440" y="283" class="f-note">점안 Instill · 흡입기 Inhale</text>
+
+  <rect x="16" y="300" width="788" height="46" rx="8" class="f-out"/>
+  <text x="34" y="329" class="f-sent"><tspan class="f-verb">Take</tspan><tspan dx="8">one tablet by mouth twice daily for ten days as needed for pain.</tspan></text>
+</svg>

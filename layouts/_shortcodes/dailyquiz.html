@@ -94,9 +94,11 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
-  // 백틱으로 감싼 부분만 <code>로 (본문은 이스케이프 후 처리)
+  // 이스케이프한 뒤 백틱은 <code>, **굵게**는 <b>로 바꾼다
   function fmt(s) {
-    return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+    return esc(s)
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
   }
 
   function firstUndone() {

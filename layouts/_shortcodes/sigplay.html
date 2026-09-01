@@ -1,0 +1,227 @@
+{{- $sig := site.Data.sig -}}
+<script type="application/json" id="pt-sig-data">{{ $sig | jsonify | safeJS }}</script>
+{{- with resources.Get "js/sig-play.js" }}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+
+<style>
+.sgp { --sgp-bd:#e2e6ee; --sgp-bg:#fff; --sgp-mut:#6b7280; --sgp-acc:#1b4fd8; --sgp-ok:#0f7b4f; --sgp-okbg:#e8f7f0; --sgp-no:#b91c1c; --sgp-nobg:#fdecec; --sgp-soft:#f6f8fc; --sgp-code:#eef1f6; }
+:is(.dark) .sgp { --sgp-bd:#333940; --sgp-bg:#1b1f24; --sgp-mut:#9aa3af; --sgp-acc:#7aa2ff; --sgp-ok:#4ade80; --sgp-okbg:#10291f; --sgp-no:#f87171; --sgp-nobg:#2c1618; --sgp-soft:#22272e; --sgp-code:#262c33; }
+.sgp { margin-top:1rem; }
+.sgp button { font:inherit; cursor:pointer; }
+
+.sgp-modes { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.9rem; }
+.sgp-mode { padding:.4rem .9rem; border:1px solid var(--sgp-bd); border-radius:2rem; background:var(--sgp-bg); color:inherit; font-size:.85rem; }
+.sgp-mode.on { border-color:var(--sgp-acc); color:var(--sgp-acc); font-weight:700; background:var(--sgp-soft); }
+
+.sgp-card { border:1px solid var(--sgp-bd); border-radius:.6rem; background:var(--sgp-bg); padding:1.1rem 1.2rem; }
+.sgp-top { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-size:.78rem; color:var(--sgp-mut); margin-bottom:.6rem; }
+
+.sgp-sig { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:1.15rem; font-weight:700; letter-spacing:.02em; background:var(--sgp-code); border-radius:.4rem; padding:.6rem .8rem; word-break:break-word; }
+.sgp-ko { font-size:.82rem; color:var(--sgp-mut); margin-top:.4rem; }
+
+.sgp-build { display:flex; flex-wrap:wrap; gap:.3rem; align-items:center; margin:1rem 0 .2rem; min-height:2.2rem; padding:.5rem .6rem; border:1px dashed var(--sgp-bd); border-radius:.45rem; background:var(--sgp-soft); }
+.sgp-chip { padding:.2rem .55rem; border-radius:.3rem; background:var(--sgp-okbg); color:var(--sgp-ok); font-size:.9rem; font-weight:600; }
+.sgp-chip.skip { background:transparent; color:var(--sgp-mut); font-weight:400; font-size:.8rem; border:1px dashed var(--sgp-bd); }
+.sgp-cursor { width:.6rem; height:1.1rem; border-bottom:2px solid var(--sgp-acc); }
+.sgp-place { color:var(--sgp-mut); font-size:.85rem; }
+
+.sgp-ask { margin:1rem 0 .5rem; font-size:.95rem; }
+.sgp-ask b { color:var(--sgp-acc); }
+.sgp-ask small { display:block; color:var(--sgp-mut); font-size:.78rem; margin-top:.15rem; }
+
+.sgp-opts { display:grid; gap:.4rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); }
+.sgp-opt { text-align:left; padding:.55rem .75rem; border:1px solid var(--sgp-bd); border-radius:.4rem; background:var(--sgp-bg); color:inherit; line-height:1.5; }
+.sgp-opt:hover:not(:disabled) { border-color:var(--sgp-acc); }
+.sgp-opt.ok { border-color:var(--sgp-ok); background:var(--sgp-okbg); }
+.sgp-opt.no { border-color:var(--sgp-no); background:var(--sgp-nobg); }
+.sgp-opt:disabled { cursor:default; }
+
+.sgp-why { margin-top:.8rem; padding:.65rem .8rem; border-left:3px solid var(--sgp-acc); background:var(--sgp-soft); border-radius:0 .35rem .35rem 0; font-size:.88rem; line-height:1.6; }
+.sgp-why .v { font-weight:700; }
+.sgp-why .v.ok { color:var(--sgp-ok); }
+.sgp-why .v.no { color:var(--sgp-no); }
+
+.sgp-foot { display:flex; justify-content:space-between; align-items:center; gap:.6rem; margin-top:1rem; flex-wrap:wrap; }
+.sgp-btn { padding:.45rem 1rem; border-radius:.4rem; border:1px solid var(--sgp-acc); background:var(--sgp-acc); color:#fff; font-weight:600; font-size:.88rem; }
+.sgp-btn.ghost { background:transparent; color:var(--sgp-acc); }
+.sgp-hint { font-size:.75rem; color:var(--sgp-mut); }
+
+.sgp-done { font-size:1.05rem; font-weight:700; line-height:1.6; }
+.sgp-note { margin-top:.7rem; font-size:.86rem; color:var(--sgp-mut); line-height:1.6; }
+
+.sgp-cover { margin-top:.9rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(7rem,1fr)); gap:.4rem; }
+.sgp-cell { border:1px solid var(--sgp-bd); border-radius:.4rem; padding:.4rem .55rem; font-size:.75rem; background:var(--sgp-bg); }
+.sgp-cell b { display:block; font-size:.82rem; margin-bottom:.15rem; }
+.sgp-cell .n { color:var(--sgp-mut); }
+.sgp-cell.good { border-color:var(--sgp-ok); background:var(--sgp-okbg); }
+.sgp-cell.good .n { color:var(--sgp-ok); }
+</style>
+
+<div class="sgp" id="sgp">
+  <div class="sgp-modes" id="sgp-modes"></div>
+  <div class="sgp-card" id="sgp-card"></div>
+  <div class="sgp-cover" id="sgp-cover"></div>
+</div>
+
+<script>
+(function () {
+  var raw = document.getElementById('pt-sig-data');
+  var P = window.PTSigPlay;
+  if (!raw || !P) return;
+  P.init(JSON.parse(raw.textContent));
+
+  var KEY = 'pharmtech-sig-v1';
+  var card = document.getElementById('sgp-card');
+  var modes = document.getElementById('sgp-modes');
+  var cover = document.getElementById('sgp-cover');
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  var store = load();
+  store.slot = store.slot || {};   // { verb: {ok:3, n:5}, ... }
+  store.rounds = store.rounds || 0;
+
+  var mode = 'all';   // all | ex
+  var exIdx = 0;
+  var R = null, step = 0, picked = null, missed = 0;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function renderModes() {
+    modes.innerHTML =
+      '<button class="sgp-mode' + (mode === 'all' ? ' on' : '') + '" data-m="all">전체 항목 플레이</button>'
+      + '<button class="sgp-mode' + (mode === 'ex' ? ' on' : '') + '" data-m="ex">예시 처방 플레이 <span style="opacity:.7">(' + P.exampleCount() + '건)</span></button>';
+    Array.prototype.forEach.call(modes.querySelectorAll('[data-m]'), function (b) {
+      b.onclick = function () { mode = b.dataset.m; newRound(); };
+    });
+  }
+
+  function renderCover() {
+    cover.innerHTML = P.slots.map(function (s) {
+      var st = store.slot[s.k] || { ok: 0, n: 0 };
+      var good = st.n >= 4 && st.ok / st.n >= 0.8;
+      return '<div class="sgp-cell' + (good ? ' good' : '') + '"><b>' + esc(s.label) + '</b>'
+        + '<span class="n">' + st.ok + ' / ' + st.n + '</span></div>';
+    }).join('');
+  }
+
+  function newRound() {
+    R = mode === 'ex' ? P.exampleRound(exIdx++) : P.randomRound();
+    step = 0; picked = null; missed = 0;
+    renderModes(); draw();
+  }
+
+  function built() {
+    var html = '';
+    for (var i = 0; i < R.steps.length; i++) {
+      var s = R.steps[i];
+      if (i < step) {
+        html += s.ans === '(없음)'
+          ? '<span class="sgp-chip skip">' + esc(s.label) + ' 없음</span>'
+          : '<span class="sgp-chip">' + esc(s.ans) + '</span>';
+      } else if (i === step) {
+        html += '<span class="sgp-cursor"></span>';
+      }
+    }
+    if (!step) html = '<span class="sgp-place">여기에 문장이 한 조각씩 쌓입니다</span>' + html;
+    return html;
+  }
+
+  function draw() {
+    var s = R.steps[step];
+    var html = '';
+    html += '<div class="sgp-top"><span>' + (mode === 'ex' ? '예시 처방' : '무작위 처방')
+         + ' · ' + (step + 1) + ' / ' + R.steps.length + '</span>'
+         + '<span>읽는 순서: 동사 → 수량 → 경로 → 빈도 → 기간 → 조건</span></div>';
+    html += '<div class="sgp-sig">' + esc(R.sig) + '</div>';
+    html += '<div class="sgp-ko">' + esc(R.ko) + '</div>';
+    html += '<div class="sgp-build">' + built() + '</div>';
+    html += '<div class="sgp-ask"><b>' + esc(s.label) + '</b> 자리에 들어갈 표현은?'
+         + '<small>' + esc(s.hint) + '</small></div>';
+    html += '<div class="sgp-opts">'
+         + s.opts.map(function (o, i) {
+             return '<button class="sgp-opt" data-i="' + i + '">' + esc(o) + '</button>';
+           }).join('')
+         + '</div><div id="sgp-after"></div>';
+    card.innerHTML = html;
+    Array.prototype.forEach.call(card.querySelectorAll('.sgp-opt'), function (b) {
+      b.onclick = function () { answer(b.dataset.i | 0); };
+    });
+    picked = null;
+    renderCover();
+  }
+
+  function answer(i) {
+    if (picked !== null) return;
+    var s = R.steps[step];
+    picked = i;
+    var ok = s.opts[i] === s.ans;
+    if (!ok) missed++;
+
+    var rec = store.slot[s.k] || { ok: 0, n: 0 };
+    rec.n++; if (ok) rec.ok++;
+    store.slot[s.k] = rec; save(store);
+
+    Array.prototype.forEach.call(card.querySelectorAll('.sgp-opt'), function (b, idx) {
+      b.disabled = true;
+      if (s.opts[idx] === s.ans) b.classList.add('ok');
+      else if (idx === i) b.classList.add('no');
+    });
+
+    var last = step === R.steps.length - 1;
+    document.getElementById('sgp-after').innerHTML =
+      '<div class="sgp-why"><span class="v ' + (ok ? 'ok">정답' : 'no">오답') + '</span> — ' + esc(s.why) + '</div>'
+      + '<div class="sgp-foot"><span class="sgp-hint">숫자 키로 선택, Enter로 다음</span>'
+      + '<button class="sgp-btn" id="sgp-next">' + (last ? '문장 완성' : '다음 항목') + '</button></div>';
+    document.getElementById('sgp-next').onclick = next;
+    document.getElementById('sgp-next').focus();
+    renderCover();
+  }
+
+  function next() {
+    if (step === R.steps.length - 1) { step++; return finish(); }
+    step++; draw();
+  }
+
+  function finish() {
+    store.rounds++; save(store);
+    var html = '';
+    html += '<div class="sgp-top"><span>' + (mode === 'ex' ? '예시 처방' : '무작위 처방') + ' 완성</span>'
+         + '<span>' + (missed ? '틀린 항목 ' + missed + '개' : '전부 정답') + '</span></div>';
+    html += '<div class="sgp-sig">' + esc(R.sig) + '</div>';
+    html += '<div class="sgp-build">' + R.steps.map(function (s) {
+      return s.ans === '(없음)' ? '' : '<span class="sgp-chip">' + esc(s.ans) + '</span>';
+    }).join('') + '</div>';
+    html += '<div class="sgp-done" style="margin-top:.8rem">' + esc(R.en) + '</div>';
+    html += '<div class="sgp-ko" style="margin-top:.4rem">' + esc(R.ko) + '</div>';
+    if (R.note) html += '<div class="sgp-note">' + esc(R.note) + '</div>';
+    html += '<div class="sgp-foot" style="justify-content:flex-start">'
+         + '<button class="sgp-btn" id="sgp-new">다음 처방</button>'
+         + '<button class="sgp-btn ghost" id="sgp-again">이 처방 다시</button>'
+         + '</div>';
+    card.innerHTML = html;
+    document.getElementById('sgp-new').onclick = newRound;
+    document.getElementById('sgp-again').onclick = function () { step = 0; picked = null; missed = 0; draw(); };
+    renderCover();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!R || !card.querySelector('.sgp-opt')) return;
+    var n = +e.key;
+    if (n >= 1 && n <= 9) {
+      var b = card.querySelector('.sgp-opt[data-i="' + (n - 1) + '"]');
+      if (b && !b.disabled) { e.preventDefault(); b.click(); }
+    } else if (e.key === 'Enter' && picked !== null) {
+      var nx = document.getElementById('sgp-next') || document.getElementById('sgp-new');
+      if (nx) { e.preventDefault(); nx.click(); }
+    }
+  });
+
+  newRound();
+})();
+</script>
