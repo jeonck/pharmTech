@@ -53,6 +53,11 @@ layout: hextra-home
     link="docs/study/calculations/"
   >}}
   {{< hextra/feature-card
+    title="실전 모의고사"
+    subtitle="90문항 110분, 2026 출제 비중 그대로. 도메인별 성적과 오답 해설이 나옵니다."
+    link="docs/study/mock-exam/"
+  >}}
+  {{< hextra/feature-card
     title="오늘의 10문제"
     subtitle="하루 10문제씩 15일. 계산 문제는 풀 때마다 숫자가 새로 생성되고, 오답은 따로 모아 다시 풉니다."
     link="docs/study/daily-quiz/"

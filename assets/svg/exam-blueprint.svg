@@ -1,0 +1,32 @@
+<svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PTCE 2026 도메인 비중과 문제은행 구성">
+  <text x="20" y="30" class="f-cap">2026 블루프린트 비중 — 90문항 기준 배정</text>
+
+  <!-- 약물 35% -->
+  <text x="20" y="70" class="f-tag">약물</text>
+  <rect x="150" y="56" width="560" height="22" rx="4" class="f-track"/>
+  <rect x="150" y="56" width="196" height="22" rx="4" class="f-fill1"/>
+  <text x="722" y="72" class="f-lbl">35% · 32문항</text>
+
+  <!-- 안전 23.75% -->
+  <text x="20" y="112" class="f-tag">환자 안전·품질관리</text>
+  <rect x="150" y="98" width="560" height="22" rx="4" class="f-track"/>
+  <rect x="150" y="98" width="133" height="22" rx="4" class="f-fill2"/>
+  <text x="722" y="114" class="f-lbl">23.75% · 21문항</text>
+
+  <!-- 처방처리 22.5% -->
+  <text x="20" y="154" class="f-tag">처방 입력·처리</text>
+  <rect x="150" y="140" width="560" height="22" rx="4" class="f-track"/>
+  <rect x="150" y="140" width="126" height="22" rx="4" class="f-fill3"/>
+  <text x="722" y="156" class="f-lbl">22.5% · 20문항</text>
+
+  <!-- 법규 18.75% -->
+  <text x="20" y="196" class="f-tag">연방 법규</text>
+  <rect x="150" y="182" width="560" height="22" rx="4" class="f-track"/>
+  <rect x="150" y="182" width="105" height="22" rx="4" class="f-fill4"/>
+  <text x="722" y="198" class="f-lbl">18.75% · 17문항</text>
+  <text x="150" y="222" class="f-note f-up">↑ 12.5% → 18.75% · 이번 개정의 가장 큰 변화 (DSCSA 신설)</text>
+
+  <rect x="16" y="240" width="788" height="46" rx="8" class="f-code"/>
+  <text x="34" y="258" class="f-lbl"><tspan class="f-key">문제은행</tspan><tspan dx="12">약물 76 · 연방 법규 52 · 환자 안전 48 · 처방 처리 41 = 217문항</tspan></text>
+  <text x="34" y="278" class="f-note">여기에 계산 생성 문항 36유형이 더해져, 처방 처리의 약 1/3은 매번 새 숫자로 출제됩니다.</text>
+</svg>

@@ -83,6 +83,12 @@
 .ptfig .f-bagfill { fill: var(--f-pill); }
 .ptfig .f-bagt    { fill: var(--f-key); font-size: 17px; font-weight: 700; text-anchor: middle; }
 .ptfig .f-bagt2   { fill: var(--f-key); font-size: 12px; text-anchor: middle; }
+.ptfig .f-track { fill: var(--f-soft); }
+.ptfig .f-fill1 { fill: var(--f-key); }
+.ptfig .f-fill2 { fill: var(--f-key); opacity: .78; }
+.ptfig .f-fill3 { fill: var(--f-key); opacity: .62; }
+.ptfig .f-fill4 { fill: var(--f-ok); }
+.ptfig .f-up    { fill: var(--f-ok); font-weight: 600; }
 .ptfig .f-skin   { fill: var(--f-skin); }
 .ptfig .f-subq   { fill: var(--f-subq); }
 .ptfig .f-muscle { fill: var(--f-muscle); }
